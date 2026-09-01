@@ -145,7 +145,7 @@ body.dark-mode .feature-icon svg {
     justify-content: center;
     gap: 12px;
     padding: 16px 32px;
-    min-width: 250px;
+    min-width: 280px;
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
     text-decoration: none;
@@ -178,24 +178,19 @@ body.dark-mode .cta-button.secondary {
     background: rgba(102, 126, 234, 0.1);
 }
 
-/* Контурные иконки для кнопок */
+/* Контурные иконки для кнопок - белые на обеих кнопках */
 .cta-button svg {
     width: 24px;
     height: 24px;
-}
-
-.cta-button:not(.secondary) svg {
     stroke: white;
     fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .cta-button.secondary svg {
-    stroke: var(--primary);
-    fill: none;
-}
-
-body.dark-mode .cta-button.secondary svg {
-    stroke: #a5b4fc;
+    stroke: currentColor;
 }
 
 /* Animations */
@@ -268,7 +263,7 @@ body.dark-mode .cta-button.secondary svg {
 
 <!-- Hero Section -->
 <div class="hero-main">
-    <h1>Tunless</h1>
+    <h1>Добро пожаловать в Tunless</h1>
     <p class="subtitle">VPN подписка — быстро, безопасно и анонимно</p>
 </div>
 
@@ -312,13 +307,13 @@ body.dark-mode .cta-button.secondary svg {
     <h3>Начни прямо сейчас</h3>
     <div class="cta-buttons">
         <a href="https://t.me/Tunless_bot" target="_blank" class="cta-button">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.939.193 1.745.927 2.177 1.61.949 3.285 1.985 4.596 2.797.405.25.77.468 1.091.658.344.204.635.37.868.493.468.246.666.32.56.32-.113 0-.276-.05-.47-.125-.39-.152-.858-.398-1.365-.688-1.013-.58-2.226-1.386-3.227-2.135-.495-.371-.945-.755-1.296-1.168-.35-.412-.61-.92-.533-1.528.06-.473.29-.868.603-1.178.313-.31.708-.517 1.128-.668.84-.302 1.836-.54 2.925-.768 1.637-.342 3.54-.638 5.198-.788.41-.037.808-.06 1.188-.067.38-.007.742.004 1.07.048.328.044.62.127.85.266.23.14.392.336.458.598.066.262.02.534-.12.768-.14.234-.366.41-.648.518-.282.108-.615.148-.973.11-.358-.038-.738-.148-1.12-.328-.764-.36-1.548-.92-2.25-1.58-.702-.66-1.298-1.42-1.698-2.18-.2-.38-.36-.78-.46-1.18-.1-.4-.14-.82-.1-1.22.04-.4.16-.78.36-1.12.2-.34.48-.62.82-.82.34-.2.72-.32 1.12-.36.4-.04.82 0 1.22.1.4.1.8.26 1.18.46z"/>
+            <svg viewBox="0 0 24 24">
+                <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.11 6.217c-.687.275-.677 1.18.016 1.444l4.14 1.578 1.578 4.14c.264.693 1.169.703 1.444.016l6.217-16.11a2.242 2.242 0 0 0-1.263-2.49z"/>
             </svg>
             Перейти в Telegram бота
         </a>
         <a href="/Tunless_Modern/setup.html" class="cta-button secondary">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
                 <line x1="12" y1="17" x2="12.01" y2="17"/>
