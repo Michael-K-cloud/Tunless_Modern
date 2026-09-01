@@ -127,6 +127,7 @@ body.dark-mode .feature-icon svg { stroke: #ffffff; }
     border: 1px solid rgba(102, 126, 234, 0.1);
     position: relative;
     overflow: hidden;
+    vertical-align: middle;
 }
 
 body.dark-mode .cta-button {
