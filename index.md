@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Добро пожаловать в Tunless
-subtitle: VPN подписка — быстро, безопасно и анонимно
+subtitle: Привычный доступ к любимым приложениям!
 ---
 
 <style>
