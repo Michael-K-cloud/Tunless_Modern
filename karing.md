@@ -106,7 +106,7 @@ body.dark-mode .image-card {
   </div>
   
   <div class="image-card">
-    <img src="hhttps://i.postimg.cc/y6MJ2d9y/photo-3-2026-06-15-22-12-18.jpg" alt="Настройка роутинга">
+    <img src="https://i.postimg.cc/y6MJ2d9y/photo-3-2026-06-15-22-12-18.jpg" alt="Настройка роутинга">
     <p>Шаг 3: Настройте роутинг для российских сайтов</p>
   </div>
   
