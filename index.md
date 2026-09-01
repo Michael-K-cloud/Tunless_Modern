@@ -1,39 +1,11 @@
 ---
 layout: default
-title: Tunless
+title: Добро пожаловать в Tunless
+subtitle: VPN подписка — быстро, безопасно и анонимно
 ---
 
 <style>
-/* Hero Section */
-.hero-main {
-    text-align: center;
-    padding: 20px 20px 30px;
-    margin-bottom: 40px;
-}
-
-.hero-main h1 {
-    font-size: 2.8em;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 10px;
-    animation: fadeInDown 0.8s ease;
-}
-
-.hero-main .subtitle {
-    font-size: 1.2em;
-    color: var(--text-light);
-    opacity: 0.8;
-    animation: fadeInUp 0.8s ease 0.2s both;
-}
-
-body.dark-mode .hero-main .subtitle {
-    color: var(--text-dark);
-}
-
-/* Features Grid - 3 columns */
+/* Features Grid */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -70,9 +42,7 @@ body.dark-mode .feature-card {
     transition: transform 0.3s ease;
 }
 
-.feature-card:hover::before {
-    transform: scaleX(1);
-}
+.feature-card:hover::before { transform: scaleX(1); }
 
 .feature-card:hover {
     transform: translateY(-8px);
@@ -89,7 +59,7 @@ body.dark-mode .feature-card {
     justify-content: center;
 }
 
-/* Контурные иконки - темные на светлой теме, белые на темной */
+/* Контурные иконки — темные на светлой, белые на темной */
 .feature-icon svg {
     width: 32px;
     height: 32px;
@@ -98,9 +68,7 @@ body.dark-mode .feature-card {
     fill: none;
 }
 
-body.dark-mode .feature-icon svg {
-    stroke: #ffffff;
-}
+body.dark-mode .feature-icon svg { stroke: #ffffff; }
 
 .feature-card h3 {
     font-size: 1.3em;
@@ -114,7 +82,7 @@ body.dark-mode .feature-icon svg {
     opacity: 0.9;
 }
 
-/* CTA Section - без подложки */
+/* CTA Section */
 .cta-section {
     text-align: center;
     padding: 40px 30px 20px;
@@ -180,16 +148,13 @@ body.dark-mode .cta-button {
     transition: transform 0.3s ease;
 }
 
-.cta-button:hover::before {
-    transform: scaleX(1);
-}
+.cta-button:hover::before { transform: scaleX(1); }
 
 .cta-button:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
 }
 
-/* Контурные иконки для кнопок */
 .cta-button svg {
     width: 24px;
     height: 24px;
@@ -201,70 +166,29 @@ body.dark-mode .cta-button {
     flex-shrink: 0;
 }
 
-body.dark-mode .cta-button svg {
-    stroke: #ffffff;
-}
-
-/* Animations */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+body.dark-mode .cta-button svg { stroke: #ffffff; }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.02);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-    .hero-main h1 {
-        font-size: 2em;
-    }
-    
-    .hero-main .subtitle {
-        font-size: 1.1em;
-    }
-    
     .features-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
-    .feature-card {
-        padding: 25px;
-    }
-    
-    .cta-section h3 {
-        font-size: 1.6em;
-    }
-    
+    .feature-card { padding: 25px; }
+    .cta-section h3 { font-size: 1.6em; }
     .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
     .cta-button {
         width: 100%;
         max-width: 300px;
@@ -273,13 +197,7 @@ body.dark-mode .cta-button svg {
 }
 </style>
 
-<!-- Hero Section -->
-<div class="hero-main">
-    <h1>Добро пожаловать в Tunless</h1>
-    <p class="subtitle">VPN подписка — быстро, безопасно и анонимно</p>
-</div>
-
-<!-- Features Grid - 3 блока -->
+<!-- Features Grid — 3 блока -->
 <div class="features-grid">
     <div class="feature-card">
         <div class="feature-icon">
@@ -314,7 +232,7 @@ body.dark-mode .cta-button svg {
     </div>
 </div>
 
-<!-- CTA Section - без подложки -->
+<!-- CTA Section -->
 <div class="cta-section">
     <h3>Начни прямо сейчас</h3>
     <div class="cta-buttons">
