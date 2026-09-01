@@ -1,0 +1,18 @@
+title: Tunless Modern
+description: VPN подписка - быстро, безопасно и анонимно
+theme: jekyll-theme-minimal
+url: "https://michael-k-cloud.github.io/Tunless_Modern"
+baseurl: "/Tunless_Modern"
+
+# Navigation
+nav_links:
+  - title: Главная
+    url: /Tunless_Modern/
+  - title: Инструкция
+    url: /Tunless_Modern/setup.html
+  - title: Каринг
+    url: /Tunless_Modern/karing.html
+  - title: Соглашение
+    url: /Tunless_Modern/terms.html
+  - title: Конфиденциальность
+    url: /Tunless_Modern/privacy.html
