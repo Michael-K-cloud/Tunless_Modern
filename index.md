@@ -1,32 +1,29 @@
 ---
 layout: default
-title: Добро пожаловать в Tunless
-subtitle: VPN подписка - быстро, безопасно и анонимно
+title: Tunless
 ---
 
 <style>
 /* Hero Section */
 .hero-main {
     text-align: center;
-    padding: 60px 20px 40px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-    border-radius: 20px;
-    margin-bottom: 50px;
+    padding: 20px 20px 30px;
+    margin-bottom: 40px;
 }
 
 .hero-main h1 {
-    font-size: 3em;
+    font-size: 2.8em;
     font-weight: 800;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     animation: fadeInDown 0.8s ease;
 }
 
 .hero-main .subtitle {
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: var(--text-light);
     opacity: 0.8;
     animation: fadeInUp 0.8s ease 0.2s both;
@@ -36,12 +33,12 @@ body.dark-mode .hero-main .subtitle {
     color: var(--text-dark);
 }
 
-/* Features Grid */
+/* Features Grid - 3 columns */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    margin: 50px 0;
+    margin: 40px 0;
 }
 
 .feature-card {
@@ -90,9 +87,19 @@ body.dark-mode .feature-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    font-size: 1.5em;
+}
+
+/* Контурные иконки - темные на светлой теме, белые на темной */
+.feature-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--text-light);
+    stroke-width: 2;
+    fill: none;
+}
+
+body.dark-mode .feature-icon svg {
+    stroke: #ffffff;
 }
 
 .feature-card h3 {
@@ -107,20 +114,17 @@ body.dark-mode .feature-card {
     opacity: 0.9;
 }
 
-/* CTA Section */
+/* CTA Section - без подложки */
 .cta-section {
     text-align: center;
-    padding: 60px 30px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-    border-radius: 20px;
-    margin: 50px 0;
-    border: 2px solid rgba(102, 126, 234, 0.2);
+    padding: 40px 30px 20px;
+    margin: 40px 0;
 }
 
-.cta-section h2 {
-    font-size: 2.5em;
+.cta-section h3 {
+    font-size: 2em;
     font-weight: 800;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -138,8 +142,10 @@ body.dark-mode .feature-card {
 .cta-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     padding: 16px 32px;
+    min-width: 250px;
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
     text-decoration: none;
@@ -172,9 +178,24 @@ body.dark-mode .cta-button.secondary {
     background: rgba(102, 126, 234, 0.1);
 }
 
+/* Контурные иконки для кнопок */
 .cta-button svg {
     width: 24px;
     height: 24px;
+}
+
+.cta-button:not(.secondary) svg {
+    stroke: white;
+    fill: none;
+}
+
+.cta-button.secondary svg {
+    stroke: var(--primary);
+    fill: none;
+}
+
+body.dark-mode .cta-button.secondary svg {
+    stroke: #a5b4fc;
 }
 
 /* Animations */
@@ -228,8 +249,8 @@ body.dark-mode .cta-button.secondary {
         padding: 25px;
     }
     
-    .cta-section h2 {
-        font-size: 1.8em;
+    .cta-section h3 {
+        font-size: 1.6em;
     }
     
     .cta-buttons {
@@ -240,70 +261,67 @@ body.dark-mode .cta-button.secondary {
     .cta-button {
         width: 100%;
         max-width: 300px;
-        justify-content: center;
+        min-width: auto;
     }
 }
 </style>
 
 <!-- Hero Section -->
 <div class="hero-main">
-    <h1>Добро пожаловать в Tunless</h1>
+    <h1>Tunless</h1>
     <p class="subtitle">VPN подписка — быстро, безопасно и анонимно</p>
 </div>
 
-<!-- Features Grid -->
+<!-- Features Grid - 3 блока -->
 <div class="features-grid">
     <div class="feature-card">
-        <div class="feature-icon">⚡</div>
+        <div class="feature-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+        </div>
         <h3>Современные решения</h3>
-        <p>Высокоскоростные серверы с безлимитным трафиком. Протоколы VLESS/Hysteria для минимальной задержки. Добавь Trojan, xHTTP, WebSocket.</p>
+        <p>Высокоскоростные серверы с безлимитным трафиком. Протоколы VLESS/Hysteria для минимальной задержки. Trojan, xHTTP, WebSocket.</p>
     </div>
     
     <div class="feature-card">
-        <div class="feature-icon">🔓</div>
-        <h3>Лёгкий доступ</h3>
-        <p>Простая авторизация по email. Не нужен Telegram. Введите email, получите код — и получите ключ за 30 секунд.</p>
-    </div>
-    
-    <div class="feature-card">
-        <div class="feature-icon">🌍</div>
-        <h3>Несколько локаций</h3>
-        <p>Выбирайте из множества серверов и стран лучший для себя. Оптимальная маршрутизация для максимальной скорости.</p>
-    </div>
-    
-    <div class="feature-card">
-        <div class="feature-icon">🔒</div>
-        <h3>Быстрое, безопасное и анонимное соединение</h3>
+        <div class="feature-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+        </div>
+        <h3>Быстрое и безопасное соединение</h3>
         <p>Современное шифрование и защита данных. Никаких логов вашей активности. Полная анонимность в интернете.</p>
     </div>
     
     <div class="feature-card">
-        <div class="feature-icon">♾️</div>
-        <h3>Без логов, без ограничений</h3>
-        <p>Никаких ограничений по трафику и скорости. Мы не ведём логи и не храним данные о вашей активности.</p>
-    </div>
-    
-    <div class="feature-card">
-        <div class="feature-icon">📱</div>
+        <div class="feature-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+        </div>
         <h3>Управление в боте</h3>
         <p>Привяжите Telegram — и управляйте подпиской, продлевайте и просматривайте трафик в удобном Telegram боте.</p>
     </div>
 </div>
 
-<!-- CTA Section -->
+<!-- CTA Section - без подложки -->
 <div class="cta-section">
-    <h2>Начни прямо сейчас</h2>
+    <h3>Начни прямо сейчас</h3>
     <div class="cta-buttons">
         <a href="https://t.me/Tunless_bot" target="_blank" class="cta-button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.939.193 1.745.927 2.177 1.61.949 3.285 1.985 4.596 2.797.405.25.77.468 1.091.658.344.204.635.37.868.493.468.246.666.32.56.32-.113 0-.276-.05-.47-.125-.39-.152-.858-.398-1.365-.688-1.013-.58-2.226-1.386-3.227-2.135-.495-.371-.945-.755-1.296-1.168-.35-.412-.61-.92-.533-1.528.06-.473.29-.868.603-1.178.313-.31.708-.517 1.128-.668.84-.302 1.836-.54 2.925-.768 1.637-.342 3.54-.638 5.198-.788.41-.037.808-.06 1.188-.067.38-.007.742.004 1.07.048.328.044.62.127.85.266.23.14.392.336.458.598.066.262.02.534-.12.768-.14.234-.366.41-.648.518-.282.108-.615.148-.973.11-.358-.038-.738-.148-1.12-.328-.764-.36-1.548-.92-2.25-1.58-.702-.66-1.298-1.42-1.698-2.18-.2-.38-.36-.78-.46-1.18-.1-.4-.14-.82-.1-1.22.04-.4.16-.78.36-1.12.2-.34.48-.62.82-.82.34-.2.72-.32 1.12-.36.4-.04.82 0 1.22.1.4.1.8.26 1.18.46z"/>
             </svg>
             Перейти в Telegram бота
         </a>
         <a href="/Tunless_Modern/setup.html" class="cta-button secondary">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-                <circle cx="12" cy="12" r="3"/>
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
             Инструкция
         </a>
