@@ -109,13 +109,13 @@ body.dark-mode .feature-icon svg { stroke: #ffffff; }
     margin: 0 auto;
 }
 
-/* Кнопки в стиле карточек */
+/* Кнопки в стиле карточек (ИСПРАВЛЕНО ВЫРАВНИВАНИЕ) */
 .cta-button {
-    display: inline-flex;
+    display: flex; /* Изменено с inline-flex на flex для идеального центрирования */
     align-items: center;
     justify-content: center;
     gap: 12px;
-    padding: 20px 30px;
+    padding: 18px 30px;
     min-width: 280px;
     background: var(--card-light);
     color: var(--text-light);
@@ -123,11 +123,12 @@ body.dark-mode .feature-icon svg { stroke: #ffffff; }
     border-radius: 16px;
     font-weight: 700;
     font-size: 1.1em;
+    line-height: 1.2; /* Ключевое свойство для вертикального центрирования текста */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(102, 126, 234, 0.1);
     position: relative;
     overflow: hidden;
-    vertical-align: middle;
+    box-sizing: border-box;
 }
 
 body.dark-mode .cta-button {
@@ -164,10 +165,22 @@ body.dark-mode .cta-button {
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Запрещаем иконке сжиматься */
+    margin: 0;
+    padding: 0;
+    display: block;
 }
 
 body.dark-mode .cta-button svg { stroke: #ffffff; }
+
+/* Явное центрирование текста внутри кнопки */
+.cta-button span {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+}
 
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
