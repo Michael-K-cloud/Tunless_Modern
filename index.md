@@ -134,63 +134,74 @@ body.dark-mode .feature-icon svg {
 
 .cta-buttons {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
     flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
+/* Кнопки в стиле карточек */
 .cta-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    padding: 16px 32px;
+    padding: 20px 30px;
     min-width: 280px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
+    background: var(--card-light);
+    color: var(--text-light);
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 16px;
     font-weight: 700;
     font-size: 1.1em;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-    border: 2px solid transparent;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark-mode .cta-button {
+    background: var(--card-dark);
+    color: var(--text-dark);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover::before {
+    transform: scaleX(1);
 }
 
 .cta-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
 }
 
-.cta-button.secondary {
-    background: transparent;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-}
-
-body.dark-mode .cta-button.secondary {
-    color: #a5b4fc;
-    border-color: #a5b4fc;
-}
-
-.cta-button.secondary:hover {
-    background: rgba(102, 126, 234, 0.1);
-}
-
-/* Контурные иконки для кнопок - белые на обеих кнопках */
+/* Контурные иконки для кнопок */
 .cta-button svg {
-    width: 24px;
-    height: 24px;
-    stroke: white;
+    width: 28px;
+    height: 28px;
+    stroke: var(--text-light);
     fill: none;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-.cta-button.secondary svg {
-    stroke: currentColor;
+body.dark-mode .cta-button svg {
+    stroke: #ffffff;
 }
 
 /* Animations */
@@ -312,7 +323,7 @@ body.dark-mode .cta-button.secondary {
             </svg>
             Перейти в Telegram бота
         </a>
-        <a href="/Tunless_Modern/setup.html" class="cta-button secondary">
+        <a href="/Tunless_Modern/setup.html" class="cta-button">
             <svg viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
