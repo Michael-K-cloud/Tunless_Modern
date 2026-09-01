@@ -52,9 +52,8 @@
             border-radius: 15px;
             margin-bottom: 40px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
             gap: 15px;
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.25);
             backdrop-filter: blur(10px);
@@ -79,8 +78,7 @@
             display: flex;
             gap: 5px;
             flex-wrap: wrap;
-            flex: 1;
-            justify-content: center; /* Центрируем ссылки, так как логотип убран */
+            justify-content: center;
         }
 
         nav a {
@@ -145,11 +143,16 @@
             transform: scale(0.95);
         }
 
-        /* SVG Icons */
+        /* SVG Icons - контурные */
         .sun-icon, .moon-icon {
             width: 24px;
             height: 24px;
             transition: opacity 0.3s ease;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .sun-icon {
@@ -171,7 +174,7 @@
             position: static;
         }
 
-        /* Hero Section */
+        /* Hero Section with Logo */
         .hero {
             text-align: center;
             margin-bottom: 60px;
@@ -200,13 +203,6 @@
             animation: scaleInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        @media (max-width: 768px) {
-            .hero-logo {
-                width: 80px;
-                height: 80px;
-            }
-        }
-
         @keyframes scaleInDown {
             from {
                 opacity: 0;
@@ -227,14 +223,12 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: -1px;
-            animation: scaleInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .hero p {
             font-size: 1.25em;
             color: #666;
             margin-bottom: 30px;
-            animation: fadeInUp 0.8s ease 0.4s both;
         }
 
         body.dark-mode .hero p {
@@ -321,198 +315,152 @@
             width: 100%;
         }
 
-        /* Step/Card Blocks */
-        .step {
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
             background: var(--card-light);
-            border-radius: 15px;
+            border-radius: 16px;
             padding: 30px;
-            margin: 25px 0;
-            border: 2px solid transparent;
+            border: 1px solid rgba(102, 126, 234, 0.1);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: slideInLeft 0.6s ease;
+            animation: fadeInUp 0.6s ease;
             position: relative;
             overflow: hidden;
         }
 
-        body.dark-mode .step {
+        body.dark-mode .feature-card {
             background: var(--card-dark);
+            border-color: rgba(102, 126, 234, 0.2);
         }
 
-        .step::before {
+        .feature-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: left 0.5s ease;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
         }
 
-        .step:hover::before {
-            left: 100%;
+        .feature-card:hover::before {
+            transform: scaleX(1);
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .step:hover {
+        .feature-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-            border-color: var(--primary);
         }
 
-        body.dark-mode .step:hover {
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-        }
-
-        .step h3 {
-            color: var(--primary);
-            margin-top: 0;
-            margin-bottom: 15px;
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.4em;
-        }
-
-        .step-number {
-            display: inline-flex;
-            align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border-radius: 50%;
-            font-weight: 800;
-            font-size: 1.1em;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-            animation: pulse 2s infinite;
+            font-size: 1.5em;
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-            }
-            50% {
-                box-shadow: 0 4px 25px rgba(102, 126, 234, 0.6);
-            }
+        .feature-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: var(--text-light);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
-        /* Card Grid */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+        body.dark-mode .feature-icon svg {
+            stroke: var(--text-dark);
         }
 
-        .card {
-            background: var(--card-light);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-            cursor: pointer;
-            animation: fadeInUp 0.6s ease;
-        }
-
-        body.dark-mode .card {
-            background: var(--card-dark);
-        }
-
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
-            border-color: var(--primary);
-        }
-
-        .card h3 {
-            margin-top: 0;
+        .feature-card h3 {
+            font-size: 1.3em;
             margin-bottom: 12px;
             color: var(--primary);
+            font-weight: 700;
         }
 
-        .card p {
-            margin: 0;
-            line-height: 1.6;
+        .feature-card p {
+            line-height: 1.7;
+            opacity: 0.9;
         }
 
-        /* Button */
-        .btn {
-            display: inline-block;
-            padding: 12px 32px;
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 40px 20px;
+            margin: 50px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1em;
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.3s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(-2px);
-        }
-
-        /* Code Block */
-        pre {
-            background: var(--card-light);
-            border: 2px solid #e0e0e0;
             border-radius: 12px;
-            padding: 20px;
-            overflow-x: auto;
-            margin: 25px 0;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border: 2px solid transparent;
         }
 
-        body.dark-mode pre {
-            background: var(--card-dark);
-            border-color: #444;
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
         }
 
-        pre:hover {
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.15);
-        }
-
-        code {
-            font-family: 'Fira Code', 'Monaco', monospace;
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
             color: var(--primary);
-            font-size: 0.95em;
+        }
+
+        body.dark-mode .cta-button.secondary {
+            color: #a5b4fc;
+            border-color: #a5b4fc;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .cta-button svg {
+            width: 24px;
+            height: 24px;
         }
 
         /* Footer */
@@ -542,7 +490,18 @@
 
         .footer a:hover {
             color: var(--primary-dark);
-            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive */
@@ -553,7 +512,6 @@
 
             nav {
                 flex-direction: column;
-                align-items: stretch;
                 position: static;
             }
 
@@ -574,16 +532,28 @@
                 font-size: 1.1em;
             }
 
-            .content h2 {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-card {
+                padding: 25px;
+            }
+
+            .cta-section h2 {
                 font-size: 1.8em;
             }
 
-            .content h3 {
-                font-size: 1.3em;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .card-grid {
-                grid-template-columns: 1fr;
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
             }
         }
 
@@ -619,7 +589,7 @@
                 {% endfor %}
             </div>
             <button class="theme-toggle" id="themeToggle" title="Переключить тему">
-                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="sun-icon" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
                     <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -630,23 +600,78 @@
                     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                 </svg>
-                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="moon-icon" viewBox="0 0 24 24">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
         </nav>
 
         {% if page.url == '/' %}
-            <div class="hero">
-                <img src="/Tunless_Modern/assets/images/logo_640x640.GIF" alt="Tunless Logo" class="hero-logo">
-                <h1>{{ page.title }}</h1>
-                {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
-            </div>
+        <div class="hero">
+            <img src="{{ site.baseurl }}/assets/images/logo_640x640.GIF" alt="Tunless Logo" class="hero-logo">
+            <h1>{{ page.title }}</h1>
+            {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
+        </div>
         {% endif %}
 
         <div class="content">
             {{ content }}
         </div>
+
+        {% if page.url == '/' %}
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                </div>
+                <h3>Современные решения</h3>
+                <p>Высокоскоростные серверы с безлимитным трафиком. Протоколы VLESS/Hysteria для минимальной задержки.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3>Быстрое, безопасное и анонимное соединение</h3>
+                <p>Современное шифрование и защита данных. Никаких логов вашей активности.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <h3>Несколько локаций</h3>
+                <p>Выбирайте из множества серверов и стран лучший для себя. Оптимальная маршрутизация.</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Начни прямо сейчас</h2>
+            <div class="cta-buttons">
+                <a href="https://t.me/Tunless_bot" target="_blank" class="cta-button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.939.193 1.745.927 2.177 1.61.949 3.285 1.985 4.596 2.797.405.25.77.468 1.091.658.344.204.635.37.868.493.468.246.666.32.56.32-.113 0-.276-.05-.47-.125-.39-.152-.858-.398-1.365-.688-1.013-.58-2.226-1.386-3.227-2.135-.495-.371-.945-.755-1.296-1.168-.35-.412-.61-.92-.533-1.528.06-.473.29-.868.603-1.178.313-.31.708-.517 1.128-.668.84-.302 1.836-.54 2.925-.768 1.637-.342 3.54-.638 5.198-.788.41-.037.808-.06 1.188-.067.38-.007.742.004 1.07.048.328.044.62.127.85.266.23.14.392.336.458.598.066.262.02.534-.12.768-.14.234-.366.41-.648.518-.282.108-.615.148-.973.11-.358-.038-.738-.148-1.12-.328-.764-.36-1.548-.92-2.25-1.58-.702-.66-1.298-1.42-1.698-2.18-.2-.38-.36-.78-.46-1.18-.1-.4-.14-.82-.1-1.22.04-.4.16-.78.36-1.12.2-.34.48-.62.82-.82.34-.2.72-.32 1.12-.36.4-.04.82 0 1.22.1.4.1.8.26 1.18.46z"/>
+                    </svg>
+                    Перейти в Telegram бота
+                </a>
+                <a href="/Tunless_Modern/setup.html" class="cta-button secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    Инструкция
+                </a>
+            </div>
+        </div>
+        {% endif %}
 
         <div class="footer">
             <p>© <script>document.write(new Date().getFullYear())</script> <strong>Tunless</strong>. Все права защищены.</p>
