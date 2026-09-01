@@ -191,13 +191,14 @@ body.dark-mode .cta-button {
 
 /* Контурные иконки для кнопок */
 .cta-button svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     stroke: var(--text-light);
     fill: none;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
+    flex-shrink: 0;
 }
 
 body.dark-mode .cta-button svg {
@@ -319,17 +320,18 @@ body.dark-mode .cta-button svg {
     <div class="cta-buttons">
         <a href="https://t.me/Tunless_bot" target="_blank" class="cta-button">
             <svg viewBox="0 0 24 24">
-                <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.11 6.217c-.687.275-.677 1.18.016 1.444l4.14 1.578 1.578 4.14c.264.693 1.169.703 1.444.016l6.217-16.11a2.242 2.242 0 0 0-1.263-2.49z"/>
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
             </svg>
-            Перейти в Telegram бота
+            <span>Перейти в Telegram бота</span>
         </a>
         <a href="/Tunless_Modern/setup.html" class="cta-button">
             <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
             </svg>
-            Инструкция
+            <span>Инструкция</span>
         </a>
     </div>
 </div>
