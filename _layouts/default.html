@@ -248,7 +248,8 @@
         .content li { margin-bottom: 15px; transition: all 0.3s ease; padding-left: 10px; }
         .content li:hover { padding-left: 20px; color: var(--primary); }
 
-        .content a {
+        /* ВАЖНО: селектор исключает .cta-button, чтобы не ломать кнопки */
+        .content a:not(.cta-button) {
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
@@ -257,7 +258,7 @@
             padding-bottom: 2px;
         }
 
-        .content a::after {
+        .content a:not(.cta-button)::after {
             content: '';
             position: absolute;
             bottom: -2px;
@@ -268,8 +269,8 @@
             transition: width 0.3s ease;
         }
 
-        .content a:hover { color: var(--primary-dark); }
-        .content a:hover::after { width: 100%; }
+        .content a:not(.cta-button):hover { color: var(--primary-dark); }
+        .content a:not(.cta-button):hover::after { width: 100%; }
 
         /* Card Grid */
         .card-grid {
@@ -430,7 +431,7 @@
 
         <div class="footer">
             <p>© <script>document.write(new Date().getFullYear())</script> <strong>Tunless</strong>. Все права защищены.</p>
-            <p style="font-size: 0.95em; margin-top: 15px; opacity: 0.8;">⚡ Быстро • 🔒 Безопасно • 👻 Анонимно</p>
+            <p style="font-size: 0.95em; margin-top: 15px; opacity: 0.8;">⚡ Быстро • 🔒 Безопасно •  Анонимно</p>
         </div>
     </div>
 
