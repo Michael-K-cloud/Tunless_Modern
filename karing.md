@@ -112,7 +112,7 @@ body.dark-mode .image-card {
   
   <div class="image-card">
     <img src="https://i.postimg.cc/7PFCj67N/photo-4-2026-06-15-22-12-18.jpg" alt="Готово">
-    <p>Шаг 4: Включаем режим "Новичка"</p>
+    <p>Шаг 4: Включите режим "Новичка"</p>
   </div>
 </div>
 
