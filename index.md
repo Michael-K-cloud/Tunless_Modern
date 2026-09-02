@@ -1,11 +1,39 @@
 ---
 layout: default
-title: Добро пожаловать в Tunless
-subtitle: Привычный доступ к любимым приложениям!
+title: Tunless
 ---
 
 <style>
-/* Features Grid */
+/* Hero Section */
+.hero-main {
+    text-align: center;
+    padding: 20px 20px 30px;
+    margin-bottom: 40px;
+}
+
+.hero-main h1 {
+    font-size: 2.8em;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    animation: fadeInDown 0.8s ease;
+}
+
+.hero-main .subtitle {
+    font-size: 1.2em;
+    color: var(--text-light);
+    opacity: 0.8;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+body.dark-mode .hero-main .subtitle {
+    color: var(--text-dark);
+}
+
+/* Features Grid - 3 columns */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -42,7 +70,9 @@ body.dark-mode .feature-card {
     transition: transform 0.3s ease;
 }
 
-.feature-card:hover::before { transform: scaleX(1); }
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
 
 .feature-card:hover {
     transform: translateY(-8px);
@@ -59,16 +89,18 @@ body.dark-mode .feature-card {
     justify-content: center;
 }
 
-/* Контурные иконки — темные на светлой, белые на темной */
+/* Контурные иконки - цвет заголовка на светлой, белые на темной */
 .feature-icon svg {
     width: 32px;
     height: 32px;
-    stroke: var(--text-light);
+    stroke: var(--primary);
     stroke-width: 2;
     fill: none;
 }
 
-body.dark-mode .feature-icon svg { stroke: #ffffff; }
+body.dark-mode .feature-icon svg {
+    stroke: #ffffff;
+}
 
 .feature-card h3 {
     font-size: 1.3em;
@@ -82,7 +114,7 @@ body.dark-mode .feature-icon svg { stroke: #ffffff; }
     opacity: 0.9;
 }
 
-/* CTA Section */
+/* CTA Section - без подложки */
 .cta-section {
     text-align: center;
     padding: 40px 30px 20px;
@@ -111,30 +143,40 @@ body.dark-mode .feature-icon svg { stroke: #ffffff; }
 
 /* Кнопки в стиле карточек */
 .cta-button {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
-    padding: 18px 30px !important;
+    padding: 20px 30px;
     min-width: 280px;
     background: var(--card-light);
-    color: var(--text-light);
-    text-decoration: none !important;
     border-radius: 16px;
     font-weight: 700;
     font-size: 1.1em;
-    line-height: 1.2 !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(102, 126, 234, 0.1);
     position: relative;
     overflow: hidden;
-    box-sizing: border-box;
+}
+
+/* Текст кнопок с градиентом как заголовок */
+.cta-button {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 body.dark-mode .cta-button {
     background: var(--card-dark);
     color: var(--text-dark);
     border-color: rgba(102, 126, 234, 0.2);
+    /* На темной теме убираем градиент текста */
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: var(--text-dark);
+    background-clip: unset;
+    background: var(--card-dark);
 }
 
 .cta-button::before {
@@ -150,69 +192,91 @@ body.dark-mode .cta-button {
     transition: transform 0.3s ease;
 }
 
-.cta-button:hover::before { transform: scaleX(1); }
+.cta-button:hover::before {
+    transform: scaleX(1);
+}
 
 .cta-button:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
 }
 
+/* Контурные иконки для кнопок - цвет заголовка */
 .cta-button svg {
     width: 24px;
     height: 24px;
-    stroke: var(--text-light);
+    stroke: var(--primary);
     fill: none;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
     flex-shrink: 0;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: block;
-    vertical-align: middle !important;
 }
 
-body.dark-mode .cta-button svg { stroke: #ffffff; }
-
-.cta-button span {
-    display: inline-block;
-    line-height: 1.2 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    vertical-align: middle !important;
+body.dark-mode .cta-button svg {
+    stroke: #ffffff;
 }
 
-/* СБРОС КОНФЛИКТНЫХ СТИЛЕЙ ОТ DEFAULT.HTML */
-.cta-button::after {
-    display: none !important;
-}
-
-.cta-button * {
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
 }
 
+/* Responsive */
 @media (max-width: 768px) {
+    .hero-main h1 {
+        font-size: 2em;
+    }
+    
+    .hero-main .subtitle {
+        font-size: 1.1em;
+    }
+    
     .features-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    .feature-card { padding: 25px; }
-    .cta-section h3 { font-size: 1.6em; }
+    
+    .feature-card {
+        padding: 25px;
+    }
+    
+    .cta-section h3 {
+        font-size: 1.6em;
+    }
+    
     .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
+    
     .cta-button {
         width: 100%;
         max-width: 300px;
@@ -221,7 +285,13 @@ body.dark-mode .cta-button svg { stroke: #ffffff; }
 }
 </style>
 
-<!-- Features Grid — 3 блока -->
+<!-- Hero Section -->
+<div class="hero-main">
+    <h1>Добро пожаловать в Tunless</h1>
+    <p class="subtitle">VPN подписка — быстро, безопасно и анонимно</p>
+</div>
+
+<!-- Features Grid - 3 блока -->
 <div class="features-grid">
     <div class="feature-card">
         <div class="feature-icon">
@@ -230,7 +300,7 @@ body.dark-mode .cta-button svg { stroke: #ffffff; }
             </svg>
         </div>
         <h3>Современные решения</h3>
-        <p>Высокоскоростные серверы с безлимитным трафиком. Протоколы VLESS, Hysteria, Trojan, xHTTP, WebSocket для минимальной задержки.</p>
+        <p>Высокоскоростные серверы с безлимитным трафиком. Протоколы VLESS/Hysteria для минимальной задержки. Trojan, xHTTP, WebSocket.</p>
     </div>
     
     <div class="feature-card">
@@ -256,7 +326,7 @@ body.dark-mode .cta-button svg { stroke: #ffffff; }
     </div>
 </div>
 
-<!-- CTA Section -->
+<!-- CTA Section - без подложки -->
 <div class="cta-section">
     <h3>Начни прямо сейчас</h3>
     <div class="cta-buttons">
