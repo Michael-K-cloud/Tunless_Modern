@@ -42,7 +42,9 @@ body.dark-mode .feature-card {
     transition: transform 0.3s ease;
 }
 
-.feature-card:hover::before { transform: scaleX(1); }
+.feature-card:hover::before { 
+    transform: scaleX(1); 
+}
 
 .feature-card:hover {
     transform: translateY(-8px);
@@ -59,16 +61,18 @@ body.dark-mode .feature-card {
     justify-content: center;
 }
 
-/* Контурные иконки — темные на светлой, белые на темной */
+/* Контурные иконки в 3-х блоках: цвет заголовка на светлой, белый на темной */
 .feature-icon svg {
     width: 32px;
     height: 32px;
-    stroke: var(--text-light);
+    stroke: var(--primary);
     stroke-width: 2;
     fill: none;
 }
 
-body.dark-mode .feature-icon svg { stroke: #ffffff; }
+body.dark-mode .feature-icon svg { 
+    stroke: #ffffff; 
+}
 
 .feature-card h3 {
     font-size: 1.3em;
@@ -118,7 +122,14 @@ body.dark-mode .feature-icon svg { stroke: #ffffff; }
     padding: 18px 30px !important;
     min-width: 280px;
     background: var(--card-light);
-    color: var(--text-light);
+    
+    /* Текст как цвет заголовка (градиент) на светлой теме */
+    background-image: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    
     text-decoration: none !important;
     border-radius: 16px;
     font-weight: 700;
@@ -133,7 +144,12 @@ body.dark-mode .feature-icon svg { stroke: #ffffff; }
 
 body.dark-mode .cta-button {
     background: var(--card-dark);
-    color: var(--text-dark);
+    /* На темной теме текст белый, без градиента */
+    background-image: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: #ffffff;
+    background-clip: unset;
+    color: #ffffff;
     border-color: rgba(102, 126, 234, 0.2);
 }
 
@@ -150,17 +166,20 @@ body.dark-mode .cta-button {
     transition: transform 0.3s ease;
 }
 
-.cta-button:hover::before { transform: scaleX(1); }
+.cta-button:hover::before { 
+    transform: scaleX(1); 
+}
 
 .cta-button:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
 }
 
+/* Контурные иконки в кнопках: цвет заголовка на светлой, белый на темной */
 .cta-button svg {
     width: 24px;
     height: 24px;
-    stroke: var(--text-light);
+    stroke: var(--primary);
     fill: none;
     stroke-width: 2;
     stroke-linecap: round;
@@ -172,7 +191,9 @@ body.dark-mode .cta-button {
     vertical-align: middle !important;
 }
 
-body.dark-mode .cta-button svg { stroke: #ffffff; }
+body.dark-mode .cta-button svg { 
+    stroke: #ffffff; 
+}
 
 .cta-button span {
     display: inline-block;
