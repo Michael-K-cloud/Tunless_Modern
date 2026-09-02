@@ -230,7 +230,7 @@ body.dark-mode .cta-button svg { stroke: #ffffff; }
             </svg>
         </div>
         <h3>Современные решения</h3>
-        <p>Высокоскоростные серверы с безлимитным трафиком. Протоколы VLESS/Hysteria для минимальной задержки. Trojan, xHTTP, WebSocket.</p>
+        <p>Высокоскоростные серверы с безлимитным трафиком. Протоколы VLESS, Hysteria, Trojan, xHTTP, WebSocket для минимальной задержки.</p>
     </div>
     
     <div class="feature-card">
