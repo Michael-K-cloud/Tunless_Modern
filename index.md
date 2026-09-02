@@ -42,9 +42,7 @@ body.dark-mode .feature-card {
     transition: transform 0.3s ease;
 }
 
-.feature-card:hover::before { 
-    transform: scaleX(1); 
-}
+.feature-card:hover::before { transform: scaleX(1); }
 
 .feature-card:hover {
     transform: translateY(-8px);
@@ -61,11 +59,11 @@ body.dark-mode .feature-card {
     justify-content: center;
 }
 
-/* Контурные иконки в 3-х блоках: цвет заголовка на светлой, белый на темной */
+/* ИКОНКИ В 3-х БЛОКАХ: цвет заголовка на светлой, белый на темной */
 .feature-icon svg {
     width: 32px;
     height: 32px;
-    stroke: var(--primary);
+    stroke: var(--primary); /* БЫЛО: var(--text-light) */
     stroke-width: 2;
     fill: none;
 }
@@ -115,7 +113,7 @@ body.dark-mode .feature-icon svg {
 
 /* Кнопки в стиле карточек */
 .cta-button {
-    display: flex !important;
+    display: flex !important; /* Принудительное центрирование */
     align-items: center !important;
     justify-content: center !important;
     gap: 12px;
@@ -123,7 +121,7 @@ body.dark-mode .feature-icon svg {
     min-width: 280px;
     background: var(--card-light);
     
-    /* Текст как цвет заголовка (градиент) на светлой теме */
+    /* ТЕКСТ КАК ЦВЕТ ЗАГОЛОВКА (градиент) на светлой теме */
     background-image: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -166,20 +164,18 @@ body.dark-mode .cta-button {
     transition: transform 0.3s ease;
 }
 
-.cta-button:hover::before { 
-    transform: scaleX(1); 
-}
+.cta-button:hover::before { transform: scaleX(1); }
 
 .cta-button:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
 }
 
-/* Контурные иконки в кнопках: цвет заголовка на светлой, белый на темной */
+/* ИКОНКИ В КНОПКАХ: цвет заголовка на светлой, белый на темной */
 .cta-button svg {
     width: 24px;
     height: 24px;
-    stroke: var(--primary);
+    stroke: var(--primary); /* БЫЛО: var(--text-light) */
     fill: none;
     stroke-width: 2;
     stroke-linecap: round;
@@ -205,11 +201,11 @@ body.dark-mode .cta-button svg {
 
 /* СБРОС КОНФЛИКТНЫХ СТИЛЕЙ ОТ DEFAULT.HTML */
 .cta-button::after {
-    display: none !important;
+    display: none !important; /* Убирает подчеркивание ссылки */
 }
 
 .cta-button * {
-    padding-bottom: 0 !important;
+    padding-bottom: 0 !important; /* Убирает сдвиг текста вниз */
     margin-bottom: 0 !important;
 }
 
@@ -286,7 +282,7 @@ body.dark-mode .cta-button svg {
                 <line x1="22" y1="2" x2="11" y2="13"></line>
                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
             </svg>
-            <span>Telegram бот</span>
+            <span>Перейти в Telegram бота</span>
         </a>
         <a href="/Tunless_Modern/setup.html" class="cta-button">
             <svg viewBox="0 0 24 24">
