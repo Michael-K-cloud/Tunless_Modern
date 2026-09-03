@@ -190,4 +190,86 @@ body.dark-mode .cta-button:hover {
 
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
-   
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .feature-card { padding: 25px; }
+    .cta-section h3 { font-size: 1.6em; }
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+        min-width: auto;
+    }
+}
+</style>
+
+<!-- Features Grid — 3 блока -->
+<div class="features-grid">
+    <div class="feature-card">
+        <div class="feature-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+        </div>
+        <h3>Современные решения</h3>
+        <p>Высокоскоростные серверы с безлимитным трафиком. Протоколы VLESS, Hysteria, Trojan, xHTTP, WebSocket для минимальной задержки.</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+        </div>
+        <h3>Быстрое и безопасное соединение</h3>
+        <p>Современное шифрование и защита данных. Никаких логов вашей активности. Полная анонимность в интернете.</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+        </div>
+        <h3>Управление в боте</h3>
+        <p>Привяжите Telegram — и управляйте подпиской, продлевайте и просматривайте трафик в удобном Telegram боте.</p>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="cta-section">
+    <h3>Начни прямо сейчас</h3>
+    <div class="cta-buttons">
+        <a href="https://t.me/Tunless_bot" target="_blank" class="cta-button">
+            <svg viewBox="0 0 24 24">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            <span>Telegram бот</span>
+        </a>
+        <a href="/Tunless_Modern/setup.html" class="cta-button">
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span>Инструкция</span>
+        </a>
+    </div>
+</div>
