@@ -63,6 +63,7 @@ body.dark-mode .feature-card {
     justify-content: center;
 }
 
+/* Иконки в 3-х блоках: цвет заголовка на светлой, белый на темной */
 .feature-icon svg {
     width: 32px;
     height: 32px;
@@ -105,7 +106,7 @@ body.dark-mode .feature-icon svg {
     animation: pulse 2s infinite;
 }
 
-.cta-buttons { 
+.cta-buttons {
     display: flex;
     gap: 25px;
     justify-content: center;
@@ -114,16 +115,16 @@ body.dark-mode .feature-icon svg {
     margin: 0 auto;
 }
 
-/* Кнопки: градиент в светлой теме */
-.cta-button { 
+/* Кнопки с градиентным фоном (стиль зафиксирован для обеих тем) */
+.cta-button {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 12px;
     padding: 16px 32px !important;
     min-width: 280px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
-    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+    color: white !important;
     text-decoration: none !important;
     border-radius: 12px;
     font-weight: 700;
@@ -135,43 +136,35 @@ body.dark-mode .feature-icon svg {
     box-sizing: border-box;
 }
 
+/* Эффект при наведении (работает одинаково хорошо на обеих темах) */
 .cta-button:hover {
-    transform: translateY(-4px) !important;
+    transform: translateY(-4px);
     box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
+/* Иконки в кнопках всегда белые */
 .cta-button svg {
     width: 24px;
     height: 24px;
-    stroke: #ffffff !important;
+    stroke: white !important;
     fill: none;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
     flex-shrink: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+    vertical-align: middle !important;
 }
 
 .cta-button span {
     display: inline-block;
     line-height: 1.2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     vertical-align: middle !important;
-}
-
-/* В тёмной теме кнопки становятся как "Вернуться к инструкции" (прозрачные с фиолетовой рамкой) */
-body.dark-mode .cta-button {
-    background: transparent !important;
-    color: #a5b4fc !important;
-    border: 2px solid #a5b4fc !important;
-    box-shadow: none !important;
-}
-
-body.dark-mode .cta-button svg {
-    stroke: #a5b4fc !important;
-}
-
-body.dark-mode .cta-button:hover {
-    background: rgba(102, 126, 234, 0.1) !important;
-    border-color: #a5b4fc !important;
 }
 
 /* СБРОС КОНФЛИКТНЫХ СТИЛЕЙ ОТ DEFAULT.HTML */
