@@ -112,6 +112,27 @@ body.dark-mode .step-section h3 svg {
   }
 }
 
+/* Стили для ссылки на Telegram */
+.telegram-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.telegram-link:hover {
+  border-bottom-color: var(--primary);
+}
+
+body.dark-mode .telegram-link {
+  color: #a5b4fc;
+}
+
+body.dark-mode .telegram-link:hover {
+  border-bottom-color: #a5b4fc;
+}
+
 /* Стили для кнопки "Вернуться" */
 .cta-button {
   display: inline-flex !important;
@@ -219,7 +240,7 @@ body.dark-mode .content h3 svg {
     </svg>
     Что нужно перед запуском:
   </h3>
-  <p>Перед запуском приложения, желательно скопировать ссылку для подключения, выданную в <strong>@Tunless_bot</strong>.</p>
+  <p>Перед запуском приложения, желательно скопировать ссылку для подключения, выданную в <a href="https://t.me/Tunless_bot" target="_blank" class="telegram-link"><strong>@Tunless_bot</strong></a>.</p>
 </div>
 
 ### <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg> Пошаговая настройка:
@@ -267,7 +288,7 @@ body.dark-mode .content h3 svg {
 5. **Добавьте профиль** — вставьте ключ из буфера обмена
 6. **Подключитесь** — нажмите кнопку подключения
 
-**Готово! Ты под защитой ️**
+**Готово! Ты под защитой 🛡️**
 
 ---
 
