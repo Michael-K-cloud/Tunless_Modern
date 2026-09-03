@@ -133,7 +133,7 @@ body.dark-mode .telegram-link:hover {
   border-bottom-color: #a5b4fc;
 }
 
-/* Стили для кнопки "Вернуться" */
+/* Стили для кнопки "Вернуться", КАК НА ГЛАВНОЙ СТРАНИЦЕ */
 .cta-button {
   display: inline-flex !important;
   align-items: center !important;
@@ -141,32 +141,29 @@ body.dark-mode .telegram-link:hover {
   gap: 12px;
   padding: 16px 32px !important;
   min-width: 280px;
-  background: transparent;
-  color: var(--primary) !important;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+  color: white !important;
   text-decoration: none !important;
   border-radius: 12px;
   font-weight: 700;
   font-size: 1.1em;
   line-height: 1.2 !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid var(--primary);
+  border: 2px solid transparent;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
   box-sizing: border-box;
 }
 
-body.dark-mode .cta-button {
-  color: #a5b4fc !important;
-  border-color: #a5b4fc;
-}
-
 .cta-button:hover {
-  background: rgba(102, 126, 234, 0.1);
-  transform: translateY(-4px);
+  transform: translateY(-4px) !important;
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .cta-button svg {
   width: 24px;
   height: 24px;
-  stroke: currentColor;
+  stroke: white !important;
   fill: none;
   stroke-width: 2;
   stroke-linecap: round;
