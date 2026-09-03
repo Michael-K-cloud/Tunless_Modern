@@ -306,7 +306,7 @@ body.dark-mode .shield-icon svg {
 5. **Добавьте профиль** — вставьте ключ из буфера обмена
 6. **Подключитесь** — нажмите кнопку подключения
 
-<strong>Готово! Ты под защитой <span class="shield-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span></strong>
+### Готово! Ты под защитой <span class="shield-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
 
 ---
 
