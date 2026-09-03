@@ -209,7 +209,7 @@ body.dark-mode .content h3 svg {
 .shield-icon svg {
   width: 20px;
   height: 20px;
-  stroke: var(--primary-dark);
+  stroke: var(--primary);
   fill: none;
   stroke-width: 2;
   stroke-linecap: round;
