@@ -73,7 +73,7 @@ body.dark-mode .image-card {
 }
 
 body.dark-mode .step-section h3 svg {
-  stroke: #a5b4fc;
+  stroke: #ffffff;
 }
 
 .warning-box {
@@ -196,7 +196,28 @@ body.dark-mode .telegram-link:hover {
 }
 
 body.dark-mode .content h3 svg {
-  stroke: #a5b4fc;
+  stroke: #ffffff;
+}
+
+/* SVG-иконка щита в тексте */
+.shield-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.shield-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--primary-dark);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body.dark-mode .shield-icon svg {
+  stroke: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -285,7 +306,7 @@ body.dark-mode .content h3 svg {
 5. **Добавьте профиль** — вставьте ключ из буфера обмена
 6. **Подключитесь** — нажмите кнопку подключения
 
-**Готово! Ты под защитой 🛡️**
+<strong>Готово! Ты под защитой <span class="shield-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span></strong>
 
 ---
 
