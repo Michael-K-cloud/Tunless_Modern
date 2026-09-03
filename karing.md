@@ -187,7 +187,7 @@ body.dark-mode .telegram-link:hover {
 .content h3 svg {
   width: 28px;
   height: 28px;
-  stroke: var(--primary-dark);
+  stroke: var(--primary);
   fill: none;
   stroke-width: 2;
   stroke-linecap: round;
