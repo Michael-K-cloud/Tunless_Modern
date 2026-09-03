@@ -17,8 +17,8 @@ subtitle: Привычный доступ к любимым приложения
     background: var(--card-light);
     border-radius: 16px;
     padding: 30px;
-    border: 1px solid rgba(102, 126, 234, 0.3); /* Усилена граница */
-    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1); /* Добавлена тень для светлой темы */
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     animation: fadeInUp 0.6s ease;
     position: relative;
@@ -28,7 +28,7 @@ subtitle: Привычный доступ к любимым приложения
 body.dark-mode .feature-card {
     background: var(--card-dark);
     border-color: rgba(102, 126, 234, 0.2);
-    box-shadow: none; /* На темной теме тень не нужна */
+    box-shadow: none;
 }
 
 .feature-card::before {
@@ -63,7 +63,6 @@ body.dark-mode .feature-card {
     justify-content: center;
 }
 
-/* Иконки в 3-х блоках: цвет заголовка на светлой, белый на темной */
 .feature-icon svg {
     width: 32px;
     height: 32px;
@@ -106,7 +105,7 @@ body.dark-mode .feature-icon svg {
     animation: pulse 2s infinite;
 }
 
-.cta-buttons {
+.cta-buttons { 
     display: flex;
     gap: 25px;
     justify-content: center;
@@ -115,67 +114,64 @@ body.dark-mode .feature-icon svg {
     margin: 0 auto;
 }
 
-/* Кнопки с градиентным фоном для максимального контраста */
-.cta-button {
+/* Кнопки: градиент в светлой теме */
+.cta-button { 
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 12px;
-    padding: 18px 30px !important;
+    padding: 16px 32px !important;
     min-width: 280px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: #ffffff !important; /* Белый текст для читаемости */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+    color: #ffffff !important;
     text-decoration: none !important;
-    border-radius: 16px;
+    border-radius: 12px;
     font-weight: 700;
     font-size: 1.1em;
     line-height: 1.2 !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3); /* Тень для объема */
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
     box-sizing: border-box;
 }
 
-body.dark-mode .cta-button {
-    background: var(--card-dark);
-    color: #ffffff;
-    border: 1px solid rgba(102, 126, 234, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
 .cta-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+    transform: translateY(-4px) !important;
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
 }
 
-body.dark-mode .cta-button:hover {
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-}
-
-/* Иконки в кнопках всегда белые (так как фон кнопки темный/градиентный) */
 .cta-button svg {
     width: 24px;
     height: 24px;
-    stroke: #ffffff;
+    stroke: #ffffff !important;
     fill: none;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
     flex-shrink: 0;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: block;
-    vertical-align: middle !important;
 }
 
 .cta-button span {
     display: inline-block;
     line-height: 1.2 !important;
-    margin: 0 !important;
-    padding: 0 !important;
     vertical-align: middle !important;
+}
+
+/* В тёмной теме кнопки становятся как "Вернуться к инструкции" (прозрачные с фиолетовой рамкой) */
+body.dark-mode .cta-button {
+    background: transparent !important;
+    color: #a5b4fc !important;
+    border: 2px solid #a5b4fc !important;
+    box-shadow: none !important;
+}
+
+body.dark-mode .cta-button svg {
+    stroke: #a5b4fc !important;
+}
+
+body.dark-mode .cta-button:hover {
+    background: rgba(102, 126, 234, 0.1) !important;
+    border-color: #a5b4fc !important;
 }
 
 /* СБРОС КОНФЛИКТНЫХ СТИЛЕЙ ОТ DEFAULT.HTML */
