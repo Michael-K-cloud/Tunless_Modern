@@ -2,8 +2,8 @@
 layout: default
 title: Инструкция по настройке Karing
 --- 
-## Инструкция по настройке Karing
 
+## Инструкция по настройке Karing
 
 <style>
 .image-grid {
@@ -71,6 +71,53 @@ body.dark-mode .image-card {
   }
 }
 
+/* Стили для кнопки "Вернуться", как на главной странице */
+.cta-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px;
+  padding: 16px 32px !important;
+  min-width: 280px;
+  background: transparent;
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1em;
+  line-height: 1.2 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid var(--primary);
+  box-sizing: border-box;
+}
+
+body.dark-mode .cta-button {
+  color: #a5b4fc !important;
+  border-color: #a5b4fc;
+}
+
+.cta-button:hover {
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateY(-4px);
+}
+
+.cta-button svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.cta-button span {
+  display: inline-block;
+  line-height: 1.2 !important;
+  vertical-align: middle !important;
+}
+
 @media (max-width: 768px) {
   .image-grid {
     grid-template-columns: 1fr;
@@ -79,6 +126,12 @@ body.dark-mode .image-card {
   
   .image-card {
     padding: 10px;
+  }
+  
+  .cta-button {
+    min-width: auto;
+    width: 100%;
+    max-width: 300px;
   }
 }
 </style>
@@ -89,7 +142,8 @@ body.dark-mode .image-card {
 
 <div class="step-section">
   <h3>📋 Что нужно перед запуском:</h3>
-  <p>Перед запуском приложения, желательно скопировать ссылку для подключения, выданную в </strong>@Tunless_bot</strong></p>
+  <!-- ИСПРАВЛЕНО: добавлен открывающий тег <strong> и убран лишний закрывающий -->
+  <p>Перед запуском приложения, желательно скопировать ссылку для подключения, выданную в <strong>@Tunless_bot</strong>.</p>
 </div>
 
 ### 🎯 Пошаговая настройка:
@@ -133,7 +187,7 @@ body.dark-mode .image-card {
 1. **Запустите Karing**
 2. **Выберите регион** — для России выберите "Russia"
 3. **Настройте роутинг** — российские сайты будут работать без VPN
-4. **Включите режим "Новичка"** - скроет настройки для "Экспертов"
+4. **Включите режим "Новичка"** — скроет настройки для "Экспертов"
 5. **Добавьте профиль** — вставьте ключ из буфера обмена
 6. **Подключитесь** — нажмите кнопку подключения
 
@@ -141,4 +195,13 @@ body.dark-mode .image-card {
 
 ---
 
-[← Вернуться к инструкции по настройке](/Tunless_Modern/setup.html)
+<!-- ИСПРАВЛЕНО: Markdown-ссылка заменена на стилизованную кнопку -->
+<div style="text-align: center; margin-top: 40px;">
+  <a href="/Tunless_Modern/setup.html" class="cta-button">
+    <svg viewBox="0 0 24 24">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+    <span>Вернуться к инструкции</span>
+  </a>
+</div>
