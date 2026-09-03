@@ -103,6 +103,10 @@ body.dark-mode .step-section h3 svg {
   flex-shrink: 0;
 }
 
+.warning-box span {
+  flex: 1;
+}
+
 @keyframes pulse {
   0%, 100% {
     box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
@@ -199,13 +203,19 @@ body.dark-mode .content h3 svg {
 }
 </style>
 
+<!-- Warning Box с иконками по краям -->
 <div class="warning-box">
   <svg viewBox="0 0 24 24">
     <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
     <line x1="12" y1="9" x2="12" y2="13"></line>
     <line x1="12" y1="17" x2="12.01" y2="17"></line>
   </svg>
-  Первый запуск приложения очень ВАЖЕН!
+  <span>Первый запуск приложения очень ВАЖЕН!</span>
+  <svg viewBox="0 0 24 24">
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+    <line x1="12" y1="9" x2="12" y2="13"></line>
+    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+  </svg>
 </div>
 
 <div class="step-section">
