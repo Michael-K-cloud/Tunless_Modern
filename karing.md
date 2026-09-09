@@ -286,12 +286,12 @@ body.dark-mode .shield-icon svg {
 
   <div class="image-card">
     <img src="https://i.postimg.cc/SQBXHs8D/photo-5-2026-06-15-22-12-18.jpg" alt="Добавление профиля">
-    <p>Добавление профиля из буфера обмена</p>
+    <p>Шаг 5: Добавление профиля из буфера обмена</p>
   </div>
   
   <div class="image-card">
     <img src="https://i.postimg.cc/FFMfwRcC/photo-6-2026-06-15-22-12-18.jpg" alt="Активация VPN">
-    <p>Активация VPN подключения</p>
+    <p>Шаг 6:Активация VPN подключения</p>
   </div>
 </div>
 
