@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }} - Tunless</title>
-    <link rel="icon" type="image/gif" href="{{ site.baseurl }}/assets/images/logo_640x640.GIF">
+    <!-- Фавикон для всех современных браузеров -->
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/images/favicon.png">
+    
+    <!-- Специальная иконка для iOS Safari (iPhone/iPad) -->
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/images/favicon.png">
     <style>
         * {
             margin: 0;
