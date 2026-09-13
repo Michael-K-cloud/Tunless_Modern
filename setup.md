@@ -494,7 +494,7 @@ body.dark-mode .back-instruction {
 <div class="setup-container">
 
 <!-- H2 с чертой слева -->
-<h2 class="section-title">Настройка подключения</h2>
+<h2>Настройка подключения</h2>
 
 <!-- Квадратный блок (Hero) -->
 <div class="setup-hero">
