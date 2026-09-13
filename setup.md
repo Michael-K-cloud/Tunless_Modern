@@ -7,7 +7,7 @@ title: Инструкция по настройке
 /* === SETUP ACCORDION STYLES === */
 
 .setup-container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px 15px;
 }
@@ -60,9 +60,10 @@ body.dark-mode .setup-hero p {
 /* Platform Cards Grid */
 .platforms-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     margin: 30px 0;
+    position: relative;
 }
 
 .platform-card {
@@ -71,10 +72,11 @@ body.dark-mode .setup-hero p {
     padding: 30px;
     border: 1px solid rgba(102, 126, 234, 0.3);
     box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    min-height: 180px;
 }
 
 body.dark-mode .platform-card {
@@ -105,9 +107,20 @@ body.dark-mode .platform-card {
     box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
 }
 
+/* Active card - full width */
 .platform-card.active {
+    grid-column: 1 / -1;
+    order: -1;
     border-color: var(--primary);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+    z-index: 10;
+}
+
+/* Hide other cards when one is active */
+.platforms-grid.has-active .platform-card:not(.active) {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
 }
 
 .platform-header {
@@ -174,18 +187,54 @@ body.dark-mode .platform-subtitle {
     transform: rotate(180deg);
 }
 
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    width: 30px;
+    height: 30px;
+    background: rgba(102, 126, 234, 0.2);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 20;
+}
+
+.close-btn:hover {
+    background: rgba(102, 126, 234, 0.4);
+    transform: rotate(90deg);
+}
+
+.close-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--primary);
+    stroke-width: 2;
+    fill: none;
+}
+
+.platform-card.active .close-btn {
+    display: flex;
+}
+
 /* Accordion Content */
 .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     margin-top: 0;
 }
 
 .platform-card.active .accordion-content {
-    max-height: 3000px;
-    margin-top: 25px;
-    padding-top: 25px;
+    max-height: 5000px;
+    opacity: 1;
+    margin-top: 30px;
+    padding-top: 30px;
     border-top: 2px solid rgba(102, 126, 234, 0.2);
 }
 
@@ -375,14 +424,49 @@ body.dark-mode .success-box p {
     border-bottom: 2px solid rgba(102, 126, 234, 0.2);
 }
 
+/* Back instruction */
+.back-instruction {
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    background: rgba(102, 126, 234, 0.08);
+    border-radius: 12px;
+    display: none;
+}
+
+.platforms-grid.has-active .back-instruction {
+    display: block;
+}
+
+.back-instruction p {
+    color: var(--text-light);
+    font-size: 1.1em;
+    margin: 0;
+}
+
+body.dark-mode .back-instruction {
+    background: rgba(102, 126, 234, 0.15);
+}
+
 /* Responsive */
-@media (max-width: 768px) {
-    .setup-hero h2 { font-size: 1.7em; }
-    .setup-hero p { font-size: 1em; }
+@media (max-width: 968px) {
     .platforms-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
+    
+    .platform-card.active {
+        grid-column: 1;
+    }
+    
+    .platforms-grid.has-active .platform-card:not(.active) {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .setup-hero h2 { font-size: 1.7em; }
+    .setup-hero p { font-size: 1em; }
     .platform-card { padding: 25px; }
     .platform-title { font-size: 1.3em; }
     .platform-icon { width: 50px; height: 50px; }
@@ -413,12 +497,18 @@ body.dark-mode .success-box p {
     <strong>Выбери своё устройство:</strong>
 </p>
 
-<div class="platforms-grid">
+<div class="platforms-grid" id="platformsGrid">
     <!-- iOS Card -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="expand-icon">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </div>
         <div class="platform-header">
@@ -438,7 +528,7 @@ body.dark-mode .success-box p {
             <h4 class="section-header">📱 Шаг 1: Скачай приложение</h4>
             
             <div class="info-box">
-                <div class="info-box-title">Для тех, у кого Российский 🇷 аккаунт Apple</div>
+                <div class="info-box-title">📱 Для тех, у кого Российский 🇷🇺 аккаунт Apple</div>
                 <ul class="app-list">
                     <li>Скачиваем <strong>Karing</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                     <li><a href="/Tunless_Modern/karing.html" class="setup-link">👉 Инструкция по настройке Karing</a></li>
@@ -448,7 +538,7 @@ body.dark-mode .success-box p {
             </div>
 
             <div class="info-box">
-                <div class="info-box-title">🌍 Для тех, кто хочет создать иностранный аккаунт</div>
+                <div class="info-box-title"> Для тех, кто хочет создать иностранный аккаунт</div>
                 <p>Например, Американский 🇺🇸 и получить доступ к приложениям, удалённым из Российского 🇷🇺 AppStore.</p>
                 <p style="margin-top: 10px;"><em>Инструкция по созданию иностранного аккаунта скоро будет доступна.</em></p>
             </div>
@@ -469,7 +559,7 @@ body.dark-mode .success-box p {
             <ol class="numbered-steps">
                 <li>Зайди в бота, где купил ключ</li>
                 <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
-                <li>Выбери купленный ключ и нажми  <strong>Получить ключ</strong></li>
+                <li>Выбери купленный ключ и нажми 📋 <strong>Получить ключ</strong></li>
                 <li>Ключ (длинный код, начинающийся на <code>vless://</code>) скопируется в буфер обмена</li>
             </ol>
 
@@ -481,7 +571,7 @@ body.dark-mode .success-box p {
             <div class="info-box">
                 <div class="info-box-title">Для iPhone (Karing)</div>
                 <p>У приложения одинаковый интерфейс на всех платформах. Всё будет знакомо!</p>
-                <p style="margin-top: 15px;"><a href="/Tunless_Modern/karing.html" class="setup-link"> Подробная инструкция с картинками</a></p>
+                <p style="margin-top: 15px;"><a href="/Tunless_Modern/karing.html" class="setup-link">👉 Подробная инструкция с картинками</a></p>
             </div>
         </div>
     </div>
@@ -491,6 +581,12 @@ body.dark-mode .success-box p {
         <div class="expand-icon">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </div>
         <div class="platform-header">
@@ -520,7 +616,7 @@ body.dark-mode .success-box p {
                 <li><a href="#" class="setup-link"><strong>Happ</strong></a></li>
             </ul>
 
-            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
+            <h4 class="section-header"> Шаг 2: Скопируй свой ключ</h4>
             <ol class="numbered-steps">
                 <li>Зайди в бота, где купил ключ</li>
                 <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
@@ -551,6 +647,12 @@ body.dark-mode .success-box p {
         <div class="expand-icon">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </div>
         <div class="platform-header">
@@ -585,8 +687,8 @@ body.dark-mode .success-box p {
             <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid rgba(102, 126, 234, 0.2);">
                 <p style="margin-bottom: 10px;"><strong>Ссылки на проекты на GitHub:</strong></p>
                 <ul class="app-list">
-                    <li><a href="#" class="setup-link"> Karing</a></li>
-                    <li><a href="#" class="setup-link"> Hiddify</a></li>
+                    <li><a href="#" class="setup-link">👉 Karing</a></li>
+                    <li><a href="#" class="setup-link">👉 Hiddify</a></li>
                 </ul>
                 <p style="font-size: 0.9em; margin: 15px 0;"><em>Выбирай файл <code>.exe</code> или <code>.zip</code> для Windows или <code>.dmg</code> для Mac.</em></p>
             </div>
@@ -599,11 +701,11 @@ body.dark-mode .success-box p {
                 </ul>
             </div>
 
-            <h4 class="section-header"> Шаг 2: Скопируй свой ключ</h4>
+            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
             <ol class="numbered-steps">
                 <li>Зайди в бота, где купил ключ</li>
                 <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
-                <li>Выбери купленный ключ и нажми  <strong>Получить ключ</strong></li>
+                <li>Выбери купленный ключ и нажми 📋 <strong>Получить ключ</strong></li>
                 <li>Ключ (длинный код, начинающийся на <code>vless://</code>) скопируется в буфер обмена</li>
             </ol>
 
@@ -625,6 +727,11 @@ body.dark-mode .success-box p {
     </div>
 </div>
 
+<!-- Back Instruction -->
+<div class="back-instruction">
+    <p>💡 Чтобы выбрать другое устройство, закрой эту инструкцию (нажми на ✕ или кликни ещё раз)</p>
+</div>
+
 <!-- Success Box -->
 <div class="success-box">
     <h3>✅ Готово! Ты подключен к VPN!</h3>
@@ -635,22 +742,32 @@ body.dark-mode .success-box p {
 
 <script>
 function toggleAccordion(card) {
-    // Закрываем все остальные карточки
+    const grid = document.getElementById('platformsGrid');
+    const isActive = card.classList.contains('active');
+    
+    // Close all cards
     const allCards = document.querySelectorAll('.platform-card');
-    allCards.forEach(c => {
-        if (c !== card) {
-            c.classList.remove('active');
-        }
-    });
+    allCards.forEach(c => c.classList.remove('active'));
     
-    // Переключаем текущую карточку
-    card.classList.toggle('active');
-    
-    // Плавная прокрутка к открытой карточке
-    if (card.classList.contains('active')) {
+    if (!isActive) {
+        // Open clicked card
+        card.classList.add('active');
+        grid.classList.add('has-active');
+        
+        // Smooth scroll to card
         setTimeout(() => {
             card.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
+    } else {
+        // All cards closed
+        grid.classList.remove('has-active');
     }
+}
+
+function closeAccordion() {
+    const grid = document.getElementById('platformsGrid');
+    const allCards = document.querySelectorAll('.platform-card');
+    allCards.forEach(c => c.classList.remove('active'));
+    grid.classList.remove('has-active');
 }
 </script>
