@@ -491,8 +491,6 @@ body.dark-mode .back-instruction {
 }
 </style>
 
-<div class="setup-container">
-
 <!-- H2 с чертой слева -->
 <h2>Настройка подключения</h2>
 
