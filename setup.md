@@ -486,15 +486,15 @@ body.dark-mode .back-instruction {
 
 <!-- Hero Section -->
 <div class="setup-hero">
-    <h1>Настройка подключения</h1>
+    <h2>Настройка подключения</h2>
     <p>Поздравляем! Почти всё готово.</p>
-    <p>Осталось всего пару кликов, чтобы настроить подключение.</p>
+    <p>Осталось всего пару кликов, чтобы всё настроить.</p>
     <div class="highlight">Скопировал → Вставил → Полетело</div>
 </div>
 
 <!-- Platform Selection -->
 <p style="text-align: center; font-size: 1.3em; margin-bottom: 30px; color: var(--text-light);">
-    <strong>Выбери своё устройство:</strong>
+    <h3>Выбери своё устройство:</h3>
 </p>
 
 <div class="platforms-grid" id="platformsGrid">
