@@ -12,49 +12,58 @@ title: Инструкция по настройке
     padding: 20px 15px;
 }
 
-/* Page Header (Вне квадрата, с чертой) */
-.page-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 3px solid rgba(102, 126, 234, 0.3);
-}
-
-.page-header h1 {
-    font-size: 2.5em;
+/* H2 с чертой слева */
+.section-title {
+    font-size: 2em;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0 0 15px 0;
+    color: var(--primary);
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 5px solid var(--primary);
 }
 
-.highlight-badge {
-    display: inline-block;
+/* Hero Section (квадратный блок) */
+.setup-hero {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+body.dark-mode .setup-hero {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+}
+
+.setup-hero p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+body.dark-mode .setup-hero p {
+    color: var(--text-dark);
+}
+
+.setup-hero .highlight {
     font-weight: 700;
     color: var(--primary);
-    padding: 8px 20px;
+    padding: 8px 16px;
     background: rgba(102, 126, 234, 0.1);
-    border-radius: 20px;
-    font-size: 1.1em;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 10px 0;
 }
 
-body.dark-mode .highlight-badge {
-    background: rgba(102, 126, 234, 0.2);
-}
-
-/* Selection Title (Внутри, по центру, h3) */
+/* H3 по центру (сиреневый текст) */
 .selection-title {
     text-align: center;
     font-size: 1.5em;
     font-weight: 700;
-    color: var(--text-light);
+    color: var(--primary);
     margin: 0 0 30px 0;
-}
-
-body.dark-mode .selection-title {
-    color: var(--text-dark);
 }
 
 /* Platform Cards Grid */
@@ -465,7 +474,8 @@ body.dark-mode .back-instruction {
 }
 
 @media (max-width: 768px) {
-    .page-header h1 { font-size: 2em; }
+    .section-title { font-size: 1.7em; }
+    .setup-hero p { font-size: 1em; }
     .platform-card { padding: 25px; }
     .platform-title { font-size: 1.3em; }
     .platform-icon { width: 50px; height: 50px; }
@@ -483,13 +493,17 @@ body.dark-mode .back-instruction {
 
 <div class="setup-container">
 
-<!-- Header вне квадрата с чертой -->
-<div class="page-header">
-    <h1>Настройка подключения</h1>
-    <div class="highlight-badge">Скопировал → Вставил → Полетело</div>
+<!-- H2 с чертой слева -->
+<h2 class="section-title">Настройка подключения</h2>
+
+<!-- Квадратный блок (Hero) -->
+<div class="setup-hero">
+    <p>Поздравляем! Почти всё готово.</p>
+    <p>Осталось всего пару кликов, чтобы всё настроить.</p>
+    <div class="highlight">Скопировал → Вставил → Полетело</div>
 </div>
 
-<!-- H3 по центру внутри основной области -->
+<!-- H3 по центру (сиреневый текст) -->
 <h3 class="selection-title">Выбери своё устройство:</h3>
 
 <div class="platforms-grid" id="platformsGrid">
@@ -526,7 +540,7 @@ body.dark-mode .back-instruction {
                 <div class="info-box-title">📱 Для тех, у кого Российский 🇷🇺 аккаунт Apple</div>
                 <ul class="app-list">
                     <li>Скачиваем <strong>Karing</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
-                    <li><a href="/Tunless_Modern/karing.html" class="setup-link">👉 Инструкция по настройке Karing</a></li>
+                    <li><a href="/Tunless_Modern/karing.html" class="setup-link"> Инструкция по настройке Karing</a></li>
                     <li>или</li>
                     <li>Скачиваем <strong>Happ</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                 </ul>
@@ -534,7 +548,7 @@ body.dark-mode .back-instruction {
 
             <div class="info-box">
                 <div class="info-box-title">🌍 Для тех, кто хочет создать иностранный аккаунт</div>
-                <p>Например, Американский 🇺🇸 и получить доступ к приложениям, удалённым из Российского 🇷🇺 AppStore.</p>
+                <p>Например, Американский 🇸 и получить доступ к приложениям, удалённым из Российского 🇷🇺 AppStore.</p>
                 <p style="margin-top: 10px;"><em>Инструкция по созданию иностранного аккаунта скоро будет доступна.</em></p>
             </div>
 
@@ -547,7 +561,7 @@ body.dark-mode .back-instruction {
                     <li>Скачиваем <strong>Hiddify</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                     <li>Скачиваем <strong>Happ</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                 </ul>
-                <p style="margin-top: 15px; font-size: 0.95em;"><strong>💡 Мы рекомендуем Karing или Hiddify</strong>, т.к. в них, на данный момент, есть автоматическое переключение между протоколами.</p>
+                <p style="margin-top: 15px; font-size: 0.95em;"><strong> Мы рекомендуем Karing или Hiddify</strong>, т.к. в них, на данный момент, есть автоматическое переключение между протоколами.</p>
             </div>
 
             <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
@@ -566,7 +580,7 @@ body.dark-mode .back-instruction {
             <div class="info-box">
                 <div class="info-box-title">Для iPhone (Karing)</div>
                 <p>У приложения одинаковый интерфейс на всех платформах. Всё будет знакомо!</p>
-                <p style="margin-top: 15px;"><a href="/Tunless_Modern/karing.html" class="setup-link">👉 Подробная инструкция с картинками</a></p>
+                <p style="margin-top: 15px;"><a href="/Tunless_Modern/karing.html" class="setup-link"> Подробная инструкция с картинками</a></p>
             </div>
         </div>
     </div>
@@ -724,7 +738,7 @@ body.dark-mode .back-instruction {
 
 <!-- Back Instruction -->
 <div class="back-instruction">
-    <p>💡 Чтобы выбрать другое устройство, закрой эту инструкцию (нажми на ✕ или кликни ещё раз)</p>
+    <p> Чтобы выбрать другое устройство, закрой эту инструкцию (нажми на ✕ или кликни ещё раз)</p>
 </div>
 
 <!-- Success Box -->
