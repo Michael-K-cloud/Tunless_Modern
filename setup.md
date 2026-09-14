@@ -7,10 +7,10 @@ title: Инструкция по настройке
 /* === SETUP ACCORDION STYLES === */
 /* H2 не стилизуем: глобальный .content h2::after уже даёт черту снизу слева */
 
-/* Platform Cards Grid */
+/* Platform Cards Grid (4 карточки) */
 .platforms-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin: 0 0 30px 0;
     position: relative;
@@ -19,7 +19,7 @@ title: Инструкция по настройке
 .platform-card {
     background: var(--card-light);
     border-radius: 16px;
-    padding: 30px;
+    padding: 25px;
     border: 1px solid rgba(102, 126, 234, 0.3);
     box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,13 +76,13 @@ body.dark-mode .platform-card {
 .platform-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 15px;
 }
 
 .platform-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     flex-shrink: 0;
 }
 
@@ -100,14 +100,14 @@ body.dark-mode .platform-icon svg {
 
 /* Специфичность повышена: глобальный .content h3 иначе перебивает margin и font-weight */
 .platform-card .platform-title {
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 700;
     color: var(--primary);
     margin: 0;
 }
 
 .platform-subtitle {
-    font-size: 1em;
+    font-size: 0.95em;
     color: var(--text-light);
     margin-top: 5px;
     line-height: 1.5;
@@ -334,37 +334,6 @@ body.dark-mode .key-box {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
 }
 
-/* Success Box */
-.success-box {
-    text-align: center;
-    padding: 40px 30px;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
-    border: 2px solid #10b981;
-    border-radius: 20px;
-    margin: 40px 0;
-}
-
-body.dark-mode .success-box {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
-}
-
-.success-box h3 {
-    font-size: 2em;
-    color: #10b981;
-    margin-bottom: 15px;
-    font-weight: 800;
-}
-
-.success-box p {
-    font-size: 1.3em;
-    color: var(--text-light);
-    line-height: 1.6;
-}
-
-body.dark-mode .success-box p {
-    color: var(--text-dark);
-}
-
 /* Section Headers */
 .section-header {
     font-size: 1.4em;
@@ -373,6 +342,32 @@ body.dark-mode .success-box p {
     margin: 25px 0 15px;
     padding-bottom: 10px;
     border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+/* Screenshots */
+.screenshot {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    margin: 15px 0;
+}
+
+.screenshot-placeholder {
+    border: 2px dashed rgba(102, 126, 234, 0.4);
+    border-radius: 12px;
+    padding: 25px 15px;
+    text-align: center;
+    color: var(--text-light);
+    background: rgba(102, 126, 234, 0.05);
+    margin: 15px 0 5px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+body.dark-mode .screenshot-placeholder {
+    color: var(--text-dark);
+    background: rgba(102, 126, 234, 0.1);
 }
 
 /* Back instruction (соседний селектор + : блок лежит ПОСЛЕ grid, а не внутри) */
@@ -400,19 +395,16 @@ body.dark-mode .back-instruction {
 }
 
 /* === ПЕРЕБИВАНИЕ ГЛОБАЛЬНЫХ СТИЛЕЙ _layouts/default.html === */
-/* Глобальные .content ul/ol дают margin-left: 30px — убираем для наших списков */
 .content .app-list,
 .content .numbered-steps {
     margin-left: 0;
     margin-bottom: 15px;
 }
 
-/* Глобальные .content li дают margin-bottom: 15px — убираем для стрелок */
 .content .app-list li {
     margin-bottom: 0;
 }
 
-/* Глобальный .content li:hover сдвигает padding-left и красит текст — нейтрализуем */
 .content .app-list li:hover {
     padding-left: 0;
     color: inherit;
@@ -424,6 +416,13 @@ body.dark-mode .back-instruction {
 }
 
 /* Responsive */
+@media (max-width: 1100px) {
+    .platforms-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
 @media (max-width: 968px) {
     .platforms-grid {
         grid-template-columns: 1fr;
@@ -442,7 +441,7 @@ body.dark-mode .back-instruction {
 @media (max-width: 768px) {
     .platform-card { padding: 25px; }
     .platform-card .platform-title { font-size: 1.3em; }
-    .platform-icon { width: 50px; height: 50px; }
+    .platform-icon { width: 40px; height: 40px; }
     .numbered-steps li {
         padding: 15px 15px 15px 55px;
     }
@@ -456,7 +455,7 @@ body.dark-mode .back-instruction {
 }
 </style>
 
-<!-- H2 с чертой слева (черта даёт глобальный .content h2::after) -->
+<!-- H2 с чертой слева (черту даёт глобальный .content h2::after) -->
 <h2>Настройка подключения</h2>
 
 <div class="platforms-grid" id="platformsGrid">
@@ -475,9 +474,9 @@ body.dark-mode .back-instruction {
         </div>
         <div class="platform-header">
             <div class="platform-icon">
+                <!-- Контурный логотип Apple -->
                 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-                    <path d="M12 6v6l4 2"/>
+                    <path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
                 </svg>
             </div>
             <div>
@@ -501,7 +500,7 @@ body.dark-mode .back-instruction {
 
             <div class="info-box">
                 <div class="info-box-title">🌍 Для тех, кто хочет создать иностранный аккаунт</div>
-                <p>Например, Американский 🇺🇸 и получить доступ к приложениям, удалённым из Российского 🇷🇺 AppStore.</p>
+                <p>Например, Американский 🇺🇸 и получить доступ к приложениям, удалённым из Российского 🇷 AppStore.</p>
                 <p style="margin-top: 10px;"><em>Инструкция по созданию иностранного аккаунта скоро будет доступна.</em></p>
             </div>
 
@@ -553,11 +552,13 @@ body.dark-mode .back-instruction {
         </div>
         <div class="platform-header">
             <div class="platform-icon">
+                <!-- Контурный робот Android -->
                 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="8" width="16" height="12" rx="2"/>
-                    <line x1="8" y1="4" x2="8" y2="8"/>
-                    <line x1="12" y1="4" x2="12" y2="8"/>
-                    <line x1="16" y1="4" x2="16" y2="8"/>
+                    <path d="M4 16a8 8 0 0 1 16 0z"/>
+                    <line x1="7" y1="6" x2="9" y2="9.5"/>
+                    <line x1="17" y1="6" x2="15" y2="9.5"/>
+                    <line x1="9.5" y1="12.5" x2="9.51" y2="12.5"/>
+                    <line x1="14.5" y1="12.5" x2="14.51" y2="12.5"/>
                 </svg>
             </div>
             <div>
@@ -619,10 +620,12 @@ body.dark-mode .back-instruction {
         </div>
         <div class="platform-header">
             <div class="platform-icon">
+                <!-- Контурный логотип Windows (4 панели) -->
                 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                    <line x1="8" y1="21" x2="16" y2="21"/>
-                    <line x1="12" y1="17" x2="12" y2="21"/>
+                    <rect x="3" y="3" width="8" height="8"/>
+                    <rect x="13" y="3" width="8" height="8"/>
+                    <rect x="3" y="13" width="8" height="8"/>
+                    <rect x="13" y="13" width="8" height="8"/>
                 </svg>
             </div>
             <div>
@@ -687,17 +690,61 @@ body.dark-mode .back-instruction {
             </div>
         </div>
     </div>
+
+    <!-- Telegram Card -->
+    <div class="platform-card" onclick="toggleAccordion(this)">
+        <div class="expand-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+        <div class="platform-header">
+            <div class="platform-icon">
+                <!-- Контурная иконка Telegram (та же, что на кнопке главной страницы) -->
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </div>
+            <div>
+                <h3 class="platform-title">Telegram</h3>
+                <p class="platform-subtitle">Бот: ключи и подписка</p>
+            </div>
+        </div>
+        
+        <div class="accordion-content">
+            <h4 class="section-header">🤖 Как пользоваться ботом</h4>
+            <ol class="numbered-steps">
+                <li>Открой бота <a href="https://t.me/Tunless_bot" target="_blank" class="setup-link">@Tunless_bot</a>
+                </li>
+                <li>Нажми <strong>«Start»</strong> — откроется главное меню с кнопками
+                    <div class="screenshot-placeholder">📸 Место для скриншота: главное меню бота<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_menu.png" alt="Главное меню бота"> --></div>
+                </li>
+                <li>Выбери тариф и оплати — ключ появится в твоём аккаунте сразу после оплаты
+                    <div class="screenshot-placeholder">📸 Место для скриншота: выбор тарифа и оплата<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_buy.png" alt="Выбор тарифа и оплата"> --></div>
+                </li>
+                <li>Нажми 🔑 <strong>«Мои ключи»</strong>, выбери ключ и нажми 📋 <strong>«Получить ключ»</strong> — он скопируется в буфер обмена
+                    <div class="screenshot-placeholder">📸 Место для скриншота: кнопка «Получить ключ»<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_key.png" alt="Кнопка Получить ключ"> --></div>
+                </li>
+                <li>В этом же меню можно продлевать подписку и смотреть остаток трафика</li>
+            </ol>
+            <div class="info-box">
+                <div class="info-box-title">💡 Что дальше</div>
+                <p>Скопированный ключ вставь в приложение своего устройства — вернись к карточке <strong>iOS</strong>, <strong>Android</strong> или <strong>PC</strong> выше и выполни Шаг 3.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Back Instruction -->
 <div class="back-instruction">
     <p>💡 Чтобы выбрать другое устройство, закрой эту инструкцию (нажми на ✕ или кликни ещё раз)</p>
-</div>
-
-<!-- Success Box -->
-<div class="success-box">
-    <h3>✅ Готово! Ты подключен к VPN!</h3>
-    <p>Наслаждайся быстрым и безопасным интернетом!</p>
 </div>
 
 <script>
