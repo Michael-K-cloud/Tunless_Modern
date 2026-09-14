@@ -406,6 +406,11 @@ body.dark-mode .back-instruction {
     color: inherit;
 }
 
+/* Отступ автопрокрутки: карточка не уезжает под липкое меню */
+.platform-card {
+    scroll-margin-top: 110px;
+}
+
 /* Responsive */
 /* Планшет/телефон (портрет): 2 карточки в ряд, сжимаются под экран */
 @media (max-width: 1100px) {
