@@ -27,6 +27,9 @@ title: Инструкция по настройке
     position: relative;
     overflow: hidden;
     min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 body.dark-mode .platform-card {
@@ -77,13 +80,38 @@ body.dark-mode .platform-card {
     order: -1;
 }
 
+/* Шапка: grid 1fr auto 1fr — центр по центру, кнопки справа, без перекрытий */
 .platform-header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: 15px;
     margin-bottom: 15px;
 }
 
+.header-center {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    min-width: 0;
+}
+
+.header-center > div {
+    min-width: 0;
+}
+
+.card-controls {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Иконка = высота двух строк текста (заголовок + строка подзаголовка) */
 .platform-icon {
     width: 50px;
     height: 50px;
@@ -115,6 +143,7 @@ body.dark-mode .platform-icon svg {
     color: var(--text-light);
     margin-top: 5px;
     line-height: 1.5;
+    overflow-wrap: break-word;
 }
 
 body.dark-mode .platform-subtitle {
@@ -122,9 +151,6 @@ body.dark-mode .platform-subtitle {
 }
 
 .expand-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
     width: 30px;
     height: 30px;
     transition: transform 0.3s ease;
@@ -144,9 +170,6 @@ body.dark-mode .platform-subtitle {
 
 /* Close button */
 .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 60px;
     width: 30px;
     height: 30px;
     background: rgba(102, 126, 234, 0.2);
@@ -156,7 +179,6 @@ body.dark-mode .platform-subtitle {
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s;
-    z-index: 20;
 }
 
 .close-btn:hover {
@@ -429,9 +451,10 @@ body.dark-mode .back-instruction {
 }
 
 @media (max-width: 768px) {
-    .platform-card { padding: 25px; }
+    .platform-card { padding: 20px; }
     .platform-card .platform-title { font-size: 1.3em; }
-    .platform-icon { width: 40px; height: 40px; }
+    .platform-icon { width: 48px; height: 48px; }
+    .header-center { gap: 12px; }
     .numbered-steps li {
         padding: 15px 15px 15px 55px;
     }
@@ -451,27 +474,31 @@ body.dark-mode .back-instruction {
 <div class="platforms-grid" id="platformsGrid">
     <!-- iOS Card -->
     <div class="platform-card" onclick="toggleAccordion(this)">
-        <div class="expand-icon">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-        </div>
-        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
         <div class="platform-header">
-            <div class="platform-icon">
-                <!-- Контурный логотип Apple -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
-                </svg>
+            <div class="header-center">
+                <div class="platform-icon">
+                    <!-- Контурный логотип Apple -->
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="platform-title">iOS</h3>
+                    <p class="platform-subtitle">iPhone / iPad</p>
+                </div>
             </div>
-            <div>
-                <h3 class="platform-title">iOS</h3>
-                <p class="platform-subtitle">iPhone / iPad</p>
+            <div class="card-controls">
+                <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+                <div class="expand-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
             </div>
         </div>
         
@@ -529,31 +556,38 @@ body.dark-mode .back-instruction {
 
     <!-- Android Card -->
     <div class="platform-card" onclick="toggleAccordion(this)">
-        <div class="expand-icon">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-        </div>
-        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
         <div class="platform-header">
-            <div class="platform-icon">
-                <!-- Контурный робот Android -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 16a8 8 0 0 1 16 0z"/>
-                    <line x1="7" y1="6" x2="9" y2="9.5"/>
-                    <line x1="17" y1="6" x2="15" y2="9.5"/>
-                    <line x1="9.5" y1="12.5" x2="9.51" y2="12.5"/>
-                    <line x1="14.5" y1="12.5" x2="14.51" y2="12.5"/>
-                </svg>
+            <div class="header-center">
+                <div class="platform-icon">
+                    <!-- Контурный робот Android (полный силуэт, оптически равен остальным) -->
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 10a5 5 0 0 1 10 0z"/>
+                        <line x1="8.5" y1="3.5" x2="10" y2="6"/>
+                        <line x1="15.5" y1="3.5" x2="14" y2="6"/>
+                        <line x1="10" y1="7.5" x2="10.01" y2="7.5"/>
+                        <line x1="14" y1="7.5" x2="14.01" y2="7.5"/>
+                        <rect x="7" y="12" width="10" height="8" rx="2"/>
+                        <line x1="4" y1="12.5" x2="4" y2="17.5"/>
+                        <line x1="20" y1="12.5" x2="20" y2="17.5"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="platform-title">Android</h3>
+                    <p class="platform-subtitle">Android / Android TV / Google TV</p>
+                </div>
             </div>
-            <div>
-                <h3 class="platform-title">Android</h3>
-                <p class="platform-subtitle">Android / Android TV / Google TV</p>
+            <div class="card-controls">
+                <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+                <div class="expand-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
             </div>
         </div>
         
@@ -597,30 +631,34 @@ body.dark-mode .back-instruction {
 
     <!-- PC Card -->
     <div class="platform-card" onclick="toggleAccordion(this)">
-        <div class="expand-icon">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-        </div>
-        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
         <div class="platform-header">
-            <div class="platform-icon">
-                <!-- Контурный логотип Windows (4 панели) -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="8" height="8"/>
-                    <rect x="13" y="3" width="8" height="8"/>
-                    <rect x="3" y="13" width="8" height="8"/>
-                    <rect x="13" y="13" width="8" height="8"/>
-                </svg>
+            <div class="header-center">
+                <div class="platform-icon">
+                    <!-- Контурный логотип Windows (4 панели) -->
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="8" height="8"/>
+                        <rect x="13" y="3" width="8" height="8"/>
+                        <rect x="3" y="13" width="8" height="8"/>
+                        <rect x="13" y="13" width="8" height="8"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="platform-title">PC</h3>
+                    <p class="platform-subtitle">Windows / Mac / Linux</p>
+                </div>
             </div>
-            <div>
-                <h3 class="platform-title">PC</h3>
-                <p class="platform-subtitle">Windows / Mac / Linux</p>
+            <div class="card-controls">
+                <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+                <div class="expand-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
             </div>
         </div>
         
@@ -683,28 +721,32 @@ body.dark-mode .back-instruction {
 
     <!-- Telegram Card -->
     <div class="platform-card" onclick="toggleAccordion(this)">
-        <div class="expand-icon">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-        </div>
-        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
         <div class="platform-header">
-            <div class="platform-icon">
-                <!-- Контурная иконка Telegram (та же, что на кнопке главной страницы) -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
+            <div class="header-center">
+                <div class="platform-icon">
+                    <!-- Контурная иконка Telegram (та же, что на кнопке главной страницы) -->
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="platform-title">Telegram</h3>
+                    <p class="platform-subtitle">Бот: ключи и подписка</p>
+                </div>
             </div>
-            <div>
-                <h3 class="platform-title">Telegram</h3>
-                <p class="platform-subtitle">Бот: ключи и подписка</p>
+            <div class="card-controls">
+                <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+                <div class="expand-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
             </div>
         </div>
         
