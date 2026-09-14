@@ -16,7 +16,6 @@ title: Инструкция по настройке
     position: relative;
 }
 
-/* Контент прижат к верху: верхние края иконок совпадают во всех карточках ряда */
 .platform-card {
     background: var(--card-light);
     border-radius: 16px;
@@ -30,7 +29,6 @@ title: Инструкция по настройке
     min-height: 130px;
     display: flex;
     flex-direction: column;
-    scroll-margin-top: 110px; /* автопрокрутка не прячет шапку под липкое меню */
 }
 
 body.dark-mode .platform-card {
@@ -61,7 +59,7 @@ body.dark-mode .platform-card {
     box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
 }
 
-/* Active card - full width (без order: карточка не прыгает на первое место) */
+/* Active card - full width */
 .platform-card.active {
     grid-column: 1 / -1;
     border-color: var(--primary);
@@ -74,12 +72,11 @@ body.dark-mode .platform-card {
     display: none;
 }
 
-/* Держим полную ширину, пока карточка сворачивается (чинит "2 столбика") */
+/* Держим полную ширину, пока карточка сворачивается */
 .platform-card.collapsing {
     grid-column: 1 / -1;
 }
 
-/* Шапка: верх иконки и верх заголовка на одной линии */
 .platform-header {
     display: flex;
     align-items: flex-start;
@@ -91,7 +88,6 @@ body.dark-mode .platform-card {
     min-width: 0;
 }
 
-/* Иконка = высота двух строк текста справа */
 .platform-icon {
     width: 50px;
     height: 50px;
@@ -110,7 +106,6 @@ body.dark-mode .platform-icon svg {
     stroke: #ffffff; 
 }
 
-/* Специфичность повышена: глобальный .content h3 иначе перебивает margin и font-weight */
 .platform-card .platform-title {
     font-size: 1.4em;
     font-weight: 700;
@@ -130,7 +125,6 @@ body.dark-mode .platform-subtitle {
     color: var(--text-dark);
 }
 
-/* Close button: только у раскрытой карточки, в правом верхнем углу */
 .close-btn {
     position: absolute;
     top: 15px;
@@ -181,7 +175,7 @@ body.dark-mode .platform-subtitle {
     border-top: 2px solid rgba(102, 126, 234, 0.2);
 }
 
-/* App tiles: дизайн и hover-анимация как у плиток главной страницы */
+/* App tiles: тёмно-синяя подложка #25294A, hover с полоской и подъёмом */
 .apps-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -190,11 +184,11 @@ body.dark-mode .platform-subtitle {
 }
 
 .app-tile {
-    background: var(--card-light);
+    background: #25294A;
     border-radius: 16px;
     padding: 25px 15px;
-    border: 1px solid rgba(102, 126, 234, 0.3);
-    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -206,9 +200,9 @@ body.dark-mode .platform-subtitle {
 }
 
 body.dark-mode .app-tile {
-    background: var(--card-dark);
-    border-color: rgba(102, 126, 234, 0.2);
-    box-shadow: none;
+    background: #25294A;
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .app-tile::before {
@@ -230,19 +224,20 @@ body.dark-mode .app-tile {
 
 .app-tile:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Логотип приложения (img) */
 .app-icon {
     width: 90px;
     height: 90px;
     border-radius: 20px;
     object-fit: contain;
     flex-shrink: 0;
+    background: #ffffff;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
-/* Заглушка, если логотипа нет (сейчас только V2RayN) */
 .app-icon-placeholder {
     width: 90px;
     height: 90px;
@@ -261,14 +256,10 @@ body.dark-mode .app-tile {
     font-weight: 700;
     font-size: 1.15em;
     line-height: 1.3;
-    color: var(--text-light);
+    color: #ffffff;
 }
 
-body.dark-mode .app-name {
-    color: var(--text-dark);
-}
-
-/* Кнопки плиток: одинаковый размер, изоляция от глобального .content a */
+/* Кнопки плиток: одинаковый размер */
 .app-btn {
     display: flex !important;
     align-items: center !important;
@@ -488,7 +479,7 @@ body.dark-mode .screenshot-placeholder {
     background: rgba(102, 126, 234, 0.1);
 }
 
-/* Back instruction (соседний селектор + : блок лежит ПОСЛЕ grid, а не внутри) */
+/* Back instruction */
 .back-instruction {
     text-align: center;
     padding: 20px;
@@ -534,7 +525,6 @@ body.dark-mode .back-instruction {
 }
 
 /* Responsive */
-/* Планшет/телефон (портрет): 2 карточки в ряд, сжимаются под экран */
 @media (max-width: 1100px) {
     .platforms-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -547,7 +537,6 @@ body.dark-mode .back-instruction {
     .platform-card .platform-title { font-size: 1.3em; }
     .platform-icon { width: 48px; height: 48px; }
 
-    /* Узкие карточки: колонка — иконка сверху по центру, под ней сиреневый заголовок, ниже светлый подзаголовок */
     .platform-header {
         flex-direction: column;
         align-items: center;
@@ -555,7 +544,6 @@ body.dark-mode .back-instruction {
         gap: 10px;
     }
 
-    /* Плитки приложений в 2 колонки на узких экранах */
     .apps-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
@@ -574,7 +562,6 @@ body.dark-mode .back-instruction {
 }
 </style>
 
-<!-- H2 с чертой слева (черту даёт глобальный .content h2::after) -->
 <h2>Настройка подключения</h2>
 
 <div class="platforms-grid" id="platformsGrid">
@@ -588,7 +575,6 @@ body.dark-mode .back-instruction {
         </div>
         <div class="platform-header">
             <div class="platform-icon">
-                <!-- Контурная иконка Telegram (та же, что на кнопке главной страницы); плотный viewBox = иконка во весь блок -->
                 <svg viewBox="1 1 22 22" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 1.375">
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -601,18 +587,17 @@ body.dark-mode .back-instruction {
         </div>
         
         <div class="accordion-content">
-            <h4 class="section-header">🤖 Как пользоваться ботом</h4>
+            <h4 class="section-header">Как пользоваться ботом</h4>
             <ol class="numbered-steps">
-                <li>Открой бота <a href="https://t.me/Tunless_bot" target="_blank" class="setup-link">@Tunless_bot</a>
-                </li>
+                <li>Открой бота <a href="https://t.me/Tunless_bot" target="_blank" class="setup-link">@Tunless_bot</a></li>
                 <li>Нажми <strong>«Start»</strong> — откроется главное меню с кнопками
-                    <div class="screenshot-placeholder">📸 Место для скриншота: главное меню бота<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_menu.png" alt="Главное меню бота"> --></div>
+                    <div class="screenshot-placeholder">📸 Место для скриншота: главное меню бота</div>
                 </li>
                 <li>Выбери тариф и оплати — ключ появится в твоём аккаунте сразу после оплаты
-                    <div class="screenshot-placeholder">📸 Место для скриншота: выбор тарифа и оплата<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_buy.png" alt="Выбор тарифа и оплата"> --></div>
+                    <div class="screenshot-placeholder">📸 Место для скриншота: выбор тарифа и оплата</div>
                 </li>
                 <li>Нажми 🔑 <strong>«Мои ключи»</strong>, выбери ключ и нажми 📋 <strong>«Получить ключ»</strong> — он скопируется в буфер обмена
-                    <div class="screenshot-placeholder">📸 Место для скриншота: кнопка «Получить ключ»<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_key.png" alt="Кнопка Получить ключ"> --></div>
+                    <div class="screenshot-placeholder">📸 Место для скриншота: кнопка «Получить ключ»</div>
                 </li>
                 <li>В этом же меню можно продлевать подписку и смотреть остаток трафика</li>
             </ol>
@@ -633,7 +618,6 @@ body.dark-mode .back-instruction {
         </div>
         <div class="platform-header">
             <div class="platform-icon">
-                <!-- Контурный логотип Apple -->
                 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
                 </svg>
@@ -645,7 +629,7 @@ body.dark-mode .back-instruction {
         </div>
         
         <div class="accordion-content">
-            <h4 class="section-header">📱 Шаг 1: Скачай приложение</h4>
+            <h4 class="section-header">Шаг 1: Скачай приложение</h4>
             
             <div class="apps-grid">
                 <div class="app-tile">
@@ -701,7 +685,7 @@ body.dark-mode .back-instruction {
                 </div>
             </div>
 
-            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
+            <h4 class="section-header">Шаг 2: Скопируй свой ключ</h4>
             <ol class="numbered-steps">
                 <li>Зайди в бота, где купил ключ</li>
                 <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
@@ -713,7 +697,7 @@ body.dark-mode .back-instruction {
                 vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
             </div>
 
-            <h4 class="section-header">⚡ Шаг 3: Запускаем!</h4>
+            <h4 class="section-header">Шаг 3: Запускаем!</h4>
             <div class="info-box">
                 <div class="info-box-title">Для iPhone (Karing)</div>
                 <p>У приложения одинаковый интерфейс на всех платформах. Всё будет знакомо!</p>
@@ -722,7 +706,7 @@ body.dark-mode .back-instruction {
         </div>
     </div>
 
-    <!-- Android Card -->
+    <!-- Android Card (4 плитки, без V2Box) -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -732,7 +716,6 @@ body.dark-mode .back-instruction {
         </div>
         <div class="platform-header">
             <div class="platform-icon">
-                <!-- Контурный робот Android; плотный viewBox = иконка во весь блок -->
                 <svg viewBox="3 2.5 18 18.5" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 1.16">
                     <path d="M7 10a5 5 0 0 1 10 0z"/>
                     <line x1="8.5" y1="3.5" x2="10" y2="6"/>
@@ -751,7 +734,7 @@ body.dark-mode .back-instruction {
         </div>
         
         <div class="accordion-content">
-            <h4 class="section-header">📱 Шаг 1: Скачай приложение</h4>
+            <h4 class="section-header">Шаг 1: Скачай приложение</h4>
             
             <div class="apps-grid">
                 <div class="app-tile">
@@ -781,19 +764,6 @@ body.dark-mode .back-instruction {
                 </div>
 
                 <div class="app-tile">
-                    <img class="app-icon" src="/Tunless_Modern/assets/images/v2box_logo.png" alt="V2Box">
-                    <div class="app-name">V2Box</div>
-                    <a href="#" class="app-btn">
-                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        <span>Скачать</span>
-                    </a>
-                    <a href="#" class="app-btn">
-                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                        <span>Инструкция</span>
-                    </a>
-                </div>
-
-                <div class="app-tile">
                     <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
                     <div class="app-name">Hiddify</div>
                     <a href="#" class="app-btn">
@@ -820,7 +790,7 @@ body.dark-mode .back-instruction {
                 </div>
             </div>
 
-            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
+            <h4 class="section-header">Шаг 2: Скопируй свой ключ</h4>
             <ol class="numbered-steps">
                 <li>Зайди в бота, где купил ключ</li>
                 <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
@@ -832,7 +802,7 @@ body.dark-mode .back-instruction {
                 vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
             </div>
 
-            <h4 class="section-header">⚡ Шаг 3: Запускаем!</h4>
+            <h4 class="section-header">Шаг 3: Запускаем!</h4>
             <div class="info-box">
                 <div class="info-box-title">Для Android (V2RayTun)</div>
                 <ol class="numbered-steps" style="margin: 15px 0;">
@@ -846,7 +816,7 @@ body.dark-mode .back-instruction {
         </div>
     </div>
 
-    <!-- PC Card -->
+    <!-- PC Card (Windows ссылки подставлены) -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -856,7 +826,6 @@ body.dark-mode .back-instruction {
         </div>
         <div class="platform-header">
             <div class="platform-icon">
-                <!-- Контурный логотип Windows (4 панели); плотный viewBox = иконка во весь блок -->
                 <svg viewBox="2 2 20 20" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 1.25">
                     <rect x="3" y="3" width="8" height="8"/>
                     <rect x="13" y="3" width="8" height="8"/>
@@ -871,13 +840,13 @@ body.dark-mode .back-instruction {
         </div>
         
         <div class="accordion-content">
-            <h4 class="section-header">💻 Шаг 1: Скачай приложение</h4>
+            <h4 class="section-header">Шаг 1: Скачай приложение</h4>
             
             <div class="apps-grid">
                 <div class="app-tile">
                     <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
                     <div class="app-name">Karing</div>
-                    <a href="#" class="app-btn">
+                    <a href="https://github.com/KaringX/karing/releases/download/v1.2.25.2802/karing_1.2.25.2802_windows_x64.zip" target="_blank" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
@@ -890,7 +859,7 @@ body.dark-mode .back-instruction {
                 <div class="app-tile">
                     <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
                     <div class="app-name">Hiddify</div>
-                    <a href="#" class="app-btn">
+                    <a href="https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Windows-Portable-x64.zip" target="_blank" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
@@ -903,7 +872,7 @@ body.dark-mode .back-instruction {
                 <div class="app-tile">
                     <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
                     <div class="app-name">Happ</div>
-                    <a href="#" class="app-btn">
+                    <a href="https://github.com/Happ-proxy/happ-desktop/releases/download/4.2.1/setup-Happ.x64.exe" target="_blank" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
@@ -914,10 +883,9 @@ body.dark-mode .back-instruction {
                 </div>
 
                 <div class="app-tile">
-                    <!-- Логотипа V2RayN нет в assets/images: пришли файл v2rayn_logo.png и замени div на <img class="app-icon" src="/Tunless_Modern/assets/images/v2rayn_logo.png" alt="V2RayN"> -->
-                    <div class="app-icon-placeholder">VN</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/v2rayn_logo.png" alt="V2RayN">
                     <div class="app-name">V2RayN</div>
-                    <a href="#" class="app-btn">
+                    <a href="https://github.com/2dust/v2rayN/releases/download/7.25.1/v2rayN-windows-64.zip" target="_blank" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
@@ -928,7 +896,7 @@ body.dark-mode .back-instruction {
                 </div>
             </div>
 
-            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
+            <h4 class="section-header">Шаг 2: Скопируй свой ключ</h4>
             <ol class="numbered-steps">
                 <li>Зайди в бота, где купил ключ</li>
                 <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
@@ -940,7 +908,7 @@ body.dark-mode .back-instruction {
                 vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
             </div>
 
-            <h4 class="section-header">⚡ Шаг 3: Запускаем!</h4>
+            <h4 class="section-header">Шаг 3: Запускаем!</h4>
             <div class="info-box">
                 <div class="info-box-title">Для ПК (Hiddify)</div>
                 <ol class="numbered-steps" style="margin: 15px 0;">
@@ -978,22 +946,18 @@ function collapseCard(card) {
             !document.querySelector('.platform-card.collapsing')) {
             grid.classList.remove('has-active');
         }
-    }, 450); // чуть дольше анимации 0.4s
+    }, 450);
 }
 
 function toggleAccordion(card) {
     const grid = document.getElementById('platformsGrid');
     if (!card.classList.contains('active')) {
-        // Если открыта другая карточка — сворачиваем её корректно
         document.querySelectorAll('.platform-card.active').forEach(function (c) {
             if (c !== card) collapseCard(c);
         });
         card.classList.remove('collapsing');
         card.classList.add('active');
         grid.classList.add('has-active');
-        setTimeout(function () {
-            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
     } else {
         collapseCard(card);
     }
