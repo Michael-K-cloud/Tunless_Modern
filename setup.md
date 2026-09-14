@@ -234,7 +234,7 @@ body.dark-mode .app-tile {
     object-fit: contain;
     flex-shrink: 0;
     background: #ffffff;
-    padding: 8px;
+    padding: 2px;
     box-sizing: border-box;
 }
 
