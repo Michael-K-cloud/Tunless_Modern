@@ -473,28 +473,35 @@ body.dark-mode .screenshot-placeholder {
     background: rgba(102, 126, 234, 0.1);
 }
 
-/* Back instruction */
-.back-instruction {
-    text-align: center;
-    padding: 20px;
-    margin: 20px 0;
-    background: rgba(102, 126, 234, 0.08);
-    border-radius: 12px;
+/* Кнопка "Готово": видна только при открытой карточке, закрывает её */
+.done-btn {
     display: none;
+    margin: 25px auto 0;
+    padding: 16px 70px;
+    background: var(--card-light);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 12px;
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.platforms-grid.has-active + .back-instruction {
+body.dark-mode .done-btn {
+    background: #25294A;
+    border-color: rgba(255, 255, 255, 0.18);
+    color: var(--text-dark);
+}
+
+.platforms-grid.has-active + .done-btn {
     display: block;
 }
 
-.back-instruction p {
-    color: var(--text-light);
-    font-size: 1.1em;
-    margin: 0;
-}
-
-body.dark-mode .back-instruction {
-    background: rgba(102, 126, 234, 0.15);
+.done-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* === ПЕРЕБИВАНИЕ ГЛОБАЛЬНЫХ СТИЛЕЙ _layouts/default.html === */
@@ -690,13 +697,6 @@ body.dark-mode .back-instruction {
             <div class="key-box">
                 vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
             </div>
-
-            <h4 class="section-header">Шаг 3: Запускаем!</h4>
-            <div class="info-box">
-                <div class="info-box-title">Для iPhone (Karing)</div>
-                <p>У приложения одинаковый интерфейс на всех платформах. Всё будет знакомо!</p>
-                <p style="margin-top: 15px;"><a href="/Tunless_Modern/karing.html" class="setup-link">👉 Подробная инструкция с картинками</a></p>
-            </div>
         </div>
     </div>
 
@@ -810,7 +810,7 @@ body.dark-mode .back-instruction {
         </div>
     </div>
 
-    <!-- PC Card (Windows-ссылки в кнопках «Скачать») -->
+    <!-- PC Card: 3 кнопки Скачать (Windows / Mac / Linux) с иконками ОС -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -841,7 +841,15 @@ body.dark-mode .back-instruction {
                     <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
                     <div class="app-name">Karing</div>
                     <a href="https://github.com/KaringX/karing/releases/download/v1.2.25.2802/karing_1.2.25.2802_windows_x64.zip" target="_blank" class="app-btn">
-                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+                        <span>Скачать</span>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+                        <span>Скачать</span>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c-2 0-3.3 1.5-3.3 3.5 0 1.4-.4 2.5-1.1 3.7-1.1 1.8-1.9 3.6-1.9 5.4 0 2.9 2.3 4.9 5.3 4.9h2c3 0 5.3-2 5.3-4.9 0-1.8-.8-3.6-1.9-5.4-.7-1.2-1.1-2.3-1.1-3.7 0-2-1.3-3.5-3.3-3.5z"/><ellipse cx="12" cy="14.5" rx="3.2" ry="4"/><line x1="10.6" y1="6" x2="10.61" y2="6"/><line x1="13.4" y1="6" x2="13.41" y2="6"/><path d="M10.8 7.6h2.4l-1.2 1.2z"/><path d="M9 20l-1.8 1.5"/><path d="M15 20l1.8 1.5"/></svg>
                         <span>Скачать</span>
                     </a>
                     <a href="/Tunless_Modern/karing.html" class="app-btn">
@@ -854,7 +862,15 @@ body.dark-mode .back-instruction {
                     <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
                     <div class="app-name">Hiddify</div>
                     <a href="https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Windows-Portable-x64.zip" target="_blank" class="app-btn">
-                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+                        <span>Скачать</span>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+                        <span>Скачать</span>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c-2 0-3.3 1.5-3.3 3.5 0 1.4-.4 2.5-1.1 3.7-1.1 1.8-1.9 3.6-1.9 5.4 0 2.9 2.3 4.9 5.3 4.9h2c3 0 5.3-2 5.3-4.9 0-1.8-.8-3.6-1.9-5.4-.7-1.2-1.1-2.3-1.1-3.7 0-2-1.3-3.5-3.3-3.5z"/><ellipse cx="12" cy="14.5" rx="3.2" ry="4"/><line x1="10.6" y1="6" x2="10.61" y2="6"/><line x1="13.4" y1="6" x2="13.41" y2="6"/><path d="M10.8 7.6h2.4l-1.2 1.2z"/><path d="M9 20l-1.8 1.5"/><path d="M15 20l1.8 1.5"/></svg>
                         <span>Скачать</span>
                     </a>
                     <a href="#" class="app-btn">
@@ -867,7 +883,15 @@ body.dark-mode .back-instruction {
                     <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
                     <div class="app-name">Happ</div>
                     <a href="https://github.com/Happ-proxy/happ-desktop/releases/download/4.2.1/setup-Happ.x64.exe" target="_blank" class="app-btn">
-                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+                        <span>Скачать</span>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+                        <span>Скачать</span>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c-2 0-3.3 1.5-3.3 3.5 0 1.4-.4 2.5-1.1 3.7-1.1 1.8-1.9 3.6-1.9 5.4 0 2.9 2.3 4.9 5.3 4.9h2c3 0 5.3-2 5.3-4.9 0-1.8-.8-3.6-1.9-5.4-.7-1.2-1.1-2.3-1.1-3.7 0-2-1.3-3.5-3.3-3.5z"/><ellipse cx="12" cy="14.5" rx="3.2" ry="4"/><line x1="10.6" y1="6" x2="10.61" y2="6"/><line x1="13.4" y1="6" x2="13.41" y2="6"/><path d="M10.8 7.6h2.4l-1.2 1.2z"/><path d="M9 20l-1.8 1.5"/><path d="M15 20l1.8 1.5"/></svg>
                         <span>Скачать</span>
                     </a>
                     <a href="#" class="app-btn">
@@ -880,7 +904,15 @@ body.dark-mode .back-instruction {
                     <img class="app-icon" src="/Tunless_Modern/assets/images/v2rayn_logo.png" alt="V2RayN">
                     <div class="app-name">V2RayN</div>
                     <a href="https://github.com/2dust/v2rayN/releases/download/7.25.1/v2rayN-windows-64.zip" target="_blank" class="app-btn">
-                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+                        <span>Скачать</span>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+                        <span>Скачать</span>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c-2 0-3.3 1.5-3.3 3.5 0 1.4-.4 2.5-1.1 3.7-1.1 1.8-1.9 3.6-1.9 5.4 0 2.9 2.3 4.9 5.3 4.9h2c3 0 5.3-2 5.3-4.9 0-1.8-.8-3.6-1.9-5.4-.7-1.2-1.1-2.3-1.1-3.7 0-2-1.3-3.5-3.3-3.5z"/><ellipse cx="12" cy="14.5" rx="3.2" ry="4"/><line x1="10.6" y1="6" x2="10.61" y2="6"/><line x1="13.4" y1="6" x2="13.41" y2="6"/><path d="M10.8 7.6h2.4l-1.2 1.2z"/><path d="M9 20l-1.8 1.5"/><path d="M15 20l1.8 1.5"/></svg>
                         <span>Скачать</span>
                     </a>
                     <a href="#" class="app-btn">
@@ -916,10 +948,8 @@ body.dark-mode .back-instruction {
     </div>
 </div>
 
-<!-- Back Instruction -->
-<div class="back-instruction">
-    <p>💡 Чтобы выбрать другое устройство, закрой эту инструкцию (нажми на ✕ или кликни ещё раз)</p>
-</div>
+<!-- Кнопка Готово (закрывает открытую карточку) -->
+<button class="done-btn" onclick="closeAccordion()">Готово</button>
 
 <script>
 // Тапы по ссылкам и тексту ВНУТРИ открытой карточки не сворачивают её
