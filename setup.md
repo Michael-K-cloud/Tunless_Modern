@@ -181,7 +181,7 @@ body.dark-mode .platform-subtitle {
     border-top: 2px solid rgba(102, 126, 234, 0.2);
 }
 
-/* App tiles: сетка плиток приложений в Шаге 1 */
+/* App tiles: дизайн и hover-анимация как у плиток главной страницы */
 .apps-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -190,10 +190,14 @@ body.dark-mode .platform-subtitle {
 }
 
 .app-tile {
-    background: rgba(102, 126, 234, 0.06);
-    border: 1px solid rgba(102, 126, 234, 0.35);
-    border-radius: 14px;
-    padding: 20px 15px;
+    background: var(--card-light);
+    border-radius: 16px;
+    padding: 25px 15px;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,15 +206,47 @@ body.dark-mode .platform-subtitle {
 }
 
 body.dark-mode .app-tile {
-    background: rgba(102, 126, 234, 0.1);
+    background: var(--card-dark);
+    border-color: rgba(102, 126, 234, 0.2);
+    box-shadow: none;
 }
 
-/* Заглушка с инициалами; класс готов принять <img class="app-icon" src="..."> */
+.app-tile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.app-tile:hover::before {
+    transform: scaleX(1);
+}
+
+.app-tile:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+}
+
+/* Логотип приложения (img) */
 .app-icon {
     width: 90px;
     height: 90px;
     border-radius: 20px;
-    object-fit: cover;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Заглушка, если логотипа нет (сейчас только V2RayN) */
+.app-icon-placeholder {
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -232,7 +268,7 @@ body.dark-mode .app-name {
     color: var(--text-dark);
 }
 
-/* Кнопки плиток: изоляция от глобального .content a (точечный !important) */
+/* Кнопки плиток: одинаковый размер, изоляция от глобального .content a */
 .app-btn {
     display: flex !important;
     align-items: center !important;
@@ -249,6 +285,7 @@ body.dark-mode .app-name {
     font-size: 0.95em;
     line-height: 1.2 !important;
     margin: 0 !important;
+    box-sizing: border-box;
     transition: all 0.3s ease;
 }
 
@@ -268,12 +305,6 @@ body.dark-mode .app-name {
     fill: none;
     stroke-width: 2;
     flex-shrink: 0;
-}
-
-.app-btn.small {
-    font-size: 0.85em;
-    padding: 8px 14px !important;
-    max-width: 160px;
 }
 
 /* Info Boxes */
@@ -604,7 +635,7 @@ body.dark-mode .back-instruction {
             <div class="platform-icon">
                 <!-- Контурный логотип Apple -->
                 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke-width="2.4" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+                    <path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
                 </svg>
             </div>
             <div class="header-text">
@@ -618,56 +649,52 @@ body.dark-mode .back-instruction {
             
             <div class="apps-grid">
                 <div class="app-tile">
-                    <!-- Когда пришлёшь иконку: замени div на <img class="app-icon" src="/Tunless_Modern/assets/images/apps/karing.png" alt="Karing"> -->
-                    <div class="app-icon">Ka</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
                     <div class="app-name">Karing</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="/Tunless_Modern/karing.html" class="app-btn small">
+                    <a href="/Tunless_Modern/karing.html" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
                 </div>
 
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/happ.png" alt="Happ"> -->
-                    <div class="app-icon">Ha</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
                     <div class="app-name">Happ</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
                 </div>
 
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/hiddify.png" alt="Hiddify"> -->
-                    <div class="app-icon">Hi</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
                     <div class="app-name">Hiddify</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
                 </div>
 
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/v2box.png" alt="V2Box"> -->
-                    <div class="app-icon">VB</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/v2box_logo.png" alt="V2Box">
                     <div class="app-name">V2Box</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
@@ -728,70 +755,65 @@ body.dark-mode .back-instruction {
             
             <div class="apps-grid">
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/karing.png" alt="Karing"> -->
-                    <div class="app-icon">Ka</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
                     <div class="app-name">Karing</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
                 </div>
 
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/v2raytun.png" alt="V2RayTun"> -->
-                    <div class="app-icon">VT</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/v2raytun_logo.png" alt="V2RayTun">
                     <div class="app-name">V2RayTun</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
                 </div>
 
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/v2box.png" alt="V2Box"> -->
-                    <div class="app-icon">VB</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/v2box_logo.png" alt="V2Box">
                     <div class="app-name">V2Box</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
                 </div>
 
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/hiddify.png" alt="Hiddify"> -->
-                    <div class="app-icon">Hi</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
                     <div class="app-name">Hiddify</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
                 </div>
 
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/happ.png" alt="Happ"> -->
-                    <div class="app-icon">Ha</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
                     <div class="app-name">Happ</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
@@ -853,56 +875,53 @@ body.dark-mode .back-instruction {
             
             <div class="apps-grid">
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/karing.png" alt="Karing"> -->
-                    <div class="app-icon">Ka</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
                     <div class="app-name">Karing</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
                 </div>
 
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/hiddify.png" alt="Hiddify"> -->
-                    <div class="app-icon">Hi</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
                     <div class="app-name">Hiddify</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
                 </div>
 
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/happ.png" alt="Happ"> -->
-                    <div class="app-icon">Ha</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
                     <div class="app-name">Happ</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
                 </div>
 
                 <div class="app-tile">
-                    <!-- Заменить на: <img class="app-icon" src="/Tunless_Modern/assets/images/apps/v2rayn.png" alt="V2RayN"> -->
-                    <div class="app-icon">VN</div>
+                    <!-- Логотипа V2RayN нет в assets/images: пришли файл v2rayn_logo.png и замени div на <img class="app-icon" src="/Tunless_Modern/assets/images/v2rayn_logo.png" alt="V2RayN"> -->
+                    <div class="app-icon-placeholder">VN</div>
                     <div class="app-name">V2RayN</div>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn small">
+                    <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
