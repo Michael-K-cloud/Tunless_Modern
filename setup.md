@@ -16,6 +16,7 @@ title: Инструкция по настройке
     position: relative;
 }
 
+/* Контент прижат к верху: верхние края иконок совпадают во всех карточках ряда */
 .platform-card {
     background: var(--card-light);
     border-radius: 16px;
@@ -29,7 +30,6 @@ title: Инструкция по настройке
     min-height: 180px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 body.dark-mode .platform-card {
@@ -421,7 +421,7 @@ body.dark-mode .back-instruction {
     .platform-card .platform-title { font-size: 1.3em; }
     .platform-icon { width: 48px; height: 48px; }
 
-    /* Узкие карточки: колонка по центру — иконка, сиреневый заголовок, светлый подзаголовок */
+    /* Узкие карточки: колонка — иконка сверху по центру, под ней сиреневый заголовок, ниже светлый подзаголовок */
     .platform-header {
         flex-direction: column;
         align-items: center;
@@ -446,51 +446,6 @@ body.dark-mode .back-instruction {
 <h2>Настройка подключения</h2>
 
 <div class="platforms-grid" id="platformsGrid">
-    <!-- Telegram Card (первая) -->
-    <div class="platform-card" onclick="toggleAccordion(this)">
-        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
-        <div class="platform-header">
-            <div class="platform-icon">
-                <!-- Контурная иконка Telegram (та же, что на кнопке главной страницы) -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-            </div>
-            <div class="header-text">
-                <h3 class="platform-title">Telegram</h3>
-                <p class="platform-subtitle">Бот: ключи и подписка</p>
-            </div>
-        </div>
-        
-        <div class="accordion-content">
-            <h4 class="section-header">🤖 Как пользоваться ботом</h4>
-            <ol class="numbered-steps">
-                <li>Открой бота <a href="https://t.me/Tunless_bot" target="_blank" class="setup-link">@Tunless_bot</a>
-                </li>
-                <li>Нажми <strong>«Start»</strong> — откроется главное меню с кнопками
-                    <div class="screenshot-placeholder">📸 Место для скриншота: главное меню бота<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_menu.png" alt="Главное меню бота"> --></div>
-                </li>
-                <li>Выбери тариф и оплати — ключ появится в твоём аккаунте сразу после оплаты
-                    <div class="screenshot-placeholder">📸 Место для скриншота: выбор тарифа и оплата<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_buy.png" alt="Выбор тарифа и оплата"> --></div>
-                </li>
-                <li>Нажми 🔑 <strong>«Мои ключи»</strong>, выбери ключ и нажми 📋 <strong>«Получить ключ»</strong> — он скопируется в буфер обмена
-                    <div class="screenshot-placeholder">📸 Место для скриншота: кнопка «Получить ключ»<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_key.png" alt="Кнопка Получить ключ"> --></div>
-                </li>
-                <li>В этом же меню можно продлевать подписку и смотреть остаток трафика</li>
-            </ol>
-            <div class="info-box">
-                <div class="info-box-title">💡 Что дальше</div>
-                <p>Скопированный ключ вставь в приложение своего устройства — вернись к карточке <strong>iOS</strong>, <strong>Android</strong> или <strong>PC</strong> и выполни Шаг 3.</p>
-            </div>
-        </div>
-    </div>
-
     <!-- iOS Card -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
@@ -574,16 +529,16 @@ body.dark-mode .back-instruction {
         </div>
         <div class="platform-header">
             <div class="platform-icon">
-                <!-- Контурный робот Android, перерисован в габаритах 20x20 (оптически равен остальным) -->
+                <!-- Контурный робот Android (полный силуэт, оптически равен остальным) -->
                 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 10.5a7 7 0 0 1 14 0z"/>
-                    <line x1="6" y1="2" x2="8.2" y2="5"/>
-                    <line x1="18" y1="2" x2="15.8" y2="5"/>
-                    <line x1="9.5" y1="7.5" x2="9.51" y2="7.5"/>
-                    <line x1="14.5" y1="7.5" x2="14.51" y2="7.5"/>
-                    <rect x="5" y="12.5" width="14" height="9.5" rx="2"/>
-                    <line x1="2" y1="13" x2="2" y2="19.5"/>
-                    <line x1="22" y1="13" x2="22" y2="19.5"/>
+                    <path d="M7 10a5 5 0 0 1 10 0z"/>
+                    <line x1="8.5" y1="3.5" x2="10" y2="6"/>
+                    <line x1="15.5" y1="3.5" x2="14" y2="6"/>
+                    <line x1="10" y1="7.5" x2="10.01" y2="7.5"/>
+                    <line x1="14" y1="7.5" x2="14.01" y2="7.5"/>
+                    <rect x="7" y="12" width="10" height="8" rx="2"/>
+                    <line x1="4" y1="12.5" x2="4" y2="17.5"/>
+                    <line x1="20" y1="12.5" x2="20" y2="17.5"/>
                 </svg>
             </div>
             <div class="header-text">
@@ -707,6 +662,51 @@ body.dark-mode .back-instruction {
                     <li>Выбери "Добавить из буфера обмена"</li>
                     <li>Нажми большую кнопку подключения по центру</li>
                 </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Telegram Card -->
+    <div class="platform-card" onclick="toggleAccordion(this)">
+        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+        <div class="platform-header">
+            <div class="platform-icon">
+                <!-- Контурная иконка Telegram (та же, что на кнопке главной страницы) -->
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </div>
+            <div class="header-text">
+                <h3 class="platform-title">Telegram</h3>
+                <p class="platform-subtitle">Бот: ключи и подписка</p>
+            </div>
+        </div>
+        
+        <div class="accordion-content">
+            <h4 class="section-header">🤖 Как пользоваться ботом</h4>
+            <ol class="numbered-steps">
+                <li>Открой бота <a href="https://t.me/Tunless_bot" target="_blank" class="setup-link">@Tunless_bot</a>
+                </li>
+                <li>Нажми <strong>«Start»</strong> — откроется главное меню с кнопками
+                    <div class="screenshot-placeholder">📸 Место для скриншота: главное меню бота<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_menu.png" alt="Главное меню бота"> --></div>
+                </li>
+                <li>Выбери тариф и оплати — ключ появится в твоём аккаунте сразу после оплаты
+                    <div class="screenshot-placeholder">📸 Место для скриншота: выбор тарифа и оплата<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_buy.png" alt="Выбор тарифа и оплата"> --></div>
+                </li>
+                <li>Нажми 🔑 <strong>«Мои ключи»</strong>, выбери ключ и нажми 📋 <strong>«Получить ключ»</strong> — он скопируется в буфер обмена
+                    <div class="screenshot-placeholder">📸 Место для скриншота: кнопка «Получить ключ»<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_key.png" alt="Кнопка Получить ключ"> --></div>
+                </li>
+                <li>В этом же меню можно продлевать подписку и смотреть остаток трафика</li>
+            </ol>
+            <div class="info-box">
+                <div class="info-box-title">💡 Что дальше</div>
+                <p>Скопированный ключ вставь в приложение своего устройства — вернись к карточке <strong>iOS</strong>, <strong>Android</strong> или <strong>PC</strong> выше и выполни Шаг 3.</p>
             </div>
         </div>
     </div>
