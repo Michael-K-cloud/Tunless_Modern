@@ -60,10 +60,9 @@ body.dark-mode .platform-card {
     box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
 }
 
-/* Active card - full width */
+/* Active card - full width (без order: карточка не прыгает на первое место) */
 .platform-card.active {
     grid-column: 1 / -1;
-    order: -1;
     border-color: var(--primary);
     box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
     z-index: 10;
@@ -77,13 +76,12 @@ body.dark-mode .platform-card {
 /* Держим полную ширину, пока карточка сворачивается (чинит "2 столбика") */
 .platform-card.collapsing {
     grid-column: 1 / -1;
-    order: -1;
 }
 
-/* Шапка: на широких — строка слева с отступом от края карточки */
+/* Шапка: верх иконки и верх заголовка на одной линии */
 .platform-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 15px;
     margin-bottom: 15px;
 }
@@ -117,13 +115,14 @@ body.dark-mode .platform-icon svg {
     font-weight: 700;
     color: var(--primary);
     margin: 0;
+    line-height: 1.1;
 }
 
 .platform-subtitle {
     font-size: 0.95em;
     color: var(--text-light);
     margin-top: 5px;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 body.dark-mode .platform-subtitle {
@@ -446,6 +445,51 @@ body.dark-mode .back-instruction {
 <h2>Настройка подключения</h2>
 
 <div class="platforms-grid" id="platformsGrid">
+    <!-- Telegram Card -->
+    <div class="platform-card" onclick="toggleAccordion(this)">
+        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+        <div class="platform-header">
+            <div class="platform-icon">
+                <!-- Контурная иконка Telegram (та же, что на кнопке главной страницы); плотный viewBox = иконка во весь блок -->
+                <svg viewBox="1 1 22 22" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </div>
+            <div class="header-text">
+                <h3 class="platform-title">Telegram</h3>
+                <p class="platform-subtitle">Бот: ключи и подписка</p>
+            </div>
+        </div>
+        
+        <div class="accordion-content">
+            <h4 class="section-header">🤖 Как пользоваться ботом</h4>
+            <ol class="numbered-steps">
+                <li>Открой бота <a href="https://t.me/Tunless_bot" target="_blank" class="setup-link">@Tunless_bot</a>
+                </li>
+                <li>Нажми <strong>«Start»</strong> — откроется главное меню с кнопками
+                    <div class="screenshot-placeholder">📸 Место для скриншота: главное меню бота<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_menu.png" alt="Главное меню бота"> --></div>
+                </li>
+                <li>Выбери тариф и оплати — ключ появится в твоём аккаунте сразу после оплаты
+                    <div class="screenshot-placeholder">📸 Место для скриншота: выбор тарифа и оплата<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_buy.png" alt="Выбор тарифа и оплата"> --></div>
+                </li>
+                <li>Нажми 🔑 <strong>«Мои ключи»</strong>, выбери ключ и нажми 📋 <strong>«Получить ключ»</strong> — он скопируется в буфер обмена
+                    <div class="screenshot-placeholder">📸 Место для скриншота: кнопка «Получить ключ»<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_key.png" alt="Кнопка Получить ключ"> --></div>
+                </li>
+                <li>В этом же меню можно продлевать подписку и смотреть остаток трафика</li>
+            </ol>
+            <div class="info-box">
+                <div class="info-box-title">💡 Что дальше</div>
+                <p>Скопированный ключ вставь в приложение своего устройства — вернись к карточке <strong>iOS</strong>, <strong>Android</strong> или <strong>PC</strong> выше и выполни Шаг 3.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- iOS Card -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
@@ -495,274 +539,4 @@ body.dark-mode .back-instruction {
                     <li>Скачиваем <strong>Hiddify</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                     <li>Скачиваем <strong>Happ</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                 </ul>
-                <p style="margin-top: 15px; font-size: 0.95em;"><strong>💡 Мы рекомендуем Karing или Hiddify</strong>, т.к. в них, на данный момент, есть автоматическое переключение между протоколами.</p>
-            </div>
-
-            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
-            <ol class="numbered-steps">
-                <li>Зайди в бота, где купил ключ</li>
-                <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
-                <li>Выбери купленный ключ и нажми 📋 <strong>Получить ключ</strong></li>
-                <li>Ключ (длинный код, начинающийся на <code>vless://</code>) скопируется в буфер обмена</li>
-            </ol>
-
-            <div class="key-box">
-                vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
-            </div>
-
-            <h4 class="section-header">⚡ Шаг 3: Запускаем!</h4>
-            <div class="info-box">
-                <div class="info-box-title">Для iPhone (Karing)</div>
-                <p>У приложения одинаковый интерфейс на всех платформах. Всё будет знакомо!</p>
-                <p style="margin-top: 15px;"><a href="/Tunless_Modern/karing.html" class="setup-link">👉 Подробная инструкция с картинками</a></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Android Card -->
-    <div class="platform-card" onclick="toggleAccordion(this)">
-        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
-        <div class="platform-header">
-            <div class="platform-icon">
-                <!-- Контурный робот Android (полный силуэт, оптически равен остальным) -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M7 10a5 5 0 0 1 10 0z"/>
-                    <line x1="8.5" y1="3.5" x2="10" y2="6"/>
-                    <line x1="15.5" y1="3.5" x2="14" y2="6"/>
-                    <line x1="10" y1="7.5" x2="10.01" y2="7.5"/>
-                    <line x1="14" y1="7.5" x2="14.01" y2="7.5"/>
-                    <rect x="7" y="12" width="10" height="8" rx="2"/>
-                    <line x1="4" y1="12.5" x2="4" y2="17.5"/>
-                    <line x1="20" y1="12.5" x2="20" y2="17.5"/>
-                </svg>
-            </div>
-            <div class="header-text">
-                <h3 class="platform-title">Android</h3>
-                <p class="platform-subtitle">Android / Android TV / Google TV</p>
-            </div>
-        </div>
-        
-        <div class="accordion-content">
-            <h4 class="section-header">📱 Шаг 1: Скачай приложение</h4>
-            
-            <p style="margin-bottom: 15px;"><strong>Тебе нужен:</strong></p>
-            <ul class="app-list">
-                <li><a href="#" class="setup-link"><strong>Karing</strong> (GitHub)</a></li>
-                <li><a href="#" class="setup-link"><strong>V2RayTun</strong></a></li>
-                <li><a href="#" class="setup-link"><strong>V2Box</strong></a></li>
-                <li><a href="#" class="setup-link"><strong>Hiddify</strong></a></li>
-                <li><a href="#" class="setup-link"><strong>Happ</strong></a></li>
-            </ul>
-
-            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
-            <ol class="numbered-steps">
-                <li>Зайди в бота, где купил ключ</li>
-                <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
-                <li>Выбери купленный ключ и нажми 📋 <strong>Получить ключ</strong></li>
-                <li>Ключ (длинный код, начинающийся на <code>vless://</code>) скопируется в буфер обмена</li>
-            </ol>
-
-            <div class="key-box">
-                vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
-            </div>
-
-            <h4 class="section-header">⚡ Шаг 3: Запускаем!</h4>
-            <div class="info-box">
-                <div class="info-box-title">Для Android (V2RayTun)</div>
-                <ol class="numbered-steps" style="margin: 15px 0;">
-                    <li>Открой скачанную программу</li>
-                    <li>Нажми на плюсик (+) в правом верхнем углу</li>
-                    <li>Выбери пункт "Импорт профиля из буфера обмена"</li>
-                    <li>Твой сервер появится в списке. Нажми на него, выбери протокол, чтобы он выделился (станет зеленым или серым)</li>
-                    <li>Нажми большую кнопку "Connect"</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-
-    <!-- PC Card -->
-    <div class="platform-card" onclick="toggleAccordion(this)">
-        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
-        <div class="platform-header">
-            <div class="platform-icon">
-                <!-- Контурный логотип Windows (4 панели) -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="8" height="8"/>
-                    <rect x="13" y="3" width="8" height="8"/>
-                    <rect x="3" y="13" width="8" height="8"/>
-                    <rect x="13" y="13" width="8" height="8"/>
-                </svg>
-            </div>
-            <div class="header-text">
-                <h3 class="platform-title">PC</h3>
-                <p class="platform-subtitle">Windows / Mac / Linux</p>
-            </div>
-        </div>
-        
-        <div class="accordion-content">
-            <h4 class="section-header">💻 Шаг 1: Скачай приложение</h4>
-            
-            <div class="info-box recommendation">
-                <div class="info-box-title">⭐ Рекомендуем Karing</div>
-                <p>Один из самых продвинутых с открытым исходным кодом и поддержкой самых современных протоколов и их автовыбором.</p>
-                <p style="margin-top: 10px;"><a href="#" class="setup-link">👉 Скачать Karing (GitHub) Portable версия</a></p>
-            </div>
-
-            <div class="info-box">
-                <div class="info-box-title">💎 Или Hiddify</div>
-                <p>Самый красивый и понятный клиент для компов с автовыбором наилучшего протокола.</p>
-                <p style="margin-top: 10px;"><a href="#" class="setup-link">👉 Скачать Hiddify (GitHub) Portable версия</a></p>
-            </div>
-
-            <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid rgba(102, 126, 234, 0.2);">
-                <p style="margin-bottom: 10px;"><strong>Ссылки на проекты на GitHub:</strong></p>
-                <ul class="app-list">
-                    <li><a href="#" class="setup-link">👉 Karing</a></li>
-                    <li><a href="#" class="setup-link">👉 Hiddify</a></li>
-                </ul>
-                <p style="font-size: 0.9em; margin: 15px 0;"><em>Выбирай файл <code>.exe</code> или <code>.zip</code> для Windows или <code>.dmg</code> для Mac.</em></p>
-            </div>
-
-            <div class="info-box" style="margin-top: 20px;">
-                <p>Ну а если уже пользовались и привыкли к <strong>Happ</strong> и <strong>V2RayN</strong>, то аналогичные есть и на Windows и Mac:</p>
-                <ul class="app-list" style="margin-top: 10px;">
-                    <li><a href="#" class="setup-link">👉 Скачать Happ (GitHub)</a></li>
-                    <li><a href="#" class="setup-link">👉 Скачать V2RayN</a></li>
-                </ul>
-            </div>
-
-            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
-            <ol class="numbered-steps">
-                <li>Зайди в бота, где купил ключ</li>
-                <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
-                <li>Выбери купленный ключ и нажми 📋 <strong>Получить ключ</strong></li>
-                <li>Ключ (длинный код, начинающийся на <code>vless://</code>) скопируется в буфер обмена</li>
-            </ol>
-
-            <div class="key-box">
-                vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
-            </div>
-
-            <h4 class="section-header">⚡ Шаг 3: Запускаем!</h4>
-            <div class="info-box">
-                <div class="info-box-title">Для ПК (Hiddify)</div>
-                <ol class="numbered-steps" style="margin: 15px 0;">
-                    <li>Открой Hiddify</li>
-                    <li>Нажми "Новый профиль" или большой плюс (+)</li>
-                    <li>Выбери "Добавить из буфера обмена"</li>
-                    <li>Нажми большую кнопку подключения по центру</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-
-    <!-- Telegram Card -->
-    <div class="platform-card" onclick="toggleAccordion(this)">
-        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
-        <div class="platform-header">
-            <div class="platform-icon">
-                <!-- Контурная иконка Telegram (та же, что на кнопке главной страницы) -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-            </div>
-            <div class="header-text">
-                <h3 class="platform-title">Telegram</h3>
-                <p class="platform-subtitle">Бот: ключи и подписка</p>
-            </div>
-        </div>
-        
-        <div class="accordion-content">
-            <h4 class="section-header">🤖 Как пользоваться ботом</h4>
-            <ol class="numbered-steps">
-                <li>Открой бота <a href="https://t.me/Tunless_bot" target="_blank" class="setup-link">@Tunless_bot</a>
-                </li>
-                <li>Нажми <strong>«Start»</strong> — откроется главное меню с кнопками
-                    <div class="screenshot-placeholder">📸 Место для скриншота: главное меню бота<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_menu.png" alt="Главное меню бота"> --></div>
-                </li>
-                <li>Выбери тариф и оплати — ключ появится в твоём аккаунте сразу после оплаты
-                    <div class="screenshot-placeholder">📸 Место для скриншота: выбор тарифа и оплата<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_buy.png" alt="Выбор тарифа и оплата"> --></div>
-                </li>
-                <li>Нажми 🔑 <strong>«Мои ключи»</strong>, выбери ключ и нажми 📋 <strong>«Получить ключ»</strong> — он скопируется в буфер обмена
-                    <div class="screenshot-placeholder">📸 Место для скриншота: кнопка «Получить ключ»<br><!-- Замени на: <img class="screenshot" src="/Tunless_Modern/assets/images/bot_key.png" alt="Кнопка Получить ключ"> --></div>
-                </li>
-                <li>В этом же меню можно продлевать подписку и смотреть остаток трафика</li>
-            </ol>
-            <div class="info-box">
-                <div class="info-box-title">💡 Что дальше</div>
-                <p>Скопированный ключ вставь в приложение своего устройства — вернись к карточке <strong>iOS</strong>, <strong>Android</strong> или <strong>PC</strong> выше и выполни Шаг 3.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Back Instruction -->
-<div class="back-instruction">
-    <p>💡 Чтобы выбрать другое устройство, закрой эту инструкцию (нажми на ✕ или кликни ещё раз)</p>
-</div>
-
-<script>
-// Тапы по ссылкам и тексту ВНУТРИ открытой карточки не сворачивают её
-document.querySelectorAll('.accordion-content').forEach(function (el) {
-    el.addEventListener('click', function (e) {
-        e.stopPropagation();
-    });
-});
-
-function collapseCard(card) {
-    const grid = document.getElementById('platformsGrid');
-    card.classList.remove('active');
-    card.classList.add('collapsing');
-    grid.classList.add('has-active');
-    setTimeout(function () {
-        card.classList.remove('collapsing');
-        if (!document.querySelector('.platform-card.active') &&
-            !document.querySelector('.platform-card.collapsing')) {
-            grid.classList.remove('has-active');
-        }
-    }, 450); // чуть дольше анимации 0.4s
-}
-
-function toggleAccordion(card) {
-    const grid = document.getElementById('platformsGrid');
-    if (!card.classList.contains('active')) {
-        // Если открыта другая карточка — сворачиваем её корректно
-        document.querySelectorAll('.platform-card.active').forEach(function (c) {
-            if (c !== card) collapseCard(c);
-        });
-        card.classList.remove('collapsing');
-        card.classList.add('active');
-        grid.classList.add('has-active');
-        setTimeout(function () {
-            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-    } else {
-        collapseCard(card);
-    }
-}
-
-function closeAccordion() {
-    const openCard = document.querySelector('.platform-card.active');
-    if (openCard) {
-        collapseCard(openCard);
-    } else {
-        document.getElementById('platformsGrid').classList.remove('has-active');
-    }
-}
-</script>
+                <p style="margin-top: 15px; font-size: 0.95em;"><strong>💡 Мы рекомендуем Karing или Hiddify</strong>, т.к. в них, на данный момент, есть автоматическое переключение между протоколами
