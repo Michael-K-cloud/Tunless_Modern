@@ -473,15 +473,15 @@ body.dark-mode .screenshot-placeholder {
     background: rgba(102, 126, 234, 0.1);
 }
 
-/* Кнопка "Готово": внизу контента каждой раскрытой карточки */
+/* Кнопка "Готово": внизу контента каждой раскрытой карточки, в стиле кнопок плиток */
 .done-btn {
     display: block;
     margin: 25px auto 0;
     padding: 16px 70px;
-    background: var(--card-light);
-    border: 1px solid rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
     border-radius: 12px;
-    color: var(--text-light);
+    color: #ffffff;
     font-family: inherit;
     font-size: 1.2em;
     font-weight: 700;
@@ -489,15 +489,9 @@ body.dark-mode .screenshot-placeholder {
     transition: all 0.3s ease;
 }
 
-body.dark-mode .done-btn {
-    background: #25294A;
-    border-color: rgba(255, 255, 255, 0.18);
-    color: var(--text-dark);
-}
-
 .done-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
 }
 
 /* === ПЕРЕБИВАНИЕ ГЛОБАЛЬНЫХ СТИЛЕЙ _layouts/default.html === */
