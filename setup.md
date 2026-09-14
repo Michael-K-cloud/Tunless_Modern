@@ -5,66 +5,7 @@ title: Инструкция по настройке
 
 <style>
 /* === SETUP ACCORDION STYLES === */
-
-.setup-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 15px;
-}
-
-/* H2 с чертой слева */
-.section-title {
-    font-size: 2em;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 30px;
-    padding-left: 20px;
-    border-left: 5px solid var(--primary);
-}
-
-/* Hero Section (квадратный блок) */
-.setup-hero {
-    text-align: center;
-    padding: 40px 20px;
-    margin-bottom: 40px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-    border-radius: 20px;
-    border: 1px solid rgba(102, 126, 234, 0.2);
-}
-
-body.dark-mode .setup-hero {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-}
-
-.setup-hero p {
-    font-size: 1.2em;
-    line-height: 1.8;
-    color: var(--text-light);
-    margin-bottom: 15px;
-}
-
-body.dark-mode .setup-hero p {
-    color: var(--text-dark);
-}
-
-.setup-hero .highlight {
-    font-weight: 700;
-    color: var(--primary);
-    padding: 8px 16px;
-    background: rgba(102, 126, 234, 0.1);
-    border-radius: 8px;
-    display: inline-block;
-    margin: 10px 0;
-}
-
-/* H3 по центру (сиреневый текст) */
-.selection-title {
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: 700;
-    color: var(--primary);
-    margin: 0 0 30px 0;
-}
+/* H2 не стилизуем: глобальный .content h2::after уже даёт черту снизу слева */
 
 /* Platform Cards Grid */
 .platforms-grid {
@@ -157,7 +98,8 @@ body.dark-mode .platform-icon svg {
     stroke: #ffffff; 
 }
 
-.platform-title {
+/* Специфичность повышена: глобальный .content h3 иначе перебивает margin и font-weight */
+.platform-card .platform-title {
     font-size: 1.5em;
     font-weight: 700;
     color: var(--primary);
@@ -310,7 +252,7 @@ body.dark-mode .info-box.recommendation {
     font-size: 1.2em;
 }
 
-/* Links - изоляция от глобальных стилей */
+/* Links - изоляция от глобальных стилей .content a */
 .setup-link {
     color: var(--primary) !important;
     text-decoration: none !important;
@@ -433,7 +375,7 @@ body.dark-mode .success-box p {
     border-bottom: 2px solid rgba(102, 126, 234, 0.2);
 }
 
-/* Back instruction */
+/* Back instruction (соседний селектор + : блок лежит ПОСЛЕ grid, а не внутри) */
 .back-instruction {
     text-align: center;
     padding: 20px;
@@ -443,7 +385,7 @@ body.dark-mode .success-box p {
     display: none;
 }
 
-.platforms-grid.has-active .back-instruction {
+.platforms-grid.has-active + .back-instruction {
     display: block;
 }
 
@@ -455,6 +397,30 @@ body.dark-mode .success-box p {
 
 body.dark-mode .back-instruction {
     background: rgba(102, 126, 234, 0.15);
+}
+
+/* === ПЕРЕБИВАНИЕ ГЛОБАЛЬНЫХ СТИЛЕЙ _layouts/default.html === */
+/* Глобальные .content ul/ol дают margin-left: 30px — убираем для наших списков */
+.content .app-list,
+.content .numbered-steps {
+    margin-left: 0;
+    margin-bottom: 15px;
+}
+
+/* Глобальные .content li дают margin-bottom: 15px — убираем для стрелок */
+.content .app-list li {
+    margin-bottom: 0;
+}
+
+/* Глобальный .content li:hover сдвигает padding-left и красит текст — нейтрализуем */
+.content .app-list li:hover {
+    padding-left: 0;
+    color: inherit;
+}
+
+.content .numbered-steps li:hover {
+    padding-left: 60px;
+    color: inherit;
 }
 
 /* Responsive */
@@ -474,10 +440,8 @@ body.dark-mode .back-instruction {
 }
 
 @media (max-width: 768px) {
-    .section-title { font-size: 1.7em; }
-    .setup-hero p { font-size: 1em; }
     .platform-card { padding: 25px; }
-    .platform-title { font-size: 1.3em; }
+    .platform-card .platform-title { font-size: 1.3em; }
     .platform-icon { width: 50px; height: 50px; }
     .numbered-steps li {
         padding: 15px 15px 15px 55px;
@@ -488,10 +452,11 @@ body.dark-mode .back-instruction {
         left: 10px;
         font-size: 0.9em;
     }
+    .content .numbered-steps li:hover { padding-left: 55px; }
 }
 </style>
 
-<!-- H2 с чертой слева -->
+<!-- H2 с чертой слева (черта даёт глобальный .content h2::after) -->
 <h2>Настройка подключения</h2>
 
 <div class="platforms-grid" id="platformsGrid">
@@ -525,10 +490,10 @@ body.dark-mode .back-instruction {
             <h4 class="section-header">📱 Шаг 1: Скачай приложение</h4>
             
             <div class="info-box">
-                <div class="info-box-title">📱 Для тех, у кого Российский 🇷🇺 аккаунт Apple</div>
+                <div class="info-box-title">📱 Для тех, у кого Российский 🇷 аккаунт Apple</div>
                 <ul class="app-list">
                     <li>Скачиваем <strong>Karing</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
-                    <li><a href="/Tunless_Modern/karing.html" class="setup-link"> Инструкция по настройке Karing</a></li>
+                    <li><a href="/Tunless_Modern/karing.html" class="setup-link">👉 Инструкция по настройке Karing</a></li>
                     <li>или</li>
                     <li>Скачиваем <strong>Happ</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                 </ul>
@@ -536,7 +501,7 @@ body.dark-mode .back-instruction {
 
             <div class="info-box">
                 <div class="info-box-title">🌍 Для тех, кто хочет создать иностранный аккаунт</div>
-                <p>Например, Американский 🇸 и получить доступ к приложениям, удалённым из Российского 🇷🇺 AppStore.</p>
+                <p>Например, Американский 🇺🇸 и получить доступ к приложениям, удалённым из Российского 🇷🇺 AppStore.</p>
                 <p style="margin-top: 10px;"><em>Инструкция по созданию иностранного аккаунта скоро будет доступна.</em></p>
             </div>
 
@@ -549,7 +514,7 @@ body.dark-mode .back-instruction {
                     <li>Скачиваем <strong>Hiddify</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                     <li>Скачиваем <strong>Happ</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                 </ul>
-                <p style="margin-top: 15px; font-size: 0.95em;"><strong> Мы рекомендуем Karing или Hiddify</strong>, т.к. в них, на данный момент, есть автоматическое переключение между протоколами.</p>
+                <p style="margin-top: 15px; font-size: 0.95em;"><strong>💡 Мы рекомендуем Karing или Hiddify</strong>, т.к. в них, на данный момент, есть автоматическое переключение между протоколами.</p>
             </div>
 
             <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
@@ -568,7 +533,7 @@ body.dark-mode .back-instruction {
             <div class="info-box">
                 <div class="info-box-title">Для iPhone (Karing)</div>
                 <p>У приложения одинаковый интерфейс на всех платформах. Всё будет знакомо!</p>
-                <p style="margin-top: 15px;"><a href="/Tunless_Modern/karing.html" class="setup-link"> Подробная инструкция с картинками</a></p>
+                <p style="margin-top: 15px;"><a href="/Tunless_Modern/karing.html" class="setup-link">👉 Подробная инструкция с картинками</a></p>
             </div>
         </div>
     </div>
@@ -726,15 +691,13 @@ body.dark-mode .back-instruction {
 
 <!-- Back Instruction -->
 <div class="back-instruction">
-    <p> Чтобы выбрать другое устройство, закрой эту инструкцию (нажми на ✕ или кликни ещё раз)</p>
+    <p>💡 Чтобы выбрать другое устройство, закрой эту инструкцию (нажми на ✕ или кликни ещё раз)</p>
 </div>
 
 <!-- Success Box -->
 <div class="success-box">
     <h3>✅ Готово! Ты подключен к VPN!</h3>
     <p>Наслаждайся быстрым и безопасным интернетом!</p>
-</div>
-
 </div>
 
 <script>
