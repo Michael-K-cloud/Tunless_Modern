@@ -66,11 +66,15 @@ body.dark-mode .platform-card {
     z-index: 10;
 }
 
-/* Hide other cards when one is active */
-.platforms-grid.has-active .platform-card:not(.active) {
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.8);
+/* Hide other cards when one is active or collapsing */
+.platforms-grid.has-active .platform-card:not(.active):not(.collapsing) {
+    display: none;
+}
+
+/* Держим полную ширину, пока карточка сворачивается (чинит "2 столбика") */
+.platform-card.collapsing {
+    grid-column: 1 / -1;
+    order: -1;
 }
 
 .platform-header {
@@ -416,25 +420,11 @@ body.dark-mode .back-instruction {
 }
 
 /* Responsive */
+/* Планшет/телефон (портрет): 2 карточки в ряд, сжимаются под экран */
 @media (max-width: 1100px) {
     .platforms-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-    }
-}
-
-@media (max-width: 968px) {
-    .platforms-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .platform-card.active {
-        grid-column: 1;
-    }
-    
-    .platforms-grid.has-active .platform-card:not(.active) {
-        display: none;
     }
 }
 
@@ -748,33 +738,51 @@ body.dark-mode .back-instruction {
 </div>
 
 <script>
+// Тапы по ссылкам и тексту ВНУТРИ открытой карточки не сворачивают её
+document.querySelectorAll('.accordion-content').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+});
+
+function collapseCard(card) {
+    const grid = document.getElementById('platformsGrid');
+    card.classList.remove('active');
+    card.classList.add('collapsing');
+    grid.classList.add('has-active');
+    setTimeout(function () {
+        card.classList.remove('collapsing');
+        if (!document.querySelector('.platform-card.active') &&
+            !document.querySelector('.platform-card.collapsing')) {
+            grid.classList.remove('has-active');
+        }
+    }, 450); // чуть дольше анимации 0.4s
+}
+
 function toggleAccordion(card) {
     const grid = document.getElementById('platformsGrid');
-    const isActive = card.classList.contains('active');
-    
-    // Close all cards
-    const allCards = document.querySelectorAll('.platform-card');
-    allCards.forEach(c => c.classList.remove('active'));
-    
-    if (!isActive) {
-        // Open clicked card
+    if (!card.classList.contains('active')) {
+        // Если открыта другая карточка — сворачиваем её корректно
+        document.querySelectorAll('.platform-card.active').forEach(function (c) {
+            if (c !== card) collapseCard(c);
+        });
+        card.classList.remove('collapsing');
         card.classList.add('active');
         grid.classList.add('has-active');
-        
-        // Smooth scroll to card
-        setTimeout(() => {
+        setTimeout(function () {
             card.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
     } else {
-        // All cards closed
-        grid.classList.remove('has-active');
+        collapseCard(card);
     }
 }
 
 function closeAccordion() {
-    const grid = document.getElementById('platformsGrid');
-    const allCards = document.querySelectorAll('.platform-card');
-    allCards.forEach(c => c.classList.remove('active'));
-    grid.classList.remove('has-active');
+    const openCard = document.querySelector('.platform-card.active');
+    if (openCard) {
+        collapseCard(openCard);
+    } else {
+        document.getElementById('platformsGrid').classList.remove('has-active');
+    }
 }
 </script>
