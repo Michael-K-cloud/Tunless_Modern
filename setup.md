@@ -27,7 +27,7 @@ title: Инструкция по настройке
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    min-height: 130px;
+    min-height: 110px;
     display: flex;
     flex-direction: column;
 }
