@@ -473,9 +473,9 @@ body.dark-mode .screenshot-placeholder {
     background: rgba(102, 126, 234, 0.1);
 }
 
-/* Кнопка "Готово": видна только при открытой карточке, закрывает её */
+/* Кнопка "Готово": внизу контента каждой раскрытой карточки */
 .done-btn {
-    display: none;
+    display: block;
     margin: 25px auto 0;
     padding: 16px 70px;
     background: var(--card-light);
@@ -493,10 +493,6 @@ body.dark-mode .done-btn {
     background: #25294A;
     border-color: rgba(255, 255, 255, 0.18);
     color: var(--text-dark);
-}
-
-.platforms-grid.has-active + .done-btn {
-    display: block;
 }
 
 .done-btn:hover {
@@ -606,6 +602,7 @@ body.dark-mode .done-btn {
                 <div class="info-box-title">💡 Что дальше</div>
                 <p>Скопированный ключ вставь в приложение своего устройства — вернись к карточке <strong>iOS</strong>, <strong>Android</strong> или <strong>PC</strong> выше и выполни Шаг 3.</p>
             </div>
+            <button class="done-btn" onclick="event.stopPropagation(); closeAccordion()">Готово</button>
         </div>
     </div>
 
@@ -697,6 +694,20 @@ body.dark-mode .done-btn {
             <div class="key-box">
                 vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
             </div>
+
+            <h4 class="section-header">Шаг 3: Запускаем!</h4>
+            <div class="info-box">
+                <div class="info-box-title">Для iOS (Karing)</div>
+                <ol class="numbered-steps" style="margin: 15px 0;">
+                    <li>Запустите Karing</li>
+                    <li>Выберите регион — для России выберите “Russia”</li>
+                    <li>Настройте роутинг — российские сайты будут работать без VPN</li>
+                    <li>Включите режим “Новичка” — скроет настройки для “Экспертов”</li>
+                    <li>Добавьте профиль — вставьте ключ из буфера обмена</li>
+                    <li>Подключитесь — нажмите кнопку подключения со щитом</li>
+                </ol>
+            </div>
+            <button class="done-btn" onclick="event.stopPropagation(); closeAccordion()">Готово</button>
         </div>
     </div>
 
@@ -807,6 +818,7 @@ body.dark-mode .done-btn {
                     <li>Нажми большую кнопку "Connect"</li>
                 </ol>
             </div>
+            <button class="done-btn" onclick="event.stopPropagation(); closeAccordion()">Готово</button>
         </div>
     </div>
 
@@ -842,7 +854,7 @@ body.dark-mode .done-btn {
                     <div class="app-name">Karing</div>
                     <a href="https://github.com/KaringX/karing/releases/download/v1.2.25.2802/karing_1.2.25.2802_windows_x64.zip" target="_blank" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
-                        <span>Скачать</span>
+                        <span>Скачать .zip</span>
                     </a>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
@@ -863,7 +875,7 @@ body.dark-mode .done-btn {
                     <div class="app-name">Hiddify</div>
                     <a href="https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Windows-Portable-x64.zip" target="_blank" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
-                        <span>Скачать</span>
+                        <span>Скачать .zip</span>
                     </a>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
@@ -884,7 +896,7 @@ body.dark-mode .done-btn {
                     <div class="app-name">Happ</div>
                     <a href="https://github.com/Happ-proxy/happ-desktop/releases/download/4.2.1/setup-Happ.x64.exe" target="_blank" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
-                        <span>Скачать</span>
+                        <span>Скачать .exe</span>
                     </a>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
@@ -905,7 +917,7 @@ body.dark-mode .done-btn {
                     <div class="app-name">V2RayN</div>
                     <a href="https://github.com/2dust/v2rayN/releases/download/7.25.1/v2rayN-windows-64.zip" target="_blank" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
-                        <span>Скачать</span>
+                        <span>Скачать .zip</span>
                     </a>
                     <a href="#" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="1.5" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
@@ -944,12 +956,10 @@ body.dark-mode .done-btn {
                     <li>Нажми большую кнопку подключения по центру</li>
                 </ol>
             </div>
+            <button class="done-btn" onclick="event.stopPropagation(); closeAccordion()">Готово</button>
         </div>
     </div>
 </div>
-
-<!-- Кнопка Готово (закрывает открытую карточку) -->
-<button class="done-btn" onclick="closeAccordion()">Готово</button>
 
 <script>
 // Тапы по ссылкам и тексту ВНУТРИ открытой карточки не сворачивают её
