@@ -456,7 +456,7 @@ body.dark-mode .back-instruction {
         <div class="platform-header">
             <div class="platform-icon">
                 <!-- Контурная иконка Telegram (та же, что на кнопке главной страницы); плотный viewBox = иконка во весь блок -->
-                <svg viewBox="1 1 22 22" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="1 1 22 22" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 1.375">
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                 </svg>
@@ -574,7 +574,7 @@ body.dark-mode .back-instruction {
         <div class="platform-header">
             <div class="platform-icon">
                 <!-- Контурный робот Android; плотный viewBox = иконка во весь блок -->
-                <svg viewBox="3 2.5 18 18.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="3 2.5 18 18.5" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 1.16">
                     <path d="M7 10a5 5 0 0 1 10 0z"/>
                     <line x1="8.5" y1="3.5" x2="10" y2="6"/>
                     <line x1="15.5" y1="3.5" x2="14" y2="6"/>
@@ -640,7 +640,7 @@ body.dark-mode .back-instruction {
         <div class="platform-header">
             <div class="platform-icon">
                 <!-- Контурный логотип Windows (4 панели); плотный viewBox = иконка во весь блок -->
-                <svg viewBox="2 2 20 20" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="2 2 20 20" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 1.25">
                     <rect x="3" y="3" width="8" height="8"/>
                     <rect x="13" y="3" width="8" height="8"/>
                     <rect x="3" y="13" width="8" height="8"/>
