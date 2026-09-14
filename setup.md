@@ -539,4 +539,229 @@ body.dark-mode .back-instruction {
                     <li>Скачиваем <strong>Hiddify</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                     <li>Скачиваем <strong>Happ</strong> → <a href="#" class="setup-link">Скачать в AppStore</a></li>
                 </ul>
-                <p style="margin-top: 15px; font-size: 0.95em;"><strong>💡 Мы рекомендуем Karing или Hiddify</strong>, т.к. в них, на данный момент, есть автоматическое переключение между протоколами
+                <p style="margin-top: 15px; font-size: 0.95em;"><strong>💡 Мы рекомендуем Karing или Hiddify</strong>, т.к. в них, на данный момент, есть автоматическое переключение между протоколами.</p>
+            </div>
+
+            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
+            <ol class="numbered-steps">
+                <li>Зайди в бота, где купил ключ</li>
+                <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
+                <li>Выбери купленный ключ и нажми 📋 <strong>Получить ключ</strong></li>
+                <li>Ключ (длинный код, начинающийся на <code>vless://</code>) скопируется в буфер обмена</li>
+            </ol>
+
+            <div class="key-box">
+                vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
+            </div>
+
+            <h4 class="section-header">⚡ Шаг 3: Запускаем!</h4>
+            <div class="info-box">
+                <div class="info-box-title">Для iPhone (Karing)</div>
+                <p>У приложения одинаковый интерфейс на всех платформах. Всё будет знакомо!</p>
+                <p style="margin-top: 15px;"><a href="/Tunless_Modern/karing.html" class="setup-link">👉 Подробная инструкция с картинками</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Android Card -->
+    <div class="platform-card" onclick="toggleAccordion(this)">
+        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+        <div class="platform-header">
+            <div class="platform-icon">
+                <!-- Контурный робот Android; плотный viewBox = иконка во весь блок -->
+                <svg viewBox="3 2.5 18 18.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 10a5 5 0 0 1 10 0z"/>
+                    <line x1="8.5" y1="3.5" x2="10" y2="6"/>
+                    <line x1="15.5" y1="3.5" x2="14" y2="6"/>
+                    <line x1="10" y1="7.5" x2="10.01" y2="7.5"/>
+                    <line x1="14" y1="7.5" x2="14.01" y2="7.5"/>
+                    <rect x="7" y="12" width="10" height="8" rx="2"/>
+                    <line x1="4" y1="12.5" x2="4" y2="17.5"/>
+                    <line x1="20" y1="12.5" x2="20" y2="17.5"/>
+                </svg>
+            </div>
+            <div class="header-text">
+                <h3 class="platform-title">Android</h3>
+                <p class="platform-subtitle">Android / Android TV / Google TV</p>
+            </div>
+        </div>
+        
+        <div class="accordion-content">
+            <h4 class="section-header">📱 Шаг 1: Скачай приложение</h4>
+            
+            <p style="margin-bottom: 15px;"><strong>Тебе нужен:</strong></p>
+            <ul class="app-list">
+                <li><a href="#" class="setup-link"><strong>Karing</strong> (GitHub)</a></li>
+                <li><a href="#" class="setup-link"><strong>V2RayTun</strong></a></li>
+                <li><a href="#" class="setup-link"><strong>V2Box</strong></a></li>
+                <li><a href="#" class="setup-link"><strong>Hiddify</strong></a></li>
+                <li><a href="#" class="setup-link"><strong>Happ</strong></a></li>
+            </ul>
+
+            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
+            <ol class="numbered-steps">
+                <li>Зайди в бота, где купил ключ</li>
+                <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
+                <li>Выбери купленный ключ и нажми 📋 <strong>Получить ключ</strong></li>
+                <li>Ключ (длинный код, начинающийся на <code>vless://</code>) скопируется в буфер обмена</li>
+            </ol>
+
+            <div class="key-box">
+                vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
+            </div>
+
+            <h4 class="section-header">⚡ Шаг 3: Запускаем!</h4>
+            <div class="info-box">
+                <div class="info-box-title">Для Android (V2RayTun)</div>
+                <ol class="numbered-steps" style="margin: 15px 0;">
+                    <li>Открой скачанную программу</li>
+                    <li>Нажми на плюсик (+) в правом верхнем углу</li>
+                    <li>Выбери пункт "Импорт профиля из буфера обмена"</li>
+                    <li>Твой сервер появится в списке. Нажми на него, выбери протокол, чтобы он выделился (станет зеленым или серым)</li>
+                    <li>Нажми большую кнопку "Connect"</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- PC Card -->
+    <div class="platform-card" onclick="toggleAccordion(this)">
+        <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+        <div class="platform-header">
+            <div class="platform-icon">
+                <!-- Контурный логотип Windows (4 панели); плотный viewBox = иконка во весь блок -->
+                <svg viewBox="2 2 20 20" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="8" height="8"/>
+                    <rect x="13" y="3" width="8" height="8"/>
+                    <rect x="3" y="13" width="8" height="8"/>
+                    <rect x="13" y="13" width="8" height="8"/>
+                </svg>
+            </div>
+            <div class="header-text">
+                <h3 class="platform-title">PC</h3>
+                <p class="platform-subtitle">Windows / Mac / Linux</p>
+            </div>
+        </div>
+        
+        <div class="accordion-content">
+            <h4 class="section-header">💻 Шаг 1: Скачай приложение</h4>
+            
+            <div class="info-box recommendation">
+                <div class="info-box-title">⭐ Рекомендуем Karing</div>
+                <p>Один из самых продвинутых с открытым исходным кодом и поддержкой самых современных протоколов и их автовыбором.</p>
+                <p style="margin-top: 10px;"><a href="#" class="setup-link">👉 Скачать Karing (GitHub) Portable версия</a></p>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">💎 Или Hiddify</div>
+                <p>Самый красивый и понятный клиент для компов с автовыбором наилучшего протокола.</p>
+                <p style="margin-top: 10px;"><a href="#" class="setup-link">👉 Скачать Hiddify (GitHub) Portable версия</a></p>
+            </div>
+
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid rgba(102, 126, 234, 0.2);">
+                <p style="margin-bottom: 10px;"><strong>Ссылки на проекты на GitHub:</strong></p>
+                <ul class="app-list">
+                    <li><a href="#" class="setup-link">👉 Karing</a></li>
+                    <li><a href="#" class="setup-link">👉 Hiddify</a></li>
+                </ul>
+                <p style="font-size: 0.9em; margin: 15px 0;"><em>Выбирай файл <code>.exe</code> или <code>.zip</code> для Windows или <code>.dmg</code> для Mac.</em></p>
+            </div>
+
+            <div class="info-box" style="margin-top: 20px;">
+                <p>Ну а если уже пользовались и привыкли к <strong>Happ</strong> и <strong>V2RayN</strong>, то аналогичные есть и на Windows и Mac:</p>
+                <ul class="app-list" style="margin-top: 10px;">
+                    <li><a href="#" class="setup-link">👉 Скачать Happ (GitHub)</a></li>
+                    <li><a href="#" class="setup-link">👉 Скачать V2RayN</a></li>
+                </ul>
+            </div>
+
+            <h4 class="section-header">🔑 Шаг 2: Скопируй свой ключ</h4>
+            <ol class="numbered-steps">
+                <li>Зайди в бота, где купил ключ</li>
+                <li>Нажми кнопку 🔑 <strong>Мои ключи</strong></li>
+                <li>Выбери купленный ключ и нажми 📋 <strong>Получить ключ</strong></li>
+                <li>Ключ (длинный код, начинающийся на <code>vless://</code>) скопируется в буфер обмена</li>
+            </ol>
+
+            <div class="key-box">
+                vless://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx@server:port?encryption=none&security=tls&type=ws&host=example.com&path=%2Fpath#Tunless
+            </div>
+
+            <h4 class="section-header">⚡ Шаг 3: Запускаем!</h4>
+            <div class="info-box">
+                <div class="info-box-title">Для ПК (Hiddify)</div>
+                <ol class="numbered-steps" style="margin: 15px 0;">
+                    <li>Открой Hiddify</li>
+                    <li>Нажми "Новый профиль" или большой плюс (+)</li>
+                    <li>Выбери "Добавить из буфера обмена"</li>
+                    <li>Нажми большую кнопку подключения по центру</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Back Instruction -->
+<div class="back-instruction">
+    <p>💡 Чтобы выбрать другое устройство, закрой эту инструкцию (нажми на ✕ или кликни ещё раз)</p>
+</div>
+
+<script>
+// Тапы по ссылкам и тексту ВНУТРИ открытой карточки не сворачивают её
+document.querySelectorAll('.accordion-content').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+});
+
+function collapseCard(card) {
+    const grid = document.getElementById('platformsGrid');
+    card.classList.remove('active');
+    card.classList.add('collapsing');
+    grid.classList.add('has-active');
+    setTimeout(function () {
+        card.classList.remove('collapsing');
+        if (!document.querySelector('.platform-card.active') &&
+            !document.querySelector('.platform-card.collapsing')) {
+            grid.classList.remove('has-active');
+        }
+    }, 450); // чуть дольше анимации 0.4s
+}
+
+function toggleAccordion(card) {
+    const grid = document.getElementById('platformsGrid');
+    if (!card.classList.contains('active')) {
+        // Если открыта другая карточка — сворачиваем её корректно
+        document.querySelectorAll('.platform-card.active').forEach(function (c) {
+            if (c !== card) collapseCard(c);
+        });
+        card.classList.remove('collapsing');
+        card.classList.add('active');
+        grid.classList.add('has-active');
+        setTimeout(function () {
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    } else {
+        collapseCard(card);
+    }
+}
+
+function closeAccordion() {
+    const openCard = document.querySelector('.platform-card.active');
+    if (openCard) {
+        collapseCard(openCard);
+    } else {
+        document.getElementById('platformsGrid').classList.remove('has-active');
+    }
+}
+</script>
