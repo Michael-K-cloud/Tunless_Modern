@@ -175,7 +175,7 @@ body.dark-mode .platform-subtitle {
     border-top: 2px solid rgba(102, 126, 234, 0.2);
 }
 
-/* App tiles: тёмно-синяя подложка #25294A, hover с полоской и подъёмом */
+/* App tiles: светлая тема — как карточки главной; тёмная — #25294A */
 .apps-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -184,11 +184,11 @@ body.dark-mode .platform-subtitle {
 }
 
 .app-tile {
-    background: #25294A;
+    background: var(--card-light);
     border-radius: 16px;
     padding: 25px 15px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -224,7 +224,11 @@ body.dark-mode .app-tile {
 
 .app-tile:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+}
+
+body.dark-mode .app-tile:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 .app-icon {
@@ -238,28 +242,18 @@ body.dark-mode .app-tile {
     box-sizing: border-box;
 }
 
-.app-icon-placeholder {
-    width: 90px;
-    height: 90px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: #ffffff;
-    font-size: 2em;
-    font-weight: 800;
-    flex-shrink: 0;
-}
-
 .app-name {
     font-weight: 700;
     font-size: 1.15em;
     line-height: 1.3;
-    color: #ffffff;
+    color: var(--text-light);
 }
 
-/* Кнопки плиток: одинаковый размер */
+body.dark-mode .app-name {
+    color: var(--text-dark);
+}
+
+/* Кнопки плиток: одинаковый размер, изоляция от глобального .content a */
 .app-btn {
     display: flex !important;
     align-items: center !important;
@@ -706,7 +700,7 @@ body.dark-mode .back-instruction {
         </div>
     </div>
 
-    <!-- Android Card (4 плитки, без V2Box) -->
+    <!-- Android Card (4 плитки) -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -744,7 +738,7 @@ body.dark-mode .back-instruction {
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn">
+                    <a href="/Tunless_Modern/karing.html" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
@@ -816,7 +810,7 @@ body.dark-mode .back-instruction {
         </div>
     </div>
 
-    <!-- PC Card (Windows ссылки подставлены) -->
+    <!-- PC Card (Windows-ссылки в кнопках «Скачать») -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -850,7 +844,7 @@ body.dark-mode .back-instruction {
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         <span>Скачать</span>
                     </a>
-                    <a href="#" class="app-btn">
+                    <a href="/Tunless_Modern/karing.html" class="app-btn">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         <span>Инструкция</span>
                     </a>
