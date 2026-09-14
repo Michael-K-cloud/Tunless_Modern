@@ -20,14 +20,14 @@ title: Инструкция по настройке
 .platform-card {
     background: var(--card-light);
     border-radius: 16px;
-    padding: 25px;
+    padding: 20px;
     border: 1px solid rgba(102, 126, 234, 0.3);
     box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    min-height: 180px;
+    min-height: 130px;
     display: flex;
     flex-direction: column;
 }
@@ -83,7 +83,7 @@ body.dark-mode .platform-card {
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 .header-text {
