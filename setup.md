@@ -556,6 +556,19 @@ body.dark-mode .screenshot-placeholder {
     }
 }
 
+/* Ландшафт iPad (1024-1100px): 4 колонки, как на десктопе */
+@media (min-width: 950px) and (max-width: 1100px) and (orientation: landscape) {
+    .platforms-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .apps-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+
 @media (max-width: 768px) {
     .platform-card { padding: 20px; }
     .platform-card .platform-title { font-size: 1.3em; }
