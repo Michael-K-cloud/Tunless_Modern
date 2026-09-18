@@ -247,6 +247,21 @@ body.dark-mode .app-tile:hover {
     box-sizing: border-box;
 }
 
+/* Заглушка для приложения без иконки (Incy): заменить на <img class="app-icon" ...>, когда пришлёшь файл */
+.app-icon-placeholder {
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #ffffff;
+    font-size: 2em;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
 /* Названия приложений — сиреневые, как заголовки h1/h2/h3 */
 .app-name {
     font-weight: 700;
@@ -590,6 +605,7 @@ body.dark-mode .screenshot-placeholder {
 
     .app-name { grid-area: name; }
     .app-icon { grid-area: icon; }
+    .app-icon-placeholder { grid-area: icon; }
 
     .tile-actions {
         grid-area: actions;
@@ -665,7 +681,7 @@ body.dark-mode .screenshot-placeholder {
         </div>
     </div>
 
-    <!-- iOS Card -->
+    <!-- iOS Card: Karing, Happ lite, Incy, Hiddify -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -693,7 +709,7 @@ body.dark-mode .screenshot-placeholder {
                     <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
                     <div class="app-name">Karing</div>
                     <div class="tile-actions">
-                        <a href="#" class="app-btn">
+                        <a href="https://apps.apple.com/ru/app/karing/id6472431552" target="_blank" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                             <span>Скачать</span>
                         </a>
@@ -705,10 +721,26 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
-                    <div class="app-name">Happ</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ lite">
+                    <div class="app-name">Happ lite</div>
                     <div class="tile-actions">
+                        <a href="https://apps.apple.com/ru/app/happ-lite/id6799917773" target="_blank" class="app-btn">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span>Скачать</span>
+                        </a>
                         <a href="#" class="app-btn">
+                            <span class="app-btn-i">i</span>
+                            <span>Инструкция</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="app-tile">
+                    <!-- Иконка Incy будет позже: замени div на <img class="app-icon" src="/Tunless_Modern/assets/images/incy_logo.png" alt="Incy"> -->
+                    <div class="app-icon-placeholder">In</div>
+                    <div class="app-name">Incy</div>
+                    <div class="tile-actions">
+                        <a href="https://apps.apple.com/ru/app/incy/id6756943388" target="_blank" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                             <span>Скачать</span>
                         </a>
@@ -722,21 +754,6 @@ body.dark-mode .screenshot-placeholder {
                 <div class="app-tile">
                     <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
                     <div class="app-name">Hiddify</div>
-                    <div class="tile-actions">
-                        <a href="#" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            <span>Скачать</span>
-                        </a>
-                        <a href="#" class="app-btn">
-                            <span class="app-btn-i">i</span>
-                            <span>Инструкция</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="app-tile">
-                    <img class="app-icon" src="/Tunless_Modern/assets/images/v2box_logo.png" alt="V2Box">
-                    <div class="app-name">V2Box</div>
                     <div class="tile-actions">
                         <a href="#" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
