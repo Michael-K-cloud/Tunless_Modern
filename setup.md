@@ -205,8 +205,7 @@ body.dark-mode .app-tile {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Врапперы прозрачны для раскладки: на широких экранах плитка видит детей напрямую */
-.tile-id,
+/* Кнопки — прямые дети плитки на широких экранах */
 .tile-actions {
     display: contents;
 }
@@ -259,7 +258,7 @@ body.dark-mode .app-name {
     color: var(--text-dark);
 }
 
-/* Кнопки плиток: одинаковый размер, изоляция от глобального .content a */
+/* Кнопки плиток: жирность 700 в один вес с иконкой "i", изоляция от .content a */
 .app-btn {
     display: flex !important;
     align-items: center !important;
@@ -272,7 +271,7 @@ body.dark-mode .app-name {
     color: #ffffff !important;
     text-decoration: none !important;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.95em;
     line-height: 1.2 !important;
     margin: 0 !important;
@@ -569,7 +568,7 @@ body.dark-mode .screenshot-placeholder {
     .content .numbered-steps li:hover { padding-left: 55px; }
 }
 
-/* Портрет мобильного 400-560px: плитка в одну колонку, иконка+название слева, кнопки справа */
+/* Мобильный 400-560px: 1 плитка в ряд; название сверху, ниже иконка слева и кнопки справа */
 @media (max-width: 560px) {
     .apps-grid {
         grid-template-columns: 1fr;
@@ -578,20 +577,20 @@ body.dark-mode .screenshot-placeholder {
 
     .app-tile {
         display: grid;
+        grid-template-areas:
+            "name name"
+            "icon actions";
         grid-template-columns: auto 1fr;
         align-items: center;
-        gap: 15px;
+        gap: 12px 15px;
         padding: 20px 15px;
     }
 
-    .tile-id {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
+    .app-name { grid-area: name; }
+    .app-icon { grid-area: icon; }
 
     .tile-actions {
+        grid-area: actions;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -609,11 +608,6 @@ body.dark-mode .screenshot-placeholder {
         flex-direction: column;
         align-items: center;
         gap: 12px;
-    }
-
-    .tile-id,
-    .tile-actions {
-        display: contents;
     }
 
     .app-btn {
@@ -694,10 +688,8 @@ body.dark-mode .screenshot-placeholder {
             
             <div class="apps-grid">
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
-                        <div class="app-name">Karing</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
+                    <div class="app-name">Karing</div>
                     <div class="tile-actions">
                         <a href="#" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -711,10 +703,8 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
-                        <div class="app-name">Happ</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
+                    <div class="app-name">Happ</div>
                     <div class="tile-actions">
                         <a href="#" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -728,10 +718,8 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
-                        <div class="app-name">Hiddify</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
+                    <div class="app-name">Hiddify</div>
                     <div class="tile-actions">
                         <a href="#" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -745,10 +733,8 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/v2box_logo.png" alt="V2Box">
-                        <div class="app-name">V2Box</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/v2box_logo.png" alt="V2Box">
+                    <div class="app-name">V2Box</div>
                     <div class="tile-actions">
                         <a href="#" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -822,10 +808,8 @@ body.dark-mode .screenshot-placeholder {
             
             <div class="apps-grid">
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
-                        <div class="app-name">Karing</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
+                    <div class="app-name">Karing</div>
                     <div class="tile-actions">
                         <a href="#" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -839,10 +823,8 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/v2raytun_logo.png" alt="V2RayTun">
-                        <div class="app-name">V2RayTun</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/v2raytun_logo.png" alt="V2RayTun">
+                    <div class="app-name">V2RayTun</div>
                     <div class="tile-actions">
                         <a href="#" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -856,10 +838,8 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
-                        <div class="app-name">Hiddify</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
+                    <div class="app-name">Hiddify</div>
                     <div class="tile-actions">
                         <a href="#" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -873,10 +853,8 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
-                        <div class="app-name">Happ</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
+                    <div class="app-name">Happ</div>
                     <div class="tile-actions">
                         <a href="#" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -945,10 +923,8 @@ body.dark-mode .screenshot-placeholder {
             
             <div class="apps-grid">
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
-                        <div class="app-name">Karing</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/karing_logo.png" alt="Karing">
+                    <div class="app-name">Karing</div>
                     <div class="tile-actions">
                         <a href="https://github.com/KaringX/karing/releases/download/v1.2.25.2802/karing_1.2.25.2802_windows_x64.zip" target="_blank" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
@@ -970,10 +946,8 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
-                        <div class="app-name">Hiddify</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
+                    <div class="app-name">Hiddify</div>
                     <div class="tile-actions">
                         <a href="https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Windows-Portable-x64.zip" target="_blank" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
@@ -995,10 +969,8 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
-                        <div class="app-name">Happ</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ">
+                    <div class="app-name">Happ</div>
                     <div class="tile-actions">
                         <a href="https://github.com/Happ-proxy/happ-desktop/releases/download/4.2.1/setup-Happ.x64.exe" target="_blank" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
@@ -1020,10 +992,8 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <div class="tile-id">
-                        <img class="app-icon" src="/Tunless_Modern/assets/images/v2rayn_logo.png" alt="V2RayN">
-                        <div class="app-name">V2RayN</div>
-                    </div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/v2rayn_logo.png" alt="V2RayN">
+                    <div class="app-name">V2RayN</div>
                     <div class="tile-actions">
                         <a href="https://github.com/2dust/v2rayN/releases/download/7.25.1/v2rayN-windows-64.zip" target="_blank" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
