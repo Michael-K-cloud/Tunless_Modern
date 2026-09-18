@@ -755,7 +755,10 @@ body.dark-mode .screenshot-placeholder {
                     <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
                     <div class="app-name">Hiddify</div>
                     <div class="tile-actions">
-                        <a href="#" class="app-btn">
+                        <a href="https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532" target="_blank" class="app-btn">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span>Скачать</span>
+                        </a>
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                             <span>Скачать</span>
                         </a>
