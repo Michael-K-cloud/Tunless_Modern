@@ -298,6 +298,17 @@ body.dark-mode .app-name {
     flex-shrink: 0;
 }
 
+/* Иконка "i" кнопки "Инструкция": серифная курсивная, как на референсе */
+.app-btn-i {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.3em;
+    line-height: 1;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
 /* Info Boxes */
 .info-box {
     background: rgba(102, 126, 234, 0.08);
@@ -558,7 +569,7 @@ body.dark-mode .screenshot-placeholder {
     .content .numbered-steps li:hover { padding-left: 55px; }
 }
 
-/* Портрет мобильного: плитка в одну колонку, иконка+название слева, кнопки справа */
+/* Портрет мобильного 400-560px: плитка в одну колонку, иконка+название слева, кнопки справа */
 @media (max-width: 560px) {
     .apps-grid {
         grid-template-columns: 1fr;
@@ -588,6 +599,25 @@ body.dark-mode .screenshot-placeholder {
 
     .app-btn {
         max-width: none;
+    }
+}
+
+/* Узкий портрет <400px: стандартная вертикальная плитка, по одной на строку */
+@media (max-width: 400px) {
+    .app-tile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .tile-id,
+    .tile-actions {
+        display: contents;
+    }
+
+    .app-btn {
+        max-width: 180px;
     }
 }
 </style>
@@ -674,7 +704,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="/Tunless_Modern/karing.html" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -691,7 +721,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="#" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -708,7 +738,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="#" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -725,7 +755,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="#" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -802,7 +832,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="/Tunless_Modern/karing.html" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -819,7 +849,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="#" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -836,7 +866,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="#" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -853,7 +883,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="#" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -933,7 +963,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="/Tunless_Modern/karing.html" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -958,7 +988,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="#" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -983,7 +1013,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="#" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
@@ -1008,7 +1038,7 @@ body.dark-mode .screenshot-placeholder {
                             <span>Скачать</span>
                         </a>
                         <a href="#" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="13.4" y1="9.6" x2="10.9" y2="19"/><line x1="14.6" y1="5.4" x2="14.61" y2="5.4"/></svg>
+                            <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
                     </div>
