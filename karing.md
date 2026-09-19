@@ -265,32 +265,32 @@ body.dark-mode .shield-icon svg {
 
 <div class="image-grid">
   <div class="image-card">
-    <img src="https://i.postimg.cc/mZvcKDMN/photo-1-2026-06-15-22-12-18.jpg" alt="Запуск Karing">
+    <img src="assets/images/instruction/karing/pic_1.png" alt="Запуск Karing">
     <p>Шаг 1: Запустите приложение Karing</p>
   </div>
   
   <div class="image-card">
-    <img src="https://i.postimg.cc/CM3Z91DN/photo-2-2026-06-15-22-12-18.jpg" alt="Выбор региона">
+    <img src="assets/images/instruction/karing/pic_2.png" alt="Выбор региона">
     <p>Шаг 2: Выберите региональные настройки</p>
   </div>
   
   <div class="image-card">
-    <img src="https://i.postimg.cc/y6MJ2d9y/photo-3-2026-06-15-22-12-18.jpg" alt="Настройка роутинга">
+    <img src="assets/images/instruction/karing/pic_3.png" alt="Настройка роутинга">
     <p>Шаг 3: Настройте роутинг для российских сайтов</p>
   </div>
   
   <div class="image-card">
-    <img src="https://i.postimg.cc/7PFCj67N/photo-4-2026-06-15-22-12-18.jpg" alt="Готово">
+    <img src="assets/images/instruction/karing/pic_4.png" alt="Готово">
     <p>Шаг 4: Включите режим "Новичка"</p>
   </div>
 
   <div class="image-card">
-    <img src="https://i.postimg.cc/SQBXHs8D/photo-5-2026-06-15-22-12-18.jpg" alt="Добавление профиля">
+    <img src="assets/images/instruction/karing/pic_5.png" alt="Добавление профиля">
     <p>Шаг 5: Добавление профиля из буфера обмена</p>
   </div>
   
   <div class="image-card">
-    <img src="https://i.postimg.cc/FFMfwRcC/photo-6-2026-06-15-22-12-18.jpg" alt="Активация VPN">
+    <img src="assets/images/instruction/karing/pic_6.png" alt="Активация VPN">
     <p>Шаг 6:Активация VPN подключения</p>
   </div>
 </div>
