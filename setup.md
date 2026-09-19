@@ -247,21 +247,6 @@ body.dark-mode .app-tile:hover {
     box-sizing: border-box;
 }
 
-/* Заглушка для приложения без иконки (Incy): заменить на <img class="app-icon" ...>, когда пришлёшь файл */
-.app-icon-placeholder {
-    width: 90px;
-    height: 90px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: #ffffff;
-    font-size: 2em;
-    font-weight: 800;
-    flex-shrink: 0;
-}
-
 /* Названия приложений — сиреневые, как заголовки h1/h2/h3 */
 .app-name {
     font-weight: 700;
@@ -618,7 +603,6 @@ body.dark-mode .screenshot-placeholder {
 
     .app-name { grid-area: name; }
     .app-icon { grid-area: icon; }
-    .app-icon-placeholder { grid-area: icon; }
 
     .tile-actions {
         grid-area: actions;
@@ -694,7 +678,7 @@ body.dark-mode .screenshot-placeholder {
         </div>
     </div>
 
-    <!-- iOS Card: Karing, Happ lite, Incy, Hiddify -->
+    <!-- iOS Card: Karing, Happ Lite, Incy, Hiddify -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -734,7 +718,7 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ lite">
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ Lite">
                     <div class="app-name">Happ Lite</div>
                     <div class="tile-actions">
                         <a href="https://apps.apple.com/ru/app/happ-lite/id6799917773" target="_blank" class="app-btn">
@@ -749,8 +733,7 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <!-- Иконка Incy будет позже: замени div на <img class="app-icon" src="/Tunless_Modern/assets/images/incy_logo.png" alt="Incy"> -->
-                    <div class="app-icon-placeholder">In</div>
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/incy_logo.png" alt="Incy">
                     <div class="app-name">Incy</div>
                     <div class="tile-actions">
                         <a href="https://apps.apple.com/ru/app/incy/id6756943388" target="_blank" class="app-btn">
