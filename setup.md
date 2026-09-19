@@ -740,7 +740,7 @@ body.dark-mode .screenshot-placeholder {
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                             <span>Скачать</span>
                         </a>
-                        <a href="#" class="app-btn">
+                        <a href="/Tunless_Modern/incy.html" class="app-btn">
                             <span class="app-btn-i">i</span>
                             <span>Инструкция</span>
                         </a>
@@ -780,9 +780,9 @@ body.dark-mode .screenshot-placeholder {
                 <div class="info-box-title">Для iOS (Karing)</div>
                 <ol class="numbered-steps" style="margin: 15px 0;">
                     <li>Запустите Karing</li>
-                    <li>Выберите регион — для России выберите “Russia”</li>
+                    <li>Выберите регион — для России выберите "Russia"</li>
                     <li>Настройте роутинг — российские сайты будут работать без VPN</li>
-                    <li>Включите режим “Новичка” — скроет настройки для “Экспертов”</li>
+                    <li>Включите режим "Новичка" — скроет настройки для "Экспертов"</li>
                     <li>Добавьте профиль — вставьте ключ из буфера обмена</li>
                     <li>Подключитесь — нажмите кнопку подключения со щитом</li>
                 </ol>
