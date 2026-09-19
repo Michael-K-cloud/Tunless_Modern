@@ -238,15 +238,6 @@ body.dark-mode .shield-icon svg {
 }
 </style>
 
-<div class="warning-box">
-  <svg viewBox="0 0 24 24">
-    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-    <line x1="12" y1="9" x2="12" y2="13"></line>
-    <line x1="12" y1="17" x2="12.01" y2="17"></line>
-  </svg>
-  Первый запуск приложения очень ВАЖЕН!
-</div>
-
 <div class="step-section">
   <h3>
     <svg viewBox="0 0 24 24">
@@ -271,42 +262,42 @@ body.dark-mode .shield-icon svg {
   
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_2.png" alt="Главный экран">
-    <p>Шаг 2: Ознакомьтесь с главным экраном приложения</p>
+    <p>Шаг 2: Нажать кнопку, что бы вставить ссылку из буфера обмена</p>
   </div>
   
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_3.png" alt="Добавление профиля">
-    <p>Шаг 3: Нажмите кнопку добавления профиля или подписки</p>
+    <p>Шаг 3: Нажмите кнопку добавления провайдера</p>
   </div>
   
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_4.png" alt="Вставка ссылки">
-    <p>Шаг 4: Вставьте скопированную ссылку из буфера обмена</p>
+    <p>Шаг 4: Проверить пинг и подключиться</p>
   </div>
 
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_5.png" alt="Обновление списка">
-    <p>Шаг 5: Дождитесь обновления списка доступных серверов</p>
+    <p>Шаг 5: Добавьте конфигурацию</p>
   </div>
   
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_6.png" alt="Выбор сервера">
-    <p>Шаг 6: Выберите оптимальный сервер или регион</p>
+    <p>Шаг 6: Подтвердите добавление</p>
   </div>
 
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_7.png" alt="Настройка роутинга">
-    <p>Шаг 7: Проверьте настройки роутинга (при необходимости)</p>
+    <p>Шаг 7:Готово! Подключено!</p>
   </div>
 
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_8.png" alt="Активация VPN">
-    <p>Шаг 8: Нажмите главную кнопку для активации VPN</p>
+    <p>Шаг 8: Дополнительные настройки</p>
   </div>
 
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_9.png" alt="Готово">
-    <p>Шаг 9: Убедитесь, что подключение успешно установлено</p>
+    <p>Шаг 9: Редактирование по желанию</p>
   </div>
 </div>
 
