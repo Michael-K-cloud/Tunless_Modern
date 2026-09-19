@@ -735,7 +735,7 @@ body.dark-mode .screenshot-placeholder {
 
                 <div class="app-tile">
                     <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ lite">
-                    <div class="app-name">Happ lite</div>
+                    <div class="app-name">Happ Lite</div>
                     <div class="tile-actions">
                         <a href="https://apps.apple.com/ru/app/happ-lite/id6799917773" target="_blank" class="app-btn">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
