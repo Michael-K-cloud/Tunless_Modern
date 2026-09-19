@@ -1,62 +1,312 @@
 ---
-title: Настройка Incy
 layout: default
----
+title: Инструкция по настройке Incy
+--- 
 
-# <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 12px;"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg> Incy - Пошаговая инструкция
+## Инструкция по настройке Incy
 
-<div class="setup-intro">
-  <p>Полное руководство по настройке Incy для безопасного и анонимного подключения</p>
+<style>
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.image-card {
+  background: var(--card-light);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .image-card {
+  background: var(--card-dark);
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.image-card p {
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.step-section {
+  margin: 40px 0;
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 15px;
+  border-left: 4px solid var(--primary);
+}
+
+.step-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--primary);
+  font-size: 1.4em;
+}
+
+.step-section h3 svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+body.dark-mode .step-section h3 svg {
+  stroke: #ffffff;
+}
+
+.warning-box {
+  background: linear-gradient(135deg, var(--warning) 0%, #ef4444 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 25px 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  animation: pulse 2s infinite;
+}
+
+.warning-box svg {
+  width: 28px;
+  height: 28px;
+  stroke: white;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(245, 158, 11, 0.6);
+  }
+}
+
+/* Стили для ссылки на Telegram */
+.telegram-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.telegram-link:hover {
+  border-bottom-color: var(--primary);
+}
+
+body.dark-mode .telegram-link {
+  color: #a5b4fc;
+}
+
+body.dark-mode .telegram-link:hover {
+  border-bottom-color: #a5b4fc;
+}
+
+/* Стили для кнопки "Вернуться", КАК НА ГЛАВНОЙ СТРАНИЦЕ */
+.cta-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px;
+  padding: 16px 32px !important;
+  min-width: 280px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1em;
+  line-height: 1.2 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  box-sizing: border-box;
+}
+
+.cta-button:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cta-button svg {
+  width: 24px;
+  height: 24px;
+  stroke: white !important;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.cta-button span {
+  display: inline-block;
+  line-height: 1.2 !important;
+  vertical-align: middle !important;
+}
+
+/* Стили для заголовков разделов с SVG */
+.content h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.content h3 svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+body.dark-mode .content h3 svg {
+  stroke: #ffffff;
+}
+
+/* SVG-иконка щита в тексте */
+.shield-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.shield-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body.dark-mode .shield-icon svg {
+  stroke: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .image-card {
+    padding: 10px;
+  }
+  
+  .cta-button {
+    min-width: auto;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+</style>
+
+<div class="warning-box">
+  <svg viewBox="0 0 24 24">
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+    <line x1="12" y1="9" x2="12" y2="13"></line>
+    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+  </svg>
+  Первый запуск приложения очень ВАЖЕН!
 </div>
 
----
+<div class="step-section">
+  <h3>
+    <svg viewBox="0 0 24 24">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+      <polyline points="14 2 14 8 20 8"></polyline>
+      <line x1="16" y1="13" x2="8" y2="13"></line>
+      <line x1="16" y1="17" x2="8" y2="17"></line>
+      <polyline points="10 9 9 9 8 9"></polyline>
+    </svg>
+    Что нужно перед запуском:
+  </h3>
+  <p>Перед запуском приложения, желательно скопировать ссылку для подключения, выданную в <a href="https://t.me/Tunless_bot" target="_blank" class="telegram-link"><strong>@Tunless_bot</strong></a>.</p>
+</div>
 
 ### <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg> Пошаговая настройка:
 
 <div class="image-grid">
   <div class="image-card">
-    <img src="https://raw.githubusercontent.com/Michael-K-cloud/Tunless_Modern/main/assets/images/instruction/incy/pic_1.png" alt="Запуск Incy">
+    <img src="assets/images/instruction/incy/pic_1.png" alt="Запуск Incy">
     <p>Шаг 1: Запустите приложение Incy</p>
   </div>
   
   <div class="image-card">
-    <img src="https://raw.githubusercontent.com/Michael-K-cloud/Tunless_Modern/main/assets/images/instruction/incy/pic_2.png" alt="Главный экран">
-    <p>Шаг 2: Ознакомьтесь с главным экраном</p>
+    <img src="assets/images/instruction/incy/pic_2.png" alt="Главный экран">
+    <p>Шаг 2: Ознакомьтесь с главным экраном приложения</p>
   </div>
   
   <div class="image-card">
-    <img src="https://raw.githubusercontent.com/Michael-K-cloud/Tunless_Modern/main/assets/images/instruction/incy/pic_3.png" alt="Настройки подключения">
-    <p>Шаг 3: Откройте настройки подключения</p>
+    <img src="assets/images/instruction/incy/pic_3.png" alt="Добавление профиля">
+    <p>Шаг 3: Нажмите кнопку добавления профиля или подписки</p>
   </div>
   
   <div class="image-card">
-    <img src="https://raw.githubusercontent.com/Michael-K-cloud/Tunless_Modern/main/assets/images/instruction/incy/pic_4.png" alt="Выбор протокола">
-    <p>Шаг 4: Выберите протокол подключения</p>
+    <img src="assets/images/instruction/incy/pic_4.png" alt="Вставка ссылки">
+    <p>Шаг 4: Вставьте скопированную ссылку из буфера обмена</p>
   </div>
 
   <div class="image-card">
-    <img src="https://raw.githubusercontent.com/Michael-K-cloud/Tunless_Modern/main/assets/images/instruction/incy/pic_5.png" alt="Настройка безопасности">
-    <p>Шаг 5: Настройте параметры безопасности</p>
+    <img src="assets/images/instruction/incy/pic_5.png" alt="Обновление списка">
+    <p>Шаг 5: Дождитесь обновления списка доступных серверов</p>
   </div>
   
   <div class="image-card">
-    <img src="https://raw.githubusercontent.com/Michael-K-cloud/Tunless_Modern/main/assets/images/instruction/incy/pic_6.png" alt="Добавление профиля">
-    <p>Шаг 6: Добавьте профиль подключения</p>
+    <img src="assets/images/instruction/incy/pic_6.png" alt="Выбор сервера">
+    <p>Шаг 6: Выберите оптимальный сервер или регион</p>
   </div>
-  
+
   <div class="image-card">
-    <img src="https://raw.githubusercontent.com/Michael-K-cloud/Tunless_Modern/main/assets/images/instruction/incy/pic_7.png" alt="Импорт конфигурации">
-    <p>Шаг 7: Импортируйте конфигурацию</p>
+    <img src="assets/images/instruction/incy/pic_7.png" alt="Настройка роутинга">
+    <p>Шаг 7: Проверьте настройки роутинга (при необходимости)</p>
   </div>
-  
+
   <div class="image-card">
-    <img src="https://raw.githubusercontent.com/Michael-K-cloud/Tunless_Modern/main/assets/images/instruction/incy/pic_8.png" alt="Проверка подключения">
-    <p>Шаг 8: Проверьте подключение</p>
+    <img src="assets/images/instruction/incy/pic_8.png" alt="Активация VPN">
+    <p>Шаг 8: Нажмите главную кнопку для активации VPN</p>
   </div>
-  
+
   <div class="image-card">
-    <img src="https://raw.githubusercontent.com/Michael-K-cloud/Tunless_Modern/main/assets/images/instruction/incy/pic_9.png" alt="Готово">
-    <p>Шаг 9: Incy готов к работе</p>
+    <img src="assets/images/instruction/incy/pic_9.png" alt="Готово">
+    <p>Шаг 9: Убедитесь, что подключение успешно установлено</p>
   </div>
 </div>
 
@@ -64,23 +314,22 @@ layout: default
 
 ### <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> Быстрая инструкция:
 
-1. **Запустите Incy** — откройте приложение
-2. **Выберите протокол** — настройте предпочитаемый протокол подключения
-3. **Настройте безопасность** — установите необходимые параметры шифрования
-4. **Добавьте профиль** — создайте или импортируйте профиль подключения
-5. **Импортируйте конфигурацию** — загрузите настройки из файла или буфера обмена
-6. **Проверьте подключение** — убедитесь, что все работает корректно
-7. **Подключитесь** — активируйте VPN подключение
+1. **Запустите Incy**
+2. **Скопируйте ссылку** — получите ключ подключения в @Tunless_bot
+3. **Добавьте профиль** — вставьте ссылку из буфера обмена в приложение
+4. **Выберите сервер** — дождитесь обновления и выберите нужный регион
+5. **Подключитесь** — нажмите кнопку активации VPN
+
+### Готово! Ты под защитой <span class="shield-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
 
 ---
 
-### <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> Дополнительные возможности:
-
-- **Автоматическое подключение** — настройте автоподключение при запуске системы
-- **Split Tunneling** — выберите, какие приложения используют VPN
-- **Kill Switch** — защита от утечек при обрыве соединения
-- **Статистика** — отслеживайте использование трафика
-
-<div class="back-to-setup">
-  <a href="{{ '/setup.md' | relative_url }}" class="back-link">← Вернуться к инструкции по установке</a>
+<div style="text-align: center; margin-top: 40px;">
+  <a href="/Tunless_Modern/setup.html" class="cta-button">
+    <svg viewBox="0 0 24 24">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+    <span>Вернуться к инструкции</span>
+  </a>
 </div>
