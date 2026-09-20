@@ -249,7 +249,7 @@ body.dark-mode .shield-icon svg {
     </svg>
     Что нужно перед запуском:
   </h3>
-  <p>Перед запуском приложения, жнужно скопировать ссылку для подключения, выданную в <a href="https://t.me/Tunless_bot" target="_blank" class="telegram-link"><strong>@Tunless_bot</strong></a>.</p>
+  <p>Перед запуском приложения, нужно скопировать ссылку для подключения, выданную в <a href="https://t.me/Tunless_bot" target="_blank" class="telegram-link"><strong>@Tunless_bot</strong></a>.</p>
 </div>
 
 ### <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg> Пошаговая настройка:
