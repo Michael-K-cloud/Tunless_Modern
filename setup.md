@@ -678,7 +678,7 @@ body.dark-mode .screenshot-placeholder {
         </div>
     </div>
 
-    <!-- iOS Card: Karing, Happ Lite, Incy, Hiddify -->
+    <!-- iOS Card: Karing, Incy, Hiddify, Happ Lite -->
     <div class="platform-card" onclick="toggleAccordion(this)">
         <div class="close-btn" onclick="event.stopPropagation(); closeAccordion()">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -718,21 +718,6 @@ body.dark-mode .screenshot-placeholder {
                 </div>
 
                 <div class="app-tile">
-                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ Lite">
-                    <div class="app-name">Happ Lite</div>
-                    <div class="tile-actions">
-                        <a href="https://apps.apple.com/ru/app/happ-lite/id6799917773" target="_blank" class="app-btn">
-                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            <span>Скачать</span>
-                        </a>
-                        <a href="#" class="app-btn">
-                            <span class="app-btn-i">i</span>
-                            <span>Инструкция</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="app-tile">
                     <img class="app-icon" src="/Tunless_Modern/assets/images/incy_logo.png" alt="Incy">
                     <div class="app-name">Incy</div>
                     <div class="tile-actions">
@@ -761,6 +746,22 @@ body.dark-mode .screenshot-placeholder {
                         </a>
                     </div>
                 </div>
+
+                <div class="app-tile">
+                    <img class="app-icon" src="/Tunless_Modern/assets/images/happ_logo.png" alt="Happ Lite">
+                    <div class="app-name">Happ Lite</div>
+                    <div class="tile-actions">
+                        <a href="https://apps.apple.com/ru/app/happ-lite/id6799917773" target="_blank" class="app-btn">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span>Скачать</span>
+                        </a>
+                        <a href="#" class="app-btn">
+                            <span class="app-btn-i">i</span>
+                            <span>Инструкция</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
 
             <h4 class="section-header">Шаг 2: Скопируй свой ключ</h4>
