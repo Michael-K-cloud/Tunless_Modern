@@ -249,7 +249,7 @@ body.dark-mode .shield-icon svg {
     </svg>
     Что нужно перед запуском:
   </h3>
-  <p>Перед запуском приложения, желательно скопировать ссылку для подключения, выданную в <a href="https://t.me/Tunless_bot" target="_blank" class="telegram-link"><strong>@Tunless_bot</strong></a>.</p>
+  <p>Перед запуском приложения, жнужно скопировать ссылку для подключения, выданную в <a href="https://t.me/Tunless_bot" target="_blank" class="telegram-link"><strong>@Tunless_bot</strong></a>.</p>
 </div>
 
 ### <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg> Пошаговая настройка:
@@ -257,17 +257,17 @@ body.dark-mode .shield-icon svg {
 <div class="image-grid">
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_1.png" alt="Запуск Incy">
-    <p>Шаг 1: Запустите приложение Incy</p>
+    <p>Шаг 1: Запустить приложение Incy</p>
   </div>
   
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_2.png" alt="Главный экран">
-    <p>Шаг 2: Нажать кнопку, что бы вставить ссылку из буфера обмена</p>
+    <p>Шаг 2: Вставить ссылку из буфера обмена</p>
   </div>
   
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_3.png" alt="Добавление профиля">
-    <p>Шаг 3: Нажмите кнопку добавления провайдера</p>
+    <p>Шаг 3: Добавить провайдера</p>
   </div>
   
   <div class="image-card">
@@ -277,12 +277,12 @@ body.dark-mode .shield-icon svg {
 
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_5.png" alt="Обновление списка">
-    <p>Шаг 5: Добавьте конфигурацию</p>
+    <p>Шаг 5: Разрешить конфигурацию</p>
   </div>
   
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_6.png" alt="Выбор сервера">
-    <p>Шаг 6: Подтвердите добавление</p>
+    <p>Шаг 6: Подтвердить добавление</p>
   </div>
 
   <div class="image-card">
@@ -297,7 +297,7 @@ body.dark-mode .shield-icon svg {
 
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_9.png" alt="Готово">
-    <p>Шаг 9: Редактирование по желанию</p>
+    <p>Шаг 9: Редактировать по желанию</p>
   </div>
 </div>
 
@@ -305,13 +305,13 @@ body.dark-mode .shield-icon svg {
 
 ### <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> Быстрая инструкция:
 
-1. **Скопируйте ссылку в Telegram БОТе** — получите ключ подключения в @Tunless_bot
-2. **Запустите Incy**
+1. **Скопируйте ссылку в Telegram БОТе** — получите ключ для подключения в @Tunless_bot
+2. **Запустите Incy** - приложение - клиент для подписки
 3. **Добавьте профиль** — вставьте ссылку из буфера обмена в приложение
 4. **Выберите сервер** — дождитесь обновления и выберите нужный регион
 5. **Подключитесь** — нажмите кнопку активации
 
-### Готово! Ты под защитой <span class="shield-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+### Готово!
 
 ---
 
