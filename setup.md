@@ -255,7 +255,7 @@ body.dark-mode .app-tile:hover {
     color: var(--primary);
 }
 
-/* Кнопки плиток: жирность 700 в один вес с иконкой "i", изоляция от .content a */
+/* Кнопки плиток: изоляция от .content a */
 .app-btn {
     display: flex !important;
     align-items: center !important;
@@ -285,12 +285,12 @@ body.dark-mode .app-tile:hover {
     box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
 }
 
+/* Иконки в кнопках: только размер. Цвет/заливку каждая иконка несёт сама
+   (fill="#ffffff" на path/rect, stroke-атрибуты на ellipse/линиях Tux),
+   поэтому обводка не выходит за viewBox и края не обрезаются. */
 .app-btn svg {
     width: 16px;
     height: 16px;
-    stroke: #ffffff !important;
-    fill: none;
-    stroke-width: 2;
     flex-shrink: 0;
 }
 
@@ -1025,7 +1025,7 @@ body.dark-mode .screenshot-placeholder {
                     </div>
                 </div>
 
-                <!-- Hiddify: 5 кнобок -->
+                <!-- Hiddify: 5 кнопок -->
                 <div class="app-tile">
                     <img class="app-icon" src="/Tunless_Modern/assets/images/hiddify_logo.png" alt="Hiddify">
                     <div class="app-name">Hiddify</div>
