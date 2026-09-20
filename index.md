@@ -215,13 +215,13 @@ body.dark-mode .feature-icon svg {
             </svg>
         </div>
         <h3>Скорость</h3>
-        <p>Высокоскоростные серверы с безлимитным трафиком</p>
+        <p>Высокоскоростные серверы с безлимитным трафиком.</p>
         <p>Протоколы:</p>
-            <p>VLESS</p>
-            <p>Hysteria</p>
-            <p>Trojan</p>
-            <p>xHTTP</p>
-            <p>WebSocket</p>
+            <p>- VLESS</p>
+            <p>- Hysteria</p>
+            <p>- Trojan</p>
+            <p>- xHTTP</p>
+            <p>- WebSocket</p>
     </div>
     
     <div class="feature-card">
@@ -231,9 +231,10 @@ body.dark-mode .feature-icon svg {
             </svg>
         </div>
         <h3>Безопасность</h3>
-        <p>Современное шифрование и защита данных</p>
-        <p>Никаких логов вашей активности</p>
-        <p>Полная анонимность</p>
+        <p>Современное шифрование.</p> 
+        <p>Защита данных.</p>
+        <p>Никаких логов вашей активности.</p>
+        <p>Полная анонимность.</p>
     </div>
     
     <div class="feature-card">
