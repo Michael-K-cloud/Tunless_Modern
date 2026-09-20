@@ -287,7 +287,7 @@ body.dark-mode .shield-icon svg {
 
   <div class="image-card">
     <img src="assets/images/instruction/incy/pic_7.png" alt="Настройка роутинга">
-    <p>Шаг 7:Готово! Подключено!</p>
+    <p>Шаг 7:Нажать кнопку подключения</p>
   </div>
 
   <div class="image-card">
